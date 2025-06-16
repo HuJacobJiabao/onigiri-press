@@ -5,10 +5,10 @@
   "version": "1.0.0",
   "type": "module",
   "description": "A modern, lightweight portfolio and blog framework built with React, TypeScript, and Vite. Easy to customize, supports markdown content, and includes powerful blog functionality.",
-  "homepage": "https://github.com/username/onigiri-press",
+  "homepage": "https://github.com/HuJacobJiabao/onigiri-press",
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/onigiri-press.git"
+    "url": "https://github.com/HuJacobJiabao/onigiri-press.git"
   },
   "keywords": [
     "portfolio",
@@ -27,8 +27,11 @@
   ],
   "author": "Onigiri Framework Contributors",
   "license": "MIT",
+  "bin": {
+    "ongr": "./bin/onigiri-press.js"
+  },
   "bugs": {
-    "url": "https://github.com/yourusername/onigiri-portfolio/issues"
+    "url": "https://github.com/HuJacobJiabao/onigiri-press/issues"
   },
   "scripts": {
     "dev": "npm run preprocess && vite",
@@ -40,7 +43,9 @@
     "g": "tsx src/scripts/generate.ts",
     "log": "tsx src/scripts/create-daily-log.ts",
     "preprocess": "tsx src/scripts/preprocess-content.ts",
-    "p": "tsx src/scripts/preprocess-content.ts"
+    "p": "tsx src/scripts/preprocess-content.ts",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",

@@ -8,7 +8,7 @@ const { execSync } = require('child_process');
 const program = new Command();
 
 program
-  .name('onigiri-press')
+  .name('ongr')
   .description('OnigiriPress - A modern portfolio framework')
   .version('1.0.0');
 
@@ -41,7 +41,7 @@ program
     console.log(`📝 Next steps:`);
     console.log(`   cd ${projectName}`);
     console.log(`   npm install`);
-    console.log(`   onigiri-press dev`);
+    console.log(`   ongr dev`);
   });
 
 program
