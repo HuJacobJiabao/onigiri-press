@@ -1,9 +1,29 @@
-# Resume configurhome:
+# OnigiriPress Configuration Template
+# Copy this file to config.yaml and customize with your information
+#
+# NAVIGATION CUSTOMIZATION:
+# You can add unlimited custom sections under 'home.navigation' by creating new keys.
+# Each section requires a 'type' field that must be one of:
+# - about: For text content with optional photo
+# - education: For educational background entries
+# - experience: For work experience entries  
+# - projects: For project showcases
+# - contact: For contact information
+#
+# Example of adding a custom section:
+# home:
+#   navigation:
+#     my_custom_section:
+#       title: "My Custom Section"
+#       icon: "🚀"
+#       type: "about"
+#       content: "Your content here..."
+
 website:
-  title: "Alex Demo"
+  title: "Your Name"
   titleSeparator: " | "
   favicon: "/favicon.png"
-  description: "Portfolio website of Alex Demo, a full-stack developer and software engineer. Explore my projects, skills, and experiences in computer science and web development."
+  description: "Portfolio website of Your Name. Customize this description with your own information."
 
 
 # Background configuration
@@ -15,15 +35,32 @@ backgrounds:
 
 home:
   hero:
-    name: "HELLO WORLD"
-    quote: "Building the future through code and innovation."
+    name: "YOUR NAME"
+    quote: "Your inspiring quote or tagline here."
 
   profileCard:
-    name: "Alex Demo"
-    title: "Full-stack Developer"
-    subtitle: "Software Engineer"
+    name: "Your Name"
+    title: "Your Job Title"
+    subtitle: "Your Subtitle"
     avatar: "favicon.png"  # Avatar image for profile card
 
+  # Navigation sections configuration
+  # You can add custom sections by creating new keys under 'navigation'
+  # Each section must have a 'type' field that matches one of: about, education, experience, projects, contact
+  # 
+  # Section structure:
+  # your_custom_key:
+  #   title: "Section Title"     # Display title for the section
+  #   icon: "🔗"                # Emoji icon for the section
+  #   type: "about|education|experience|projects|contact"  # Required: determines section layout
+  #   ... (additional fields based on type)
+  #
+  # Type-specific fields:
+  # - about: content (markdown text), photo (optional image)
+  # - education: items (array of education entries)
+  # - experience: items (array of work experience entries)  
+  # - projects: items (array of project entries), defaultCover (optional)
+  # - contact: content (description), email, github, linkedin, textColor
   navigation:
     about:
         title: "About Me"
@@ -282,13 +319,25 @@ home:
       icon: "📬"
       type: "contact"
       content: "Feel free to reach out for collaborations, opportunities, or just to say hello!"
-      email: "alex.demo@example.com"
+      email: "demo@example.com"
       github: "https://github.com/"
       linkedin: "https://www.linkedin.com/"
       # Contact color configuration - simplified to only include text and icon colors
       # Icons and text use the same color settings
       # Supports various CSS color formats: hex, RGB, RGBA, HSL, named colors
       textColor: "#2958e7" # Color for both icons and text/links (including underlines)
+
+    # Example: Add a custom section (uncomment and customize)
+    # skills:
+    #   title: "Technical Skills"
+    #   icon: "⚡"
+    #   type: "about"  # Uses 'about' type for simple content display
+    #   content: >
+    #     **Programming Languages:** JavaScript, Python, TypeScript, Java
+    #     
+    #     **Frameworks:** React, Node.js, Django, Express.js
+    #     
+    #     **Tools:** Git, Docker, AWS, MongoDB, PostgreSQL
 
 # Navigation bar configuration
 navbar:
@@ -422,26 +471,27 @@ content:
       textColor: "#f3f4f6"
 
 resume:
-  filename: "Alex_Demo_Resume.pdf"
+  filename: "Your_Resume.pdf"
 
 # Footer configuration
 footer:
-  copyright: "© 2025 by Alex Demo. All rights reserved."
+  copyright: "© 2025 by Your Name. All rights reserved."
   message: "Welcome to my portfolio website!"
+  background: "/background/hero.jpg"  # Footer background image
 
 # Audio Player configuration
 audioPlayer:
-  enabled: true
+  enabled: false   # Set to true to enable audio player
   fixed: true   # Set to true for floating player
   volume: 0.7
   showLrc: true
   
   # MetingJS configuration
   meting:
-    enabled: true   # Set to true to use MetingJS instead of local audio files
+    enabled: false   # Set to true to use MetingJS instead of local audio files
     server: "netease"   # Music server: netease, tencent, kugou, xiami, baidu
     type: "playlist"    # Type: song, playlist, album, search, artist
-    id: "8399234499"    # Music ID from the platform
+    id: "50744483"    # Music ID from the platform
     mutex: true         # Prevent multiple players from playing simultaneously
     listFolded: false   # Whether to fold the playlist
     listMaxHeight: "340px"  # Maximum height of the playlist
@@ -451,8 +501,7 @@ audioPlayer:
     
   # Local audio files (used when meting.enabled is false)
   audio:
-    - name: "未だ知られぬ物語 ～ Anticipated Dream"
-      artist: "凋叶棕"
+    - name: "Your Song Title"
+      artist: "Artist Name"
       url: ""
       cover: "/background/hero.jpg"
-    #   cover: "/background/default_cover.jpg"

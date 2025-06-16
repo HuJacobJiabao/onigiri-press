@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "my-onigiri-project",
+  "version": "1.0.0",
+  "description": "My portfolio and blog built with OnigiriPress",
+  "private": true,
+  "scripts": {
+    "dev": "npx onigiri-press dev",
+    "build": "npx onigiri-press build",
+    "generate": "npx onigiri-press generate"
+  },
+  "dependencies": {
+    "onigiri-press": "^1.0.3"
+  },
+  "keywords": [
+    "portfolio",
+    "blog",
+    "onigiri-press"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

@@ -1,16 +1,20 @@
 #!/usr/bin/env node
 
-const { Command } = require('commander');
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import { Command } from 'commander';
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const program = new Command();
 
 program
   .name('ongr')
   .description('OnigiriPress - A modern portfolio framework')
-  .version('1.0.0');
+  .version('1.0.5');
 
 program
   .command('init [project-name]')
@@ -26,16 +30,41 @@ program
     }
     
     // Copy essential files
-    const templateFiles = [
-      'config.yaml',
-      'config.template.yaml',
-      'public/',
-      'templates/',
-      'package.json'
-    ];
+    const packageDir = path.dirname(__dirname);
     
     console.log('📁 Setting up project structure...');
-    // Implementation for copying files would go here
+    
+    // Copy config files
+    const configTemplate = path.join(packageDir, 'config.yaml');
+    const configTarget = path.join(projectPath, 'config.yaml');
+    if (fs.existsSync(configTemplate)) {
+      fs.copyFileSync(configTemplate, configTarget);
+      console.log('   ✓ Created config.yaml');
+    }
+    
+    // Copy package.json template
+    const packageTemplate = path.join(packageDir, 'package-user.json');
+    const packageTarget = path.join(projectPath, 'package.json');
+    if (fs.existsSync(packageTemplate)) {
+      fs.copyFileSync(packageTemplate, packageTarget);
+      console.log('   ✓ Created package.json');
+    }
+    
+    // Copy public directory
+    const publicDir = path.join(packageDir, 'public');
+    const publicTarget = path.join(projectPath, 'public');
+    if (fs.existsSync(publicDir)) {
+      fs.cpSync(publicDir, publicTarget, { recursive: true });
+      console.log('   ✓ Copied public/ directory');
+    }
+    
+    // Copy templates directory
+    const templatesDir = path.join(packageDir, 'templates');
+    const templatesTarget = path.join(projectPath, 'templates');
+    if (fs.existsSync(templatesDir)) {
+      fs.cpSync(templatesDir, templatesTarget, { recursive: true });
+      console.log('   ✓ Copied templates/ directory');
+    }
     
     console.log('✅ Project created successfully!');
     console.log(`📝 Next steps:`);
@@ -50,7 +79,10 @@ program
   .action(() => {
     console.log('🚀 Starting development server...');
     try {
-      execSync('npm run dev', { stdio: 'inherit', cwd: process.cwd() });
+      // First run preprocessing
+      execSync('npx tsx node_modules/onigiri-press/src/scripts/preprocess-content.ts', { stdio: 'inherit', cwd: process.cwd() });
+      // Then start vite dev server
+      execSync('npx vite --config node_modules/onigiri-press/vite.config.ts', { stdio: 'inherit', cwd: process.cwd() });
     } catch (error) {
       console.error('❌ Failed to start development server');
       process.exit(1);
@@ -63,7 +95,10 @@ program
   .action(() => {
     console.log('🔨 Building for production...');
     try {
-      execSync('npm run build', { stdio: 'inherit', cwd: process.cwd() });
+      // First run preprocessing
+      execSync('npx tsx node_modules/onigiri-press/src/scripts/preprocess-content.ts', { stdio: 'inherit', cwd: process.cwd() });
+      // Then build with vite
+      execSync('npx vite build --config node_modules/onigiri-press/vite.config.ts', { stdio: 'inherit', cwd: process.cwd() });
       console.log('✅ Build completed!');
     } catch (error) {
       console.error('❌ Build failed');
@@ -73,13 +108,38 @@ program
 
 program
   .command('generate <type> <name>')
-  .description('Generate new content (blog|project)')
+  .alias('g')
+  .description('Generate new content (blog|project). Use aliases: g for generate, b for blog, p for project')
   .action((type, name) => {
-    console.log(`📝 Generating new ${type}: ${name}`);
+    // Support aliases for content types
+    const typeMap = {
+      'b': 'blog',
+      'blog': 'blog',
+      'p': 'project', 
+      'project': 'project'
+    };
+    
+    const actualType = typeMap[type.toLowerCase()];
+    if (!actualType) {
+      console.error(`❌ Invalid type: ${type}. Use 'blog' (or 'b') or 'project' (or 'p')`);
+      process.exit(1);
+    }
+    
+    console.log(`📝 Generating new ${actualType}: ${name}`);
+    
+    // Find the onigiri-press package directory
+    const packageDir = path.dirname(__dirname);
+    const generateScript = path.join(packageDir, 'src', 'scripts', 'generate.ts');
+    
     try {
-      execSync(`npm run generate ${type} "${name}"`, { stdio: 'inherit', cwd: process.cwd() });
+      // Use tsx to run the TypeScript script directly
+      execSync(`npx tsx "${generateScript}" ${actualType} "${name}"`, { 
+        stdio: 'inherit', 
+        cwd: process.cwd(),
+        env: { ...process.env, NODE_PATH: packageDir }
+      });
     } catch (error) {
-      console.error(`❌ Failed to generate ${type}`);
+      console.error(`❌ Failed to generate ${actualType}`);
       process.exit(1);
     }
   });

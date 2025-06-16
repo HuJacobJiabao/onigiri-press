@@ -1,19 +1,5 @@
 [
   {
-    "id": "new-blog",
-    "title": "new blog",
-    "date": "2025-06-16T00:09:19.642Z",
-    "category": "default",
-    "description": "This is the default description for blog.",
-    "tags": [
-      "Hello",
-      "world"
-    ],
-    "link": "/my-portfolio/blogs/new-blog",
-    "contentPath": "blogs/new-blog/index.md",
-    "image": "/my-portfolio/default_cover.jpg"
-  },
-  {
     "id": "complete-markdown-features-demo",
     "title": "Complete Markdown Features Demo",
     "date": "2025-06-13T16:30:55.818Z",
@@ -28,66 +14,6 @@
     ],
     "link": "/my-portfolio/blogs/complete-markdown-features-demo",
     "contentPath": "blogs/markdown-demo/index.md",
-    "image": "/my-portfolio/content/assets/markdown.png"
-  },
-  {
-    "id": "definition-list-test",
-    "title": "Definition List Test",
-    "date": "2025-06-07T17:26:30.142Z",
-    "category": "Markdown",
-    "description": "A simple markdown demo to test definition list rendering.",
-    "tags": [
-      "Markdown",
-      "definition list",
-      "Demo"
-    ],
-    "link": "/my-portfolio/blogs/definition-list-test",
-    "contentPath": "blogs/definition-list-test/index.md",
-    "image": "/my-portfolio/content/assets/markdown.png"
-  },
-  {
-    "id": "markdown-highlights-demo",
-    "title": "Markdown Highlights Demo",
-    "date": "2025-06-06T16:30:00.000Z",
-    "category": "Markdown",
-    "description": "A demonstration of markdown highlight functionality.",
-    "tags": [
-      "Markdown",
-      "Highlight",
-      "Demo"
-    ],
-    "link": "/my-portfolio/blogs/markdown-highlights-demo",
-    "contentPath": "blogs/highlight-test/index.md",
-    "image": "/my-portfolio/content/assets/markdown.png"
-  },
-  {
-    "id": "footnotes-demo",
-    "title": "Footnotes Demo",
-    "date": "2025-06-06T15:22:00.000Z",
-    "category": "Markdown",
-    "description": "A demonstration of markdown footnotes functionality.",
-    "tags": [
-      "Markdown",
-      "Footnotes",
-      "Demo"
-    ],
-    "link": "/my-portfolio/blogs/footnotes-demo",
-    "contentPath": "blogs/footnotes-demo/index.md",
-    "image": "/my-portfolio/content/assets/markdown.png"
-  },
-  {
-    "id": "math-demo",
-    "title": "Math Demo",
-    "date": "2025-06-06T15:22:00.000Z",
-    "category": "Markdown",
-    "description": "A demonstration of markdown math equation functionality.",
-    "tags": [
-      "Markdown",
-      "Footnotes",
-      "Demo"
-    ],
-    "link": "/my-portfolio/blogs/math-demo",
-    "contentPath": "blogs/math-demo/index.md",
     "image": "/my-portfolio/content/assets/markdown.png"
   }
 ]

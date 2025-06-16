@@ -48,6 +48,11 @@ function processConfig(rawConfig: any): Config {
       processed.content.logs.defaultHeaderBackground = buildUrl(processed.content.logs.defaultHeaderBackground);
     }
   }
+
+  // Process footer background
+  if (processed.footer?.background) {
+    processed.footer.background = buildUrl(processed.footer.background);
+  }
   
   // Process home navigation photos and image sources
   if (processed.home?.navigation) {
@@ -129,6 +134,13 @@ export interface BackgroundConfig {
   hero: string;
 }
 
+// Define footer configuration
+export interface FooterConfig {
+  copyright?: string;
+  message?: string;
+  background?: string;
+}
+
 // Define contact color configuration
 export interface ContactConfig {
   textColor?: string;
@@ -172,6 +184,7 @@ export interface ContentConfig {
 export interface Config {
   website?: WebsiteConfig;
   backgrounds?: BackgroundConfig;
+  footer?: FooterConfig;
   audioPlayer?: AudioPlayerConfig;
   content?: ContentConfig;
   [key: string]: any; // Allow other config properties

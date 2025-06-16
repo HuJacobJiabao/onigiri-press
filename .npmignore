@@ -38,12 +38,11 @@ Thumbs.db
 # Test coverage
 coverage/
 
-# Development content (users will create their own)
-public/devlogs/
-public/content/blogs/*
-public/content/projects/*
-!public/content/blogs/.gitkeep
-!public/content/projects/.gitkeep
+# Development content - keep some sample content for users
+# public/content/blogs/*
+# public/content/projects/*
+# !public/content/blogs/.gitkeep
+# !public/content/projects/.gitkeep
 
 # Keep essential files for framework
 # src/ - Source code needed for builds
