@@ -1,0 +1,18 @@
+.pageTransition {
+  transition: opacity 0.5s ease-in-out;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+/* Ensure smooth transitions for all child elements */
+.pageTransition > * {
+  transition: inherit;
+}

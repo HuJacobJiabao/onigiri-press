@@ -1,0 +1,34 @@
+[
+  {
+    "id": "project-test",
+    "title": "project test",
+    "date": "2025-06-07T17:14:37.393Z",
+    "category": "default",
+    "description": "This is the default description for project.",
+    "tags": [
+      "Hello",
+      "World"
+    ],
+    "link": "/my-portfolio/projects/project-test",
+    "contentPath": "projects/project-test/index.md",
+    "image": "/my-portfolio/default_cover.jpg",
+    "assetPaths": []
+  },
+  {
+    "id": "test-project-1",
+    "title": "test project 1",
+    "date": "2025-06-07T15:56:16.888Z",
+    "category": "default",
+    "description": "This is the default description for project.",
+    "tags": [
+      "Hello",
+      "World"
+    ],
+    "link": "/my-portfolio/projects/test-project-1",
+    "contentPath": "projects/test-project-1/index.md",
+    "image": "/my-portfolio/default_cover.jpg",
+    "assetPaths": [
+      "default_blog.png"
+    ]
+  }
+]

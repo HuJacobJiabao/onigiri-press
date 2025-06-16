@@ -1,0 +1,179 @@
+/* Mobile Tabs Component Styles */
+.mobileTabsContainer {
+  display: none; /* Hidden by default, only show on mobile */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicks to pass through the container */
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Toggle Button */
+.toggleButton {
+  position: fixed;
+  left: 8px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(52, 152, 219, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  pointer-events: all;
+  color: #333;
+  z-index: 1002;
+  opacity: 0;
+  animation: fadeInIcon 0.4s ease-out forwards;
+  /* Ensure perfect circle */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.toggleButton:hover {
+  background: rgba(52, 152, 219, 0.15);
+  border-color: rgba(52, 152, 219, 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.toggleButton.expanded {
+  background: rgb(63, 84, 105);
+  border-color: rgba(52, 152, 219, 0.6);
+  color: #b9b929;
+  box-shadow: 0 4px 16px rgba(52, 152, 219, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.toggleButton.expanded:hover {
+  transform: scale(1.15);
+}
+
+.toggleIcon {
+  font-size: 1rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.toggleButton.expanded .toggleIcon {
+  transform: rotate(180deg);
+}
+
+/* Tabs Wrapper */
+.tabsWrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeInTabs 0.3s ease-out 0.1s forwards;
+}
+
+.tabsWrapper .tabIcon {
+  opacity: 0;
+  animation: fadeInIcon 0.6s ease-out forwards;
+}
+
+@keyframes fadeInTabs {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tabIcon {
+  position: fixed;
+  left: 8px; /* Closer to the edge for about content positioning */
+  width: 30px; /* Decreased size */
+  height: 30px; /* Decreased size */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(52, 152, 219, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem; /* Decreased font size */
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  pointer-events: all; /* Re-enable pointer events for the icons */
+  color: #333;
+  z-index: 1001;
+  opacity: 0; /* Keep opacity 0 by default */
+  /* Ensure perfect circle */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+@keyframes fadeInIcon {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Remove the nth-child animation delays since we're using inline styles */
+
+.tabIcon:hover {
+  background: rgba(52, 152, 219, 0.1);
+  border-color: rgba(52, 152, 219, 0.5);
+  transform: scale(1.05); /* Smaller scale change */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.tabIcon.active {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-color: #2980b9;
+  color: white;
+  box-shadow: 0 3px 12px rgba(52, 152, 219, 0.3);
+  transform: scale(1.02);
+}
+
+.tabIcon.active:hover {
+  transform: scale(1.08);
+}
+
+/* Only show on mobile devices */
+@media (max-width: 768px) {
+  .mobileTabsContainer {
+    display: block;
+  }
+}

@@ -1,0 +1,458 @@
+# Resume configurhome:
+website:
+  title: "Alex Demo"
+  titleSeparator: " | "
+  favicon: "/favicon.png"
+  description: "Portfolio website of Alex Demo, a full-stack developer and software engineer. Explore my projects, skills, and experiences in computer science and web development."
+
+
+# Background configuration
+backgrounds:
+  # Global fixed background for all pages - test with external URL
+  global: "https://w.wallhaven.cc/full/6l/wallhaven-6lqk2l.png"
+  # Hero section background (Home page) - using local path
+  hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
+
+home:
+  hero:
+    name: "HELLO WORLD"
+    quote: "Building the future through code and innovation."
+
+  profileCard:
+    name: "Alex Demo"
+    title: "Full-stack Developer"
+    subtitle: "Software Engineer"
+    avatar: "favicon.png"  # Avatar image for profile card
+
+  navigation:
+    about:
+        title: "About Me"
+        icon: "👤"
+        type: "about"
+        content: >
+          write your self-introduction here. This section supports markdown formatting, 
+          so you can include [links](https://example.com) and other formatting.
+        photo: "onigiripress.svg"
+
+    education:
+      title: "Education"
+      icon: "🎓"
+      type: "education"
+      # Color properties support various CSS color formats:
+      # - Hex: "#990000", "#cc0000"
+      # - RGB: "rgb(19, 41, 75)"
+      # - RGBA: "rgba(19, 41, 75, 0.8)"
+      # - HSL: "hsl(210, 100%, 30%)"
+      # - Named colors: "red", "blue", etc.
+      items:
+        - schoolName: "State University"
+          degree: "Master of Science in Computer Science"
+          duration: "Aug. 2023 - Dec. 2025"
+          location: "City, State"
+          logo:
+            src: ""
+            backgroundColor: "#990000"
+          border:
+            color: "#990000"
+            hoverColor: "#cc0000"
+          highlightColor: "#990000"
+          highlights:
+            - "Related Courses: Operating System, Networking, Algorithms, Web Technologies"
+
+        - schoolName: "Tech University"
+          degree: "Bachelor of Science in Computer Science with Honors"
+          duration: "Sep. 2019 - Jun. 2023"
+          location: "City, State"
+          logo:
+            src: ""
+            backgroundColor: "#13294b"
+          border:
+            color: "#000080"
+            hoverColor: "#ff5f05"
+          highlightColor: "#ff5f05"
+          highlights:
+            - "Minor in Mathematics"
+            - "Graduated with Honors, GPA: 3.8/4.0"
+
+    experience:
+      title: "Experience"
+      icon: "💼"
+      type: "experience"
+      items:
+        - companyName: "Tech Institute"
+          location: "City, Country"
+          logo:
+            src: "xxx.webp"
+            # backgroundColor: "#e74d29"
+          border:
+            color: "#e74d29"
+            hoverColor: "#e77e29"
+          highlightColor: "#e74d29"
+          positions:
+            - position: "Teaching Assistant - CS 101"
+              duration: "Feb 2023 - Jun 2023"
+              highlights:
+                - "Assisted students in understanding programming concepts and software development fundamentals."
+                - "Provided tutoring and graded assignments to help students improve coding skills."
+                - "Collaborated with professors to ensure students' success in grasping complex computer science concepts."
+            - position: "Research Assistant"
+              duration: "Sep 2022 - Apr 2023"
+              highlights:
+                - "Developed web applications using modern frameworks"
+                - "Built scalable backend systems and APIs"
+                - "Implemented frontend interfaces with responsive design"
+
+        - companyName: "Software Solutions Inc."
+          location: "City, Country"
+          logo:
+            src: "xxx.webp"
+            backgroundColor: "#1e40af"
+          border:
+            color: "#1e40af"
+            hoverColor: "#3b82f6"
+          highlightColor: "#1e40af"
+          positions:
+            - position: "Software Developer Intern"
+              duration: "Oct 2021 - Jun 2022"
+              highlights:
+                - "Developed web applications using React and Node.js"
+                - "Collaborated with senior developers on large-scale projects"
+                - "Participated in code reviews and agile development processes"
+
+
+    projects:
+      title: "Projects"
+      icon: "💻"
+      type: "projects"
+      defaultCover: "default_cover.jpg"
+      items:
+        - projectName: "E-Commerce Platform"
+          description: "A full-stack e-commerce platform with modern payment integration and admin dashboard"
+          tag:
+            items: ["React", "Node.js", "MongoDB", "Stripe"]
+          duration: "Jan 2024 - May 2024"
+          projectLink:
+            url: "https://example.com/ecommerce-demo"
+            textColor: ""
+          githubLink:
+            url: "https://github.com/"
+            textColor: ""
+            backgroundColor: "#2c3e50"
+          highlights:
+            - "Implemented secure payment processing with Stripe API"
+            - "Built comprehensive admin dashboard for inventory management"
+            - "Optimized for performance with lazy loading and caching"
+            - "Responsive design with mobile-first approach"
+            
+        - projectName: "Task Management App"
+          description: "A collaborative task management application with real-time updates and team features"
+          tag:
+            items: ["Vue.js", "Express", "Socket.io", "PostgreSQL"]
+            backgroundColor: "#f0fdf4"
+            textColor: "#16a34a"
+          duration: "Aug 2023 - Dec 2023"
+          projectLink:
+            url: "https://example.com/taskapp"
+            textColor: "#ffffff"
+          githubLink:
+            url: "https://github.com"
+            backgroundColor: "#059669"
+            textColor: "#ffffff"
+          coverImage: "default_cover.jpg"
+          border:
+            color: "#16a34a"
+            hoverColor: "#15803d"
+          highlightColor: "#16a34a"
+          highlights:
+            - "Real-time collaboration with WebSocket integration"
+            - "Drag-and-drop interface for intuitive task management"
+            - "Team permissions and role-based access control"
+            - "Email notifications and deadline reminders"
+
+        - projectName: "Weather Analytics Dashboard"
+          description: "An interactive dashboard for weather data visualization and climate trend analysis"
+          tag:
+            items: ["Python", "D3.js", "Flask", "OpenWeather API"]
+            backgroundColor: "#eff6ff"
+            textColor: "#1d4ed8"
+          duration: "Mar 2023 - Jul 2023"
+          projectLink:
+            url: "https://example.com/weather-dashboard"
+            textColor: ""
+          githubLink:
+            url: "https://github.com"
+            backgroundColor: "#1e40af"
+            textColor: "#ffffff"
+          coverImage: "default_cover.jpg"
+          border:
+            color: "#2563eb"
+            hoverColor: "#1d4ed8"
+          highlightColor: "#2563eb"
+          highlights:
+            - "Interactive charts with D3.js for data visualization"
+            - "Historical weather data analysis and trend prediction"
+            - "RESTful API integration with multiple weather services"
+            - "Responsive design with data export functionality"
+
+        - projectName: "AI Chat Assistant"
+          description: "An intelligent chatbot with natural language processing and context awareness"
+          tag:
+            items: ["Python", "OpenAI API", "FastAPI", "React"]
+            backgroundColor: "#fef3c7"
+            textColor: "#d97706"
+          duration: "Sep 2023 - Nov 2023"
+          projectLink:
+            url: ""
+            textColor: "#ffffff"
+          githubLink:
+            url: "https://github.com"
+            backgroundColor: "#ea580c"
+            textColor: "#ffffff"
+          coverImage: "default_cover.jpg"
+          border:
+            color: "#f59e0b"
+            hoverColor: "#d97706"
+          highlightColor: "#f59e0b"
+          highlights:
+            - "Context-aware conversations with memory management"
+            - "Custom training on domain-specific knowledge"
+            - "Multi-language support and sentiment analysis"
+            - "Integration with popular messaging platforms"
+
+        - projectName: "Fitness Tracker Mobile App"
+          description: "A cross-platform mobile app for fitness tracking with social features and gamification"
+          tag:
+            items: ["React Native", "Firebase", "Swift", "Kotlin"]
+            backgroundColor: "#fce7f3"
+            textColor: "#be185d"
+          duration: "May 2023 - Sep 2023"
+          projectLink:
+            url: "https://example.com/fitness-app"
+            textColor: ""
+          githubLink:
+            url: "https://github.com"
+            backgroundColor: "#be185d"
+            textColor: "#ffffff"
+          coverImage: "default_cover.jpg"
+          border:
+            color: "#ec4899"
+            hoverColor: "#db2777"
+          highlightColor: "#ec4899"
+          highlights:
+            - "Cross-platform development with React Native"
+            - "Integration with wearable devices and health APIs"
+            - "Social features with friend challenges and leaderboards"
+            - "Offline data synchronization and cloud backup"
+        
+
+
+    # certificates:
+    #   title: "Certificates & Achievements"
+    #   icon: "🏆"
+    #   type: "projects"
+    #   defaultCover: "background/hero.jpg"
+    #   items:
+    #     - projectName: "AWS Solutions Architect Associate"
+    #       description: "Comprehensive certification covering AWS architecture best practices and cloud solutions design"
+    #       technologies: ["AWS", "Cloud Architecture", "EC2", "S3", "Lambda"]
+    #       duration: "Dec 2024"
+    #       projectUrl: "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
+    #       githubUrl: ""
+    #       imageSrc: "default_cover.jpg"
+    #       highlights:
+    #         - "Validated expertise in designing distributed applications on AWS"
+    #         - "Demonstrated knowledge of security and compliance on AWS platform"
+    #         - "Proven ability to optimize costs and performance"
+            
+    #     - projectName: "React Developer Certification"
+    #       description: "Advanced certification in React development covering hooks, state management, and modern patterns"
+    #       technologies: ["React", "JavaScript", "TypeScript", "Redux"]
+    #       duration: "Nov 2024"
+    #       projectUrl: "https://reactjs.org/"
+    #       githubUrl: ""
+    #       imageSrc: "default_cover.jpg"
+    #       highlights:
+    #         - "Advanced component architecture and optimization"
+    #         - "State management with Redux and Context API"
+    #         - "Testing strategies for React applications"
+    
+
+    contact:
+      title: "Get In Touch"
+      icon: "📬"
+      type: "contact"
+      content: "Feel free to reach out for collaborations, opportunities, or just to say hello!"
+      email: "alex.demo@example.com"
+      github: "https://github.com/"
+      linkedin: "https://www.linkedin.com/"
+      # Contact color configuration - simplified to only include text and icon colors
+      # Icons and text use the same color settings
+      # Supports various CSS color formats: hex, RGB, RGBA, HSL, named colors
+      textColor: "#2958e7" # Color for both icons and text/links (including underlines)
+
+# Navigation bar configuration
+navbar:
+  showHome: true
+  showCV: true
+  showProjects: true
+  showBlogs: true
+  showLogs: false
+  showArchive: true
+
+# Content display settings
+content:
+  blogs:
+    defaultCover: "default_cover.jpg"
+    defaultHeaderBackground: "background/default_blog.png"
+  projects:
+    defaultCover: "default_cover.jpg"
+    defaultHeaderBackground: "background/default_proj.jpg"
+  archive:
+    defaultCover: "default_cover.jpg"
+    defaultHeaderBackground: "background/default_blog.png"
+  logs:
+    defaultHeaderBackground: "background/default_blog.png"
+  
+  # Global category colors (shared across blogs, projects, and archive)
+  # Each category only uses textColor for the text display
+  categoryColors:
+    default: # Default fallback for all unspecified categories
+      textColor: "#5a0cea"
+    "Full Stack": 
+      textColor: "#059669"
+    "Frontend":
+      textColor: "#3b82f6"
+    "Backend":
+      textColor: "#8b5cf6"
+    "Machine Learning":
+      textColor: "#f59e0b"
+    "Research":
+      textColor: "#ef4444"
+    "Web Development":
+      textColor: "#10b981"
+    "Mobile Development":
+      textColor: "#f97316"
+    "Data Science":
+      textColor: "#8b5cf6"
+    "Computer Vision":
+      textColor: "#06b6d4"
+    "Tutorial":
+      textColor: "#3b82f6"
+    "Technology":
+      textColor: "#6366f1"
+    "Personal":
+      textColor: "#ec4899"
+    "Documentation":
+      textColor: "#f43f5e"
+
+  # Global tag colors (shared across blogs, projects, and archive)  
+  # Each tag uses both backgroundColor and textColor
+  tagColors:
+    default: # Default fallback for all unspecified tags
+      backgroundColor: "#f3f4f6"
+      textColor: "#374151"
+    "React":
+      backgroundColor: "#dbeafe" 
+      textColor: "#1d4ed8"
+    "TypeScript":
+      backgroundColor: "#eff6ff"
+      textColor: "#2563eb"
+    "JavaScript":
+      backgroundColor: "#fef3c7"
+      textColor: "#d97706"
+    "Python":
+      backgroundColor: "#dcfce7"
+      textColor: "#16a34a"
+    "Node.js":
+      backgroundColor: "#dcfce7"
+      textColor: "#059669"
+    "Django":
+      backgroundColor: "#dcfce7"
+      textColor: "#16a34a"
+    "Express":
+      backgroundColor: "#f3f4f6"
+      textColor: "#374151"
+    "MongoDB":
+      backgroundColor: "#dcfce7"
+      textColor: "#059669"
+    "PostgreSQL":
+      backgroundColor: "#dbeafe"
+      textColor: "#1d4ed8"
+    "CSS Modules":
+      backgroundColor: "#fce7f3"
+      textColor: "#be185d"
+    "Vite":
+      backgroundColor: "#fef3c7"
+      textColor: "#d97706"
+    "PyTorch":
+      backgroundColor: "#fee2e2"
+      textColor: "#dc2626"
+    "OpenCV":
+      backgroundColor: "#dbeafe"
+      textColor: "#1d4ed8"
+    "Blender":
+      backgroundColor: "#fef3c7"
+      textColor: "#d97706"
+    "OpenAI API":
+      backgroundColor: "#f0fdf4"
+      textColor: "#16a34a"
+    "MQTT":
+      backgroundColor: "#f3f4f6"
+      textColor: "#374151"
+    "D3.js":
+      backgroundColor: "#fef3c7"
+      textColor: "#d97706"
+    "Swift":
+      backgroundColor: "#fee2e2"
+      textColor: "#dc2626"
+    "ARKit":
+      backgroundColor: "#fee2e2"
+      textColor: "#dc2626"
+    "CoreLocation":
+      backgroundColor: "#f3f4f6"
+      textColor: "#374151"
+    "MapKit":
+      backgroundColor: "#f0fdf4"
+      textColor: "#16a34a"
+    "Firebase":
+      backgroundColor: "#fef3c7"
+      textColor: "#d97706"
+    "Markdown":
+      backgroundColor: "#1f2937"
+      textColor: "#f3f4f6"
+
+resume:
+  filename: "Alex_Demo_Resume.pdf"
+
+# Footer configuration
+footer:
+  copyright: "© 2025 by Alex Demo. All rights reserved."
+  message: "Welcome to my portfolio website!"
+
+# Audio Player configuration
+audioPlayer:
+  enabled: true
+  fixed: true   # Set to true for floating player
+  volume: 0.7
+  showLrc: true
+  
+  # MetingJS configuration
+  meting:
+    enabled: true   # Set to true to use MetingJS instead of local audio files
+    server: "netease"   # Music server: netease, tencent, kugou, xiami, baidu
+    type: "playlist"    # Type: song, playlist, album, search, artist
+    id: "8399234499"    # Music ID from the platform
+    mutex: true         # Prevent multiple players from playing simultaneously
+    listFolded: false   # Whether to fold the playlist
+    listMaxHeight: "340px"  # Maximum height of the playlist
+    order: "random"       # Play order: list, random
+    loop: "all"         # Loop mode: all, one, none
+    preload: "auto"     # Preload: auto, metadata, none
+    
+  # Local audio files (used when meting.enabled is false)
+  audio:
+    - name: "未だ知られぬ物語 ～ Anticipated Dream"
+      artist: "凋叶棕"
+      url: ""
+      cover: "/background/hero.jpg"
+    #   cover: "/background/default_cover.jpg"

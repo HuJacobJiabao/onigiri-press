@@ -1,0 +1,376 @@
+/**
+ * Night Owl Theme for prism.js
+ * Based on Sarah Drasner's Night Owl VS Code theme
+ * Dark theme with purple/blue background and vibrant syntax colors
+ */
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: #d6deeb;
+  background: #011627;
+  text-shadow: none;
+  font-family: "Source Code Pro", "JetBrains Mono", "Operator Mono", "Fira Code", "Microsoft Yahei", "微软雅黑", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  white-space: pre; /* Preserve whitespace and prevent wrapping */
+  word-spacing: normal;
+  word-break: normal; /* Prevent breaking words */
+  word-wrap: normal; /* Prevent wrapping */
+  overflow-wrap: normal; /* Prevent overflow wrapping */
+  text-align: left;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection,
+code[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection,
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
+  color: inherit;
+  background: #1d3b53;
+  text-shadow: none;
+}
+
+pre[class*='language-'] {
+  /* Default styles for regular pre blocks, will be overridden by code-block-content */
+  border: 1px solid #0b2942;
+  border-radius: 8px;
+  padding: 1.5em;
+  margin: 1.5rem 0;
+  overflow: auto;
+  background: #011627;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Override styles for code blocks within our custom container */
+.code-block-container pre[class*='language-'] {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  overflow-x: auto; /* Allow horizontal scrolling for long lines */
+  overflow-y: visible; /* No vertical scrolling, let content flow naturally */
+  white-space: pre; /* Preserve whitespace and prevent wrapping */
+  word-wrap: normal; /* Prevent word wrapping */
+  word-break: normal; /* Prevent word breaking */
+  max-width: 100%; /* Ensure doesn't exceed container width */
+  width: 100%; /* Force full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Inline code styling - no border for code inside pre blocks */
+:not(pre) > code[class*='language-'] {
+  color: #d6deeb;
+  background: #4a5568;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #5a6f81;
+  box-decoration-break: clone;
+}
+
+/* Remove border from code inside pre blocks */
+pre[class*='language-'] > code[class*='language-'] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  white-space: pre; /* Ensure code inside pre maintains pre formatting */
+  word-wrap: normal; /* Prevent word wrapping */
+  word-break: normal; /* Prevent word breaking */
+  overflow-wrap: normal; /* Prevent overflow wrapping */
+}
+
+/* Comments - Night Owl muted blue-gray */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #637777;
+  font-style: italic;
+}
+
+/* Punctuation - Night Owl light blue */
+.token.punctuation {
+  color: #c792ea;
+}
+
+/* Keywords - Night Owl purple */
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #c792ea;
+  font-weight: 500;
+}
+
+/* Strings - Night Owl yellow/gold */
+.token.string,
+.token.char {
+  color: #ecc48d;
+}
+
+/* Numbers and booleans - Night Owl orange */
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f78c6c;
+}
+
+/* Functions and class names - Night Owl blue */
+.token.function,
+.token.class-name {
+  color: #82aaff;
+  font-weight: normal;
+}
+
+/* Selectors, attr-names, built-ins - Night Owl green */
+.token.selector,
+.token.attr-name,
+.token.builtin,
+.token.inserted {
+  color: #addb67;
+}
+
+/* Operators - Night Owl cyan */
+.token.operator,
+.token.entity,
+.token.url {
+  color: #7fdbca;
+}
+
+/* CSS strings */
+.language-css .token.string,
+.style .token.string {
+  color: #ecc48d;
+  background: transparent;
+}
+
+/* Variables and regex - Night Owl red */
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ff6363;
+}
+
+/* Bold and italic */
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+/* Language-specific tokens */
+.token.namespace {
+  opacity: 0.8;
+}
+
+/* Annotations and decorators - Night Owl purple */
+.token.annotation,
+.token.decorator {
+  color: #c792ea;
+}
+
+/* HTML/XML attributes - Night Owl yellow */
+.token.attr-name {
+  color: #ffcb8b;
+}
+
+/* HTML/XML tag names - Night Owl red */
+.token.tag .token.tag {
+  color: #ff6363;
+}
+
+/* Method names - Night Owl blue */
+.token.method {
+  color: #82aaff;
+  font-weight: normal;
+}
+
+/* JSON property names */
+.language-json .token.property {
+  color: #addb67;
+}
+
+/* Template literals */
+.token.template-string .token.interpolation {
+  color: #d6deeb;
+}
+
+.token.template-string .token.interpolation .token.punctuation {
+  color: #ff6363;
+}
+
+/* Code Block Banner Styles */
+.code-block-container {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #011627;
+  border: 1px solid #0b2942;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 100%; /* Ensure consistent width */
+  max-width: 100%; /* Prevent overflow */
+  min-width: 0; /* Prevent content from affecting container width */
+  box-sizing: border-box; /* Include borders in width calculation */
+}
+
+.code-block-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1d3b53;
+  padding: 0.25rem 0.75rem;
+  border-bottom: 1px solid #0b2942;
+  font-size: 0.875rem;
+  width: 100%; /* Force full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  min-width: 0; /* Prevent children from affecting width */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.code-block-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.code-block-toggle {
+  background: none;
+  border: none;
+  color: #d6deeb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 0.25rem;
+  outline: none;
+}
+
+.code-block-toggle:hover {
+  background: rgba(214, 222, 235, 0.1);
+}
+
+.code-block-toggle:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.toggle-icon {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  transform-origin: center;
+}
+
+.code-block-container.collapsed .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.code-block-language {
+  color: #82aaff;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.code-block-copy {
+  background: none;
+  border: none;
+  color: #d6deeb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 28px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.code-block-copy:hover {
+  background: rgba(214, 222, 235, 0.1);
+  color: #82aaff;
+}
+
+.code-block-copy:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.code-block-copy.copied {
+  color: #addb67;
+}
+
+.code-block-content {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow-x: auto; /* Enable horizontal scrolling for long lines */
+  overflow-y: visible; /* No vertical scrolling, let content flow naturally */
+  width: 100%; /* Ensure full width */
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in width */
+  white-space: pre; /* Preserve whitespace and prevent wrapping */
+  word-wrap: normal; /* Prevent word wrapping */
+  word-break: normal; /* Prevent word breaking */
+}
+
+.code-block-container.collapsed .code-block-content {
+  display: none;
+}
+
+/* Force horizontal scrolling behavior for all code content */
+.code-block-container * {
+  white-space: pre !important;
+  word-wrap: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Ensure scroll bars are visible when needed - HORIZONTAL ONLY */
+.code-block-container pre[class*='language-']::-webkit-scrollbar {
+  height: 8px; /* Horizontal scrollbar height */
+  width: 0px; /* No vertical scrollbar */
+  background: #0b2942;
+}
+
+.code-block-container pre[class*='language-']::-webkit-scrollbar-thumb {
+  background: #1d3b53;
+  border-radius: 4px;
+}
+
+.code-block-container pre[class*='language-']::-webkit-scrollbar-thumb:hover {
+  background: #2d4b63;
+}
+
+/* Firefox scrollbar styling - horizontal only */
+.code-block-container pre[class*='language-'] {
+  scrollbar-width: thin;
+  scrollbar-color: #1d3b53 #0b2942;
+}

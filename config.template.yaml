@@ -1,0 +1,199 @@
+# Template configuration for Onigiri Portfolio Framework
+# This is a sample configuration file. Copy this to config.yaml and customize it with your information.
+
+# Website metadata configuration
+website:
+  title: "Your Name"
+  titleSeparator: " | "
+  favicon: "/favicon.png"
+  description: "Portfolio website of Your Name, a full-stack developer and software engineer. Explore my projects, skills, and experiences in computer science and web development."
+
+
+# Background configuration
+backgrounds:
+  # Global fixed background for all pages
+  global: "background/global.png"
+  # Hero section background (Home page)
+  hero: "background/hero.jpg"
+
+home:
+  hero:
+    name: "Your Name"
+    quote: "Your inspiring quote here."
+    title: "Your Title"
+    subtitle: "Your Subtitle"
+
+  navigation:
+    about:
+        title: "About Me"
+        icon: "👤"
+        type: "about"
+        content: >
+          Write your about section here. Tell visitors about your background,
+          skills, and what you're passionate about. This supports markdown
+          formatting, so you can include [links](https://example.com) and
+          other formatting.
+        photo: "your-photo.jpg"
+
+    education:
+      title: "Education"
+      icon: "🎓"
+      type: "education"
+      items:
+        - schoolName: "Your University"
+          degree: "Your Degree"
+          duration: "Start Date - End Date"
+          location: "City, State/Country"
+          logo:
+            src: "schools/your-school.png"
+            backgroundColor: "#990000"
+          border:
+            color: "#990000"
+            hoverColor: "#cc0000"
+          highlightColor: "#990000"
+          highlights:
+            - "Add your relevant courses, achievements, or other details"
+
+    experience:
+      title: "Experience"
+      icon: "💼"
+      type: "experience"
+      items:
+        - companyName: "Your Company"
+          location: "City, Country"
+          logo:
+            src: "schools/company-logo.jpg"
+          border:
+            color: "#e74d29"
+            hoverColor: "#e77e29"
+          highlightColor: "#e74d29"
+          positions:
+            - position: "Your Position"
+              duration: "Start Date - End Date"
+              highlights:
+                - "Describe your responsibilities and achievements"
+                - "Add more bullet points as needed"
+
+    projects:
+      title: "Projects"
+      icon: "💻"
+      type: "projects"
+      defaultCover: "default_cover.jpg"
+      items:
+        - projectName: "Your Project Name"
+          description: "A brief description of your project"
+          tag:
+            items: ["Technology1", "Technology2", "Technology3"]
+          duration: "Project Duration"
+          projectLink:
+            url: "https://your-project-url.com"
+            textColor: ""
+          githubLink:
+            url: "https://github.com/yourusername/your-project"
+            textColor: ""
+            backgroundColor: "#2c3e50"
+          highlights:
+            - "Key feature or achievement"
+            - "Another highlight"
+            - "Third achievement"
+
+    contact:
+      title: "Get In Touch"
+      icon: "📬"
+      type: "contact"
+      content: "Feel free to reach out for collaborations, opportunities, or just to say hello!"
+      email: "your.email@example.com"
+      github: "https://github.com/yourusername"
+      linkedin: "https://www.linkedin.com/in/yourprofile/"
+      textColor: "#2958e7"
+
+# Navigation bar configuration
+navbar:
+  showHome: true
+  showCV: true
+  showProjects: true
+  showBlogs: true
+  showLogs: false
+  showArchive: true
+
+# Content display settings
+content:
+  blogs:
+    defaultCover: "default_cover.jpg"
+    defaultHeaderBackground: "background/default_blog.png"
+  projects:
+    defaultCover: "default_cover.jpg"
+    defaultHeaderBackground: "background/default_proj.jpg"
+  archive:
+    defaultCover: "default_cover.jpg"
+    defaultHeaderBackground: "background/default_blog.png"
+  logs:
+    defaultHeaderBackground: "background/default_blog.png"
+  
+  # Global category colors (shared across blogs, projects, and archive)
+  categoryColors:
+    default:
+      textColor: "#5a0cea"
+    "Full Stack": 
+      textColor: "#059669"
+    "Frontend":
+      textColor: "#3b82f6"
+    "Backend":
+      textColor: "#8b5cf6"
+    "Machine Learning":
+      textColor: "#f59e0b"
+    # Add more categories as needed
+
+  # Global tag colors (shared across blogs, projects, and archive)  
+  tagColors:
+    default:
+      backgroundColor: "#f3f4f6"
+      textColor: "#374151"
+    "React":
+      backgroundColor: "#dbeafe" 
+      textColor: "#1d4ed8"
+    "TypeScript":
+      backgroundColor: "#eff6ff"
+      textColor: "#2563eb"
+    "JavaScript":
+      backgroundColor: "#fef3c7"
+      textColor: "#d97706"
+    "Python":
+      backgroundColor: "#dcfce7"
+      textColor: "#16a34a"
+    # Add more tags as needed
+
+resume:
+  filename: "Your_Resume.pdf"
+
+# Footer configuration
+footer:
+  copyright: "© 2025 Your Name. All rights reserved."
+  message: "Welcome to my portfolio website!"
+
+# Audio Player configuration (optional)
+audioPlayer:
+  enabled: false
+  fixed: true
+  volume: 0.7
+  showLrc: true
+  
+  # MetingJS configuration for online music
+  meting:
+    enabled: false
+    server: "netease"
+    type: "playlist"
+    id: "your-playlist-id"
+    mutex: true
+    listFolded: false
+    listMaxHeight: "340px"
+    order: "random"
+    loop: "all"
+    preload: "auto"
+    
+  # Local audio files
+  audio:
+    - name: "Your Song Title"
+      artist: "Artist Name"
+      url: "/audio/your-song.mp3"
+      cover: "/background/your-cover.jpg"

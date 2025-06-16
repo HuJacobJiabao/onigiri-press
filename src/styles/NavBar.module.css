@@ -1,0 +1,136 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  padding: 0 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: white;
+  transition: top 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+  font-size: 1.2rem;
+}
+
+.nav li {
+  font-size: 1.2rem;
+}
+
+.transparent {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.solid {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(76,73,72);
+}
+
+.show {
+  top: 0;
+}
+
+.hide {
+  top: -60px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.transparent .hamburger {
+  color: white;
+}
+
+.solid .hamburger {
+  color: rgb(76, 73, 72);
+}
+
+.navLinks {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* transparent 模式下 a 颜色白色 */
+.transparent .navLinks a {
+  color: white;
+}
+
+/* solid 模式下 a 颜色深色 */
+.solid .navLinks a {
+  color: rgb(76, 73, 72);
+}
+
+.navLinks a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: #66ccff;
+}
+
+/* logo 链接样式 */
+.logoLink {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.transparent .logoLink {
+  color: white;
+}
+
+.solid .logoLink {
+  color: rgb(76, 73, 72);
+}
+
+.logoLink:hover {
+  color: #66ccff;
+}
+
+/* ✅ 移动端折叠处理 */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .transparent .navLinks {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .solid .navLinks {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .showMenu {
+    display: flex;
+  }
+}

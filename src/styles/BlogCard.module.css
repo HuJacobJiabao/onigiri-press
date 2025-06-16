@@ -1,0 +1,172 @@
+/* Blog Card Styles - Clean design without image borders */
+.blogCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  min-height: 250px; /* Minimum height to maintain consistency */
+  height: auto; /* Allow dynamic height adjustment */
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.blogCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover .cardTitle {
+  color: #3498db;
+}
+
+.imageContainer {
+  width: 300px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-self: stretch; /* Force container to stretch to full card height */
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+  display: block; /* Back to block for proper image rendering */
+}
+
+.blogCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.cardHeader {
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.4rem; /* Slightly smaller to fit better */
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.4; /* Improved line height for better readability */
+  transition: color 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Allow up to 2 lines for longer titles */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.cardDate,
+.cardCategory {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.cardDate i,
+.cardCategory i {
+  font-size: 0.8rem;
+}
+
+.cardDescription {
+  color: #5a6c7d;
+  line-height: 1.6;
+  font-size: 0.95rem; /* Slightly smaller to make room for tags */
+  margin: 0 0 1.2rem 0; /* Reduced bottom margin */
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Increased back to 3 lines for better description display */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.tag {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .blogCard {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .imageContainer {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .cardContent {
+    padding: 1.5rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+  
+  .cardMeta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .cardDescription {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContent {
+    padding: 1.2rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+}

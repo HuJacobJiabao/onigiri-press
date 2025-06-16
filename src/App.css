@@ -1,0 +1,55 @@
+.global-background-fixed {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Background image is set dynamically via inline styles */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+
+
+
+/* Mobile and narrow screen optimizations */
+@media (max-width: 768px) {
+  .global-background-fixed {
+    background-attachment: scroll;
+  }
+}
+
+/* Extra narrow screen optimizations */
+/* Global background fixe/* Extra narrow screen optimizations */
+@media (max-width: 480px) {
+  .global-background-fixed {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    /* Ensure background covers the full viewport */
+    min-height: 100%;
+    min-width: 100%;
+  }
+}
+
+/* Very narrow screens (below 360px) */
+@media (max-width: 360px) {
+  .global-background-fixed {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    /* Force background to stay within bounds */
+    overflow: hidden;
+    transform: translateZ(0); /* Force hardware acceleration */
+  }
+}
+
+.pageWrapper {
+  padding-top: 60px; /* 导航栏高度 */
+}

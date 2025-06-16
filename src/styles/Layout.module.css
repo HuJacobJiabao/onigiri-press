@@ -1,0 +1,490 @@
+.wrapper {
+  max-width: 100%;
+  overflow-x: auto; /* Allow horizontal scrolling for content like code blocks */
+  margin: 0;
+  padding: 0;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+.pageHeader {
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  padding: 100px 0 15px; /* Further reduced padding to make header even smaller */
+  text-align: center;
+  margin-top: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  animation: fadeInDown 1s ease-in-out;
+  min-height: 200px; /* Reduced from 240px to 200px */
+  height: 200px; /* Reduced fixed height to 200px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageHeader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.pageHeader h1 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 2;
+  padding: 10px 30px;
+  display: inline-block;
+}
+
+/* New styles for header content and metadata */
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Title area - first red box */
+.titleArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 90px; /* 从80px增加到90px，给分行标题更多空间 */
+  padding: 3px 0;
+}
+
+.pageTitle {
+  font-size: 3.5rem; /* Keep large size */
+  color: #ffffff;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 2;
+  padding: 5px 30px;
+  display: inline-block;
+  word-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.1;
+  text-align: center; /* 确保桌面端也居中 */
+}
+
+/* Responsive title for article pages - allow line breaks, larger font */
+.articleTitle {
+  font-size: 3rem !important; /* Much larger than before, allow line breaks */
+  line-height: 1.2;
+  text-align: center;
+  padding: 5px 20px;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; /* Allow line breaks */
+  display: block; /* Allow proper line wrapping */
+}
+
+/* Dynamic font sizing for very long titles */
+.articleTitle.veryLong {
+  font-size: 2.5rem !important; /* 从1.8rem增加到2.5rem，保持较大字体 */
+}
+
+.articleTitle.extraLong {
+  font-size: 2.2rem !important; /* 从1.5rem增加到2.2rem */
+}
+
+.articleTitle.superLong {
+  font-size: 2rem !important; /* 从1.3rem增加到2rem */
+}
+
+.headerMeta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* Reduced from 20px */
+  margin-top: 10px; /* Further reduced from 15px */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headerMeta .metaItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px; /* Reduced from 5px */
+  min-width: 100px; /* Reduced from 120px */
+}
+
+.headerMeta .metaLabel {
+  font-size: 0.9rem; /* Increased from 0.7rem to make metadata larger */
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.headerMeta .metaValue {
+  font-size: 1rem; /* Increased from 0.8rem to make metadata larger */
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Metadata area - second red box (without tags) */
+.metadataArea {
+  flex-shrink: 0;
+  padding: 5px 0; /* Reduced from 8px to fit smaller header */
+}
+
+/* Tags area - third red box (bottom) */
+.tagsArea {
+  flex-shrink: 0;
+  padding: 5px 0; /* Reduced from 8px to fit smaller header */
+}
+
+.tagsArea .headerTags {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.headerTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px; /* Reduced from 8px */
+  justify-content: center;
+}
+
+.headerTag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 3px 8px; /* Keep same size for tags */
+  border-radius: 20px;
+  font-size: 0.8rem; /* Increased from 0.7rem to make tags larger */
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px 100px;
+  box-sizing: border-box;
+}
+
+.aboutWrapper {
+  color: #222;
+  padding: 20px;
+  text-align: left;
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.aboutContainer {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  width: 100%;
+}
+
+/* Desktop and Mobile Sidebar Control */
+.desktopSidebar {
+  display: block;
+}
+
+.mobileSidebar {
+  display: none;
+}
+
+.rightContentArea {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: visible; /* Allow horizontal overflow */
+  width: 100%;
+  min-width: 0; /* Prevent flex item from growing beyond container */
+}
+
+.rightContent {
+  /* Remove white background to let cards float on the about.jpg background */
+  background: transparent;
+  border-radius: 20px;
+  padding: 40px;
+  padding-top: 0;
+  animation: fadeIn 1s ease-in-out;
+  min-height: 500px;
+  overflow-x: visible; /* Allow horizontal overflow */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: #34495e;
+  overflow-x: visible; /* Allow horizontal overflow for code blocks */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tagsItem {
+  flex-direction: row !important;
+  gap: 8px !important;
+  align-items: center !important;
+  min-width: auto !important;
+}
+
+.tagsItem .metaLabel {
+  margin-bottom: 0 !important;
+}
+
+.tagsItem .headerTags {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    padding: 60px 0 20px; /* Further reduced for mobile */
+    height: 220px; /* Reduced fixed height for mobile */
+    min-height: 220px;
+  }
+
+  .titleArea {
+    max-height: 80px; /* 从70px增加到80px，给移动端分行标题更多空间 */
+    text-align: center; /* 确保移动端标题居中 */
+    width: 100%;
+  }
+
+  .pageTitle {
+    font-size: 2.2rem;
+    padding: 8px 15px; /* Reduced padding */
+    text-align: center; /* 强制移动端标题居中 */
+    margin: 0 auto;
+    display: block;
+  }
+
+  .articleTitle {
+    font-size: 1.8rem !important;
+    padding: 8px 15px; /* Reduced padding */
+    max-width: 95%;
+    text-align: center !important; /* 强制移动端文章标题居中 */
+    margin: 0 auto;
+    display: block;
+  }
+
+  .articleTitle.veryLong {
+    font-size: 1.8rem !important; /* 从1.5rem增加到1.8rem */
+  }
+
+  .articleTitle.extraLong {
+    font-size: 1.6rem !important; /* 从1.3rem增加到1.6rem */
+  }
+
+  .articleTitle.superLong {
+    font-size: 1.4rem !important; /* 从1.1rem增加到1.4rem */
+  }
+
+  .headerMeta {
+    gap: 10px; /* Further reduced from 12px for mobile */
+    padding: 0 15px;
+    margin-top: 8px; /* Further reduced margin-top */
+  }
+
+  .headerMeta .metaItem {
+    min-width: 80px; /* Keep same */
+    gap: 2px; /* Keep same */
+  }
+
+  .headerMeta .metaLabel {
+    font-size: 0.8rem; /* Increased from 0.7rem for mobile */
+  }
+
+  .headerMeta .metaValue {
+    font-size: 0.9rem; /* Increased from 0.8rem for mobile */
+  }
+
+  .headerTags {
+    gap: 6px;
+  }
+
+  .headerTag {
+    font-size: 0.75rem; /* Slightly increased from 0.7rem for mobile */
+    padding: 4px 8px;
+  }
+
+  .aboutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* 居中对齐所有子元素 */
+    width: 100%;
+  }
+
+  /* Hide desktop sidebar on mobile */
+  .desktopSidebar {
+    display: none;
+  }
+
+  /* Show mobile sidebar on mobile - full width container */
+  .mobileSidebar {
+    display: block;
+    order: 2; /* Place after content */
+    width: 100%;
+    padding: 0 20px; /* Same padding as content for alignment */
+    box-sizing: border-box;
+  }
+
+  .rightContentArea {
+    order: 1;
+    width: 100%;
+    max-width: 100%; /* Take full width since sidebar is hidden */
+  }
+
+  .rightContent {
+    padding: 20px;
+    min-height: 300px;
+  }
+
+  .aboutWrapper {
+    margin: 0 auto;
+    padding: 0; /* 移除内边距以给sidebar更多空间 */
+    width: 100%;
+    max-width: 100%; /* 使用全宽 */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 居中对齐内容 */
+  }
+
+  .main {
+    padding: 40px 0 40px; /* 移除左右内边距 */
+  }
+
+  /* Mobile title-only header styling */
+  .titleOnlyHeader {
+    height: 180px !important; /* Smaller height for title-only on mobile */
+    min-height: 180px !important;
+    padding: 40px 0 !important; /* More balanced padding */
+  }
+
+  .titleOnlyHeader .titleArea {
+    max-height: none !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Floating Navigation Overlay for Mobile TOC */
+.floatingNavigationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10vh 5vw; /* Responsive padding */
+  box-sizing: border-box;
+  animation: overlayFadeIn 0.3s ease-out;
+}
+
+.floatingNavigationCard {
+  position: relative;
+  z-index: 1003;
+  animation: cardSlideIn 0.3s ease-out;
+}
+
+/* Animations for floating navigation */
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Hide floating navigation on desktop */
+@media (min-width: 769px) {
+  .floatingNavigationOverlay {
+    display: none !important;
+  }
+}
+
+

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "onigiri-press",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A modern, lightweight portfolio and blog framework built with React, TypeScript, and Vite. Easy to customize, supports markdown content, and includes powerful blog functionality.",
+  "homepage": "https://github.com/jiabaoh/onigiri-press",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiabaoh/onigiri-press.git"
+  },
+  "keywords": [
+    "portfolio",
+    "blog",
+    "react",
+    "typescript",
+    "vite",
+    "framework",
+    "markdown",
+    "static-site",
+    "responsive",
+    "modern",
+    "onigiri",
+    "cms",
+    "press"
+  ],
+  "author": "Onigiri Framework Contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jiabaoh/onigiri-press/issues"
+  },
+  "bin": {
+    "onigiri-press": "./bin/onigiri-press.js",
+    "onigiri": "./bin/onigiri-press.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "bin/",
+    "dist/",
+    "public/",
+    "templates/",
+    "config.template.yaml",
+    "src/",
+    "*.json",
+    "*.js",
+    "*.ts"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run preprocess && tsc -b && vite build && cp public/404.html dist/404.html && touch dist/.nojekyll",
+    "preview": "vite preview",
+    "preprocess": "tsx src/scripts/preprocess-content.ts",
+    "generate": "tsx src/scripts/generate.ts",
+    "create-daily-log": "tsx src/scripts/create-daily-log.ts",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-mark": "^4.0.0",
+    "markdown-it-deflist": "^3.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "prismjs": "^1.29.0",
+    "gray-matter": "^4.0.3",
+    "katex": "^0.16.11",
+    "aplayer": "^1.10.1",
+    "meting": "^2.0.1",
+    "buffer": "^6.0.3",
+    "js-yaml": "^4.1.0",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "@types/markdown-it": "^14.1.2",
+    "@types/prismjs": "^1.26.4",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.10.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.8.0",
+    "vite": "^6.3.5",
+    "eslint": "^9.17.0",
+    "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.18.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "tsx": "^4.19.2"
+  }
+}

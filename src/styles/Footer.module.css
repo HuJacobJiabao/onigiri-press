@@ -1,0 +1,70 @@
+.footer {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  background-image: url('/my-portfolio/background/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 1.2px;
+  padding: 40px 20px;
+  line-height: 1.8;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.footerText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 1.2px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  z-index: 2;
+  position: relative;
+}
+
+.footer p {
+  margin: 4px 0;
+}
+
+/* Background fixed layer for footer */
+.backgroundFixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/my-portfolio/background/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Mobile background fix - use scroll instead of fixed for performance */
+@media (max-width: 768px) {
+  .backgroundFixed {
+    background-attachment: scroll;
+  }
+}

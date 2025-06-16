@@ -1,0 +1,507 @@
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sidebar Component Styles */
+.leftSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInUp 1s ease-in-out;
+  max-width: 300px;
+}
+
+.profileCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.photoWrapper {
+  margin-bottom: 15px;
+}
+
+.photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.profileName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 10px 0 5px 0;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profileTitle {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin: 0 0 15px 0;
+  font-weight: 500;
+}
+
+.contactCard {
+  background: transparent;
+  padding: 20px 0;
+  border: none;
+  box-shadow: none;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: center;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  text-decoration: none;
+  color: #34495e;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.contactItem:hover {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  transform: translateX(5px);
+}
+
+.contactItem i {
+  width: 16px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.navigationCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Ensure consistent width calculation */
+  /* Remove max-width to allow natural width, which will be preserved when sticky */
+}
+
+/* Sticky navigation card styles */
+.stickyNavigationCard {
+  /* Dynamic positioning and width are handled via inline styles in JavaScript */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2) !important;
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box; /* Ensure consistent width calculation */
+  /* Remove max-width to allow JavaScript to control the exact width */
+}
+
+.navigationCard h4 {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* Remove max-height and overflow to allow dynamic expansion */
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 15px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #34495e;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  overflow: hidden;
+  outline: none; /* Remove focus outline */
+}
+
+.navItem:hover {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  transform: translateX(5px);
+}
+
+.navItem.active {
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: white;
+  border: none; /* Explicitly remove any border */
+  outline: none; /* Remove focus outline */
+}
+
+.navItem:focus {
+  outline: none; /* Remove focus outline for keyboard navigation */
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3); /* Optional: Add a subtle focus indicator */
+}
+
+.navItem.active:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4); /* Focus indicator for active items */
+}
+
+.navIcon {
+  font-size: 1.1rem;
+}
+
+/* Item-specific navigation styles */
+.itemNavItem {
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.itemTitle {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  min-width: 0;
+  flex: 1;
+}
+
+.itemNavItem:hover .itemTitle {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+/* Responsive design for sidebar */
+@media (max-width: 768px) {
+  /* Hide desktop sidebar completely */
+  .desktopSidebar .leftSidebar {
+    display: none !important;
+  }
+  .leftSidebar {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+  }
+  
+  /* Mobile sidebar wrapper - full width with proper padding */
+  .mobileSidebar {
+    padding: 0 20px !important; /* Match content padding */
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+  
+
+  /* Hide ALL navigation cards on mobile */
+  .navigationCard {
+    display: none !important;
+  }
+  
+  .mobileSidebar .navigationCard {
+    display: none !important;
+  }
+  
+  .stickyNavigationCard {
+    display: none !important;
+  }
+  
+  /* OVERRIDE BASE PROFILE CARD - this is the key fix */
+  .profileCard {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 25px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Additional mobile profile card styling */
+  .mobileSidebar .profileCard {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 25px !important;
+    box-sizing: border-box !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* Mobile photo sizing */
+  .photo {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  /* Mobile profile name sizing */
+  .profileName {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* TOC-specific styles for enhanced catalog display with nested structure */
+
+/* Main TOC container */
+.tocContainer {
+  width: 100%;
+}
+
+.tocNestedContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Level 1 container styles */
+.tocLevel1Container {
+  margin: 2px 0;
+}
+
+/* Level 2 container styles with expansion capability */
+.tocLevel2Container {
+  margin: 2px 0;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.tocLevel2Container.expanded {
+  background: rgba(0, 0, 0, 0.02);
+  padding-left: 8px;
+  margin-left: 4px;
+}
+
+/* Child container with connection line */
+.tocChildContainer {
+  position: relative;
+  margin-top: 4px;
+  padding-left: 16px; /* Add left padding to make space for connection line */
+}
+
+.tocConnectionLine {
+  position: absolute;
+  left: 8px; /* Adjust position to center it */
+  top: 0;
+  bottom: 0;
+  width: 1px; /* Thin line */
+  background: #000000; /* Simple black line */
+  opacity: 0.3; /* Slightly transparent, not too intrusive */
+}
+
+.tocChildItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* Enhanced TOC item styles */
+.tocItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: left;
+  border: none;
+  background: none;
+  color: #4a5568;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 2px 0;
+  position: relative;
+}
+
+/* Level-specific hover effects with themed colors */
+.tocLevel1:hover {
+  background: rgba(26, 32, 44, 0.1);
+  color: #1a202c;
+  transform: translateX(2px);
+}
+
+.tocLevel2:hover {
+  background: rgba(49, 130, 206, 0.1);
+  color: #3182ce;
+  transform: translateX(2px);
+}
+
+.tocLevel3:hover {
+  background: rgba(56, 178, 172, 0.1);
+  color: #38b2ac;
+  transform: translateX(2px);
+}
+
+.tocLevel4:hover {
+  background: rgba(104, 211, 145, 0.1);
+  color: #68d391;
+  transform: translateX(2px);
+}
+
+.tocLevel5:hover,
+.tocLevel6:hover {
+  background: rgba(251, 211, 141, 0.1);
+  color: #fbd38d;
+  transform: translateX(2px);
+}
+
+/* Active state colors for different levels */
+.tocLevel1.active {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.tocLevel1.active .tocTitle {
+  color: white;
+}
+
+.tocLevel2.active {
+  background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.tocLevel2.active .tocTitle {
+  color: white;
+}
+
+.tocLevel3.active {
+  background: linear-gradient(135deg, #38b2ac 0%, #2c7a7b 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.tocLevel3.active .tocTitle {
+  color: white;
+}
+
+.tocLevel4.active {
+  background: linear-gradient(135deg, #68d391 0%, #48bb78 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.tocLevel4.active .tocTitle {
+  color: white;
+}
+
+.tocLevel5.active,
+.tocLevel6.active {
+  background: linear-gradient(135deg, #fbd38d 0%, #f6ad55 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.tocLevel5.active .tocTitle,
+.tocLevel6.active .tocTitle {
+  color: white;
+}
+
+/* TOC item container and content styling */
+.tocItemContainer {
+  position: relative;
+}
+
+.tocItemContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.tocTitle {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+/* Update level-specific styles for nested structure with progressive indentation */
+.tocLevel1 {
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.tocLevel2 {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #2d3748;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+}
+
+/* Child items in expanded level 2 sections with progressive indentation */
+.tocLevel3 {
+  padding: 6px 12px 6px 24px; /* Add left margin for first level indentation */
+  font-size: 0.8rem;
+  color: #4a5568;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  font-weight: 400;
+}
+
+.tocLevel4 {
+  padding: 5px 12px 5px 36px; /* Add more left margin for second level indentation */
+  font-size: 0.78rem;
+  color: #718096;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  font-weight: 400;
+}
+
+.tocLevel5,
+.tocLevel6 {
+  padding: 4px 12px 4px 48px; /* Add maximum left margin for third level indentation */
+  font-size: 0.75rem;
+  color: #a0aec0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  font-weight: 400;
+}

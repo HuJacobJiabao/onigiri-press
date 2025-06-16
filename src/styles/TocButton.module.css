@@ -1,0 +1,98 @@
+/* TOC Button Styles */
+.tocButton {
+  position: fixed; /* Fixed positioning for global layout */
+  bottom: 80px; /* Position just above scroll-to-top button (20px + 50px + 10px spacing) */
+  right: 20px; /* Same horizontal position as scroll-to-top button */
+  z-index: 1000; /* Ensure it's above other content */
+  display: none; /* Hidden by default on desktop */
+}
+
+.tocBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e74c3c, #f39c12);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.tocBtn:hover {
+  background: linear-gradient(135deg, #c0392b, #e67e22);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.tocBtn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* Active state when navigation is visible */
+.tocBtn.active {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.tocBtn.active:hover {
+  background: linear-gradient(135deg, #1e8449, #27ae60);
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+/* Animation for button appearance */
+.tocBtn {
+  animation: fadeInUp 0.3s ease-in-out;
+}
+
+/* Remove animation delay on mobile for immediate appearance */
+@media (max-width: 768px) {
+  .tocBtn {
+    animation: none; /* Remove animation on mobile for immediate display */
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tocButton {
+    display: block; /* Show TOC button on mobile for navigation control */
+    bottom: 65px; /* Position just above scroll-to-top button: 15px + 45px + 5px spacing */
+    right: 15px; /* Same horizontal position as scroll-to-top button */
+  }
+  
+  .tocBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tocButton {
+    bottom: 55px; /* Position just above scroll-to-top button: 10px + 40px + 5px spacing */
+    right: 10px; /* Same horizontal position as scroll-to-top button */
+  }
+  
+  .tocBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
