@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Card.module.css';
 import { formatDateForDisplay } from '../utils/dateFormatter';
 import { getCategoryColor, getTagColor } from '../config/config';
+import { getAssetPath } from '../utils/staticDataLoader';
 
 interface CardProps {
   title: string;
@@ -31,14 +32,17 @@ export default function Card({
   const handleClick = () => {
     if (type === 'project' && id) {
       // Navigate to project detail page
-      navigate(`/my-portfolio/projects/${id}`);
+      navigate(`/projects/${id}`);
     } else if (link) {
       // External link
       window.open(link, '_blank', 'noopener noreferrer');
     }
   };
 
-  const defaultImage = '/default_cover.jpg';
+  // 直接使用图片路径，因为在预处理阶段已经添加了baseUrl
+  const processedImage = image ? 
+    image : 
+    getAssetPath('default_cover.jpg');
   
   return (
     <div 
@@ -47,7 +51,7 @@ export default function Card({
     >
       <div className={styles.imageContainer}>
         <img 
-          src={image || defaultImage} 
+          src={processedImage} 
           alt={title} 
           className={styles.cardImage}
         />

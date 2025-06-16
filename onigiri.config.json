@@ -1,0 +1,7 @@
+{
+  "baseUrl": "/my-portfolio1111",
+  "dev": {
+    "port": 5173,
+    "open": false
+  }
+}

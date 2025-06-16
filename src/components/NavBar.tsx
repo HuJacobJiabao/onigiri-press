@@ -52,7 +52,7 @@ export default function NavBar() {
   
   return (
     <nav className={`${styles.nav} ${visible ? styles.show : styles.hide} ${atTop ? styles.transparent : styles.solid}`}>
-      <Link to="/my-portfolio/" onClick={(e) => handleNavClick('/my-portfolio/', e)} className={styles.logoLink}>
+      <Link to="/" onClick={(e) => handleNavClick('/', e)} className={styles.logoLink}>
         <div className={styles.logo}>🌟 {config.home.hero.name}</div>
       </Link>
 
@@ -62,22 +62,22 @@ export default function NavBar() {
 
       <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ''}`}>
         {config.navbar.showHome && (
-          <li><Link to="/my-portfolio/" onClick={(e) => handleNavClick('/my-portfolio/', e)}>Home</Link></li>
+          <li><Link to="/" onClick={(e) => handleNavClick('/', e)}>Home</Link></li>
         )}
         {config.navbar.showCV && (
           <li><a href={`${import.meta.env.BASE_URL}${config.resume.filename}`} target="_blank" rel="noopener noreferrer">CV</a></li>
         )}
         {config.navbar.showProjects && (
-          <li><Link to="/my-portfolio/projects/" onClick={(e) => handleNavClick('/my-portfolio/projects/', e)}>Projects</Link></li>
+          <li><Link to="/projects/" onClick={(e) => handleNavClick('/projects/', e)}>Projects</Link></li>
         )}
         {config.navbar.showBlogs && (
-          <li><Link to="/my-portfolio/blogs/" onClick={(e) => handleNavClick('/my-portfolio/blogs/', e)}>Blogs</Link></li>
+          <li><Link to="/blogs/" onClick={(e) => handleNavClick('/blogs/', e)}>Blogs</Link></li>
         )}
         {config.navbar.showLogs && (
-          <li><Link to="/my-portfolio/devlogs/" onClick={(e) => handleNavClick('/my-portfolio/devlogs/', e)}>Logs</Link></li>
+          <li><Link to="/devlogs/" onClick={(e) => handleNavClick('/devlogs/', e)}>Logs</Link></li>
         )}
         {config.navbar.showArchive && (
-          <li><Link to="/my-portfolio/archive/" onClick={(e) => handleNavClick('/my-portfolio/archive/', e)}>Archive</Link></li>
+          <li><Link to="/archive/" onClick={(e) => handleNavClick('/archive/', e)}>Archive</Link></li>
         )}
       </ul>
     </nav>

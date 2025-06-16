@@ -82,7 +82,7 @@ export default function DetailPage() {
           date: date, // Keep the original date string from URL params
           category: 'Daily Log',
           description: `Daily ${logType.replace('-', ' ')} for ${date}`,
-          link: `/my-portfolio/devlogs/${date}/${logType}`,
+          link: `/devlogs/${date}/${logType}`,
           tags: ['Development', 'Daily Log'],
           contentPath: `devlogs/${date}/${logType}.md`
         };
@@ -186,17 +186,18 @@ export default function DetailPage() {
         let markdownContent: string;
         
         if (contentType === 'dailylog') {
-          // For daily logs, load directly from frame-logs directory
-          const dailyLogPath = `${import.meta.env.BASE_URL}${contentItem.contentPath}`;
-          const response = await fetch(dailyLogPath);
+          // For daily logs, load directly from the path
+          // contentPath should already include baseUrl
+          const response = await fetch(contentItem.contentPath);
           
           if (!response.ok) {
-            throw new Error(`Daily log not found: ${dailyLogPath}`);
+            throw new Error(`Daily log not found: ${contentItem.contentPath}`);
           }
           
           markdownContent = await response.text();
         } else {
           // For regular content, use the existing loading method
+          // contentPath should already include baseUrl
           markdownContent = await loadMarkdownContent(contentItem.contentPath);
           
           if (!markdownContent) {
@@ -226,11 +227,11 @@ export default function DetailPage() {
   if (!contentItem && blogPosts.length > 0 && projects.length > 0) {
     let redirectPath: string;
     if (contentType === 'project') {
-      redirectPath = '/my-portfolio/projects/';
+      redirectPath = '/projects/';
     } else if (contentType === 'dailylog') {
-      redirectPath = '/my-portfolio/devlogs/';
+      redirectPath = '/devlogs/';
     } else {
-      redirectPath = '/my-portfolio/blogs/';
+      redirectPath = '/blogs/';
     }
     console.log('Content item not found, redirecting to:', redirectPath);
     return <Navigate to={redirectPath} replace />;
@@ -264,8 +265,10 @@ export default function DetailPage() {
   // Determine the appropriate header background
   const getHeaderBackground = () => {
     // Get default backgrounds from config
-    const defaultBlogBackground = config.content?.blogs?.defaultHeaderBackground || '/background/default_blog.png';
-    const defaultProjectBackground = config.content?.projects?.defaultHeaderBackground || '/background/default_proj.jpg';
+    const defaultBlogBackground = config.content?.blogs?.defaultHeaderBackground || 
+      `${import.meta.env.BASE_URL}background/default_blog.png`;
+    const defaultProjectBackground = config.content?.projects?.defaultHeaderBackground || 
+      `${import.meta.env.BASE_URL}background/default_proj.jpg`;
     
     // For daily logs, use the blog background
     if (contentType === 'dailylog') {
@@ -277,7 +280,7 @@ export default function DetailPage() {
       return contentType === 'project' ? defaultProjectBackground : defaultBlogBackground;
     }
     
-    // Otherwise use the contentItem.image as is
+    // Otherwise use the contentItem.image as is (it should already be processed with baseUrl)
     return contentItem.image;
   };
 

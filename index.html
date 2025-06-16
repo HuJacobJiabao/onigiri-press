@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -39,6 +39,17 @@
       }(window.location))
     </script>
     <!-- End single page apps for github pages -->
+    
+    <!-- Set favicon dynamically using JavaScript -->
+    <script>
+      // Set the favicon with the correct base URL
+      const link = document.querySelector('link[rel="icon"]');
+      if (link) {
+        // We'll be replacing this at build time
+        const baseUrl = ''; // Vite will inject the BASE_URL here
+        link.href = (baseUrl || '/') + 'favicon.png';
+      }
+    </script>
     
     <title>John Doe</title>
   </head>

@@ -518,7 +518,7 @@ const Sidebar: React.FC<SidebarProps> = React.memo(({
       {/* Profile Card with Integrated Contact Info */}
       <div className={styles.profileCard}>
         <div className={styles.photoWrapper}>
-          <img src={`${import.meta.env.BASE_URL}${config.home.profileCard.avatar}`} alt={config.home.profileCard.name} className={styles.photo} />
+          <img src={config.home.profileCard.avatar} alt={config.home.profileCard.name} className={styles.photo} />
         </div>
         <h3 className={styles.profileName}>{config.home.profileCard.name}</h3>
         <p className={styles.profileTitle}>{config.home.profileCard.title}</p>

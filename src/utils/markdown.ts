@@ -267,7 +267,10 @@ function customLinkRenderer(md: MarkdownIt) {
         const match = href.match(/^\.\/devlogs\/(\d{4}-\d{2}-\d{2})\/(change-log|developer-log)\.md$/);
         if (match) {
           const [, date, logType] = match;
-          const newHref = `/my-portfolio/devlogs/${date}/${logType}`;
+          const baseUrl = import.meta.env.BASE_URL.endsWith('/') 
+            ? import.meta.env.BASE_URL 
+            : `${import.meta.env.BASE_URL}/`;
+          const newHref = `${baseUrl}devlogs/${date}/${logType}`;
           token.attrSet('href', newHref);
         }
       }

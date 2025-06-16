@@ -20,6 +20,28 @@ const colors = {
   gray: '\x1b[90m'
 };
 
+// Read baseUrl from onigiri.config.json
+function getBaseUrl(): string {
+  try {
+    const configPath = path.join(projectRoot, 'onigiri.config.json');
+    if (fs.existsSync(configPath)) {
+      const configContent = fs.readFileSync(configPath, 'utf-8');
+      const config = JSON.parse(configContent);
+      
+      // Format baseUrl properly
+      let baseUrl = config.baseUrl || '/';
+      if (!baseUrl.startsWith('/')) baseUrl = '/' + baseUrl;
+      if (!baseUrl.endsWith('/')) baseUrl = baseUrl + '/';
+      
+      return baseUrl;
+    }
+  } catch (error) {
+    console.warn(`⚠️ Error reading onigiri.config.json:`, error);
+  }
+  
+  return '/';
+}
+
 function colorize(text: string, color: string): string {
   return `${color}${text}${colors.reset}`;
 }
@@ -165,8 +187,7 @@ function findAssets(dirPath: string): string[] {
  */
 async function processContentItem(
   contentType: 'blogs' | 'projects',
-  itemPath: string,
-  basePath: string
+  itemPath: string
 ): Promise<BlogPost | Project | null> {
   try {
     const itemName = path.basename(itemPath);
@@ -177,17 +198,25 @@ async function processContentItem(
       return null;
     }
     
-    const markdownPath = indexPath;
     const markdownContent = fs.readFileSync(indexPath, 'utf-8');
 
     const { metadata } = parseFrontmatter(markdownContent);
     
     const id = generateIdFromTitle(metadata.title || itemName);
-    const link = `/my-portfolio/${contentType}/${id}`;
-    const contentPath = path.relative(basePath, markdownPath);
+    const baseUrl = getBaseUrl();
+    const link = `${baseUrl}${contentType}/${id}`;
+    // Add baseUrl to contentPath
+    const contentPath = `${baseUrl}content/${contentType}/${path.basename(itemPath)}/index.md`;
 
     // Find assets in the same directory (for projects)
-    const assetPaths = contentType === 'projects' ? findAssets(itemPath) : [];
+    let assetPaths: string[] = [];
+    if (contentType === 'projects') {
+      const rawPaths = findAssets(itemPath);
+      // Add baseUrl to each asset path
+      assetPaths = rawPaths.map(assetPath => {
+        return `${baseUrl}content/${contentType}/${path.basename(itemPath)}/${assetPath}`;
+      });
+    }
     
     const baseItem = {
       id,
@@ -200,37 +229,60 @@ async function processContentItem(
       contentPath
     };
 
-    // Handle cover image resolution - all paths should be relative to BASE_URL
+    // Handle cover image resolution - Add baseUrl to paths
     const resolveImagePath = (coverImage: string | undefined): string | undefined => {
       if (!coverImage || coverImage === 'default') {
         // Use content-type specific default cover image from config
         const defaultCover = getDefaultCoverImage(contentType);
-        return `${process.env.BASE_URL || '/my-portfolio/'}${defaultCover}`;
+        
+        // If it's already an absolute URL, return as is
+        if (defaultCover.startsWith('http')) {
+          return defaultCover;
+        }
+        
+        // Otherwise, ensure it has the correct baseUrl prefix
+        const baseUrl = getBaseUrl();
+        
+        // Strip any existing baseUrl or leading slash to prevent duplication
+        let cleanPath = defaultCover;
+        if (cleanPath.startsWith(baseUrl)) {
+          cleanPath = cleanPath.slice(baseUrl.length);
+        }
+        if (cleanPath.startsWith('/')) {
+          cleanPath = cleanPath.slice(1);
+        }
+        
+        // Add baseUrl to the path
+        return `${baseUrl}${cleanPath}`;
       }
       
-      // Skip if it's already an absolute URL
-      if (coverImage.startsWith('http') || coverImage.startsWith(process.env.BASE_URL || '/my-portfolio/')) {
+      // If it's already an absolute URL, return as is
+      if (coverImage.startsWith('http')) {
         return coverImage;
       }
       
-      // For all relative paths, convert them to be relative to BASE_URL
+      // Remove any baseUrl prefix to prevent duplication
       let cleanPath = coverImage;
+      const baseUrl = getBaseUrl();
+      if (cleanPath.startsWith(baseUrl)) {
+        cleanPath = cleanPath.slice(baseUrl.length);
+      }
       
       // Remove leading './' if present
       if (cleanPath.startsWith('./')) {
         cleanPath = cleanPath.slice(2);
       }
       
-      // Remove leading '../' patterns and treat as relative to BASE_URL
+      // Remove leading '../' patterns
       cleanPath = cleanPath.replace(/^(\.\.\/)+/, '');
       
-      // If path starts with '/', treat it as absolute from BASE_URL
+      // Remove leading '/' if present
       if (cleanPath.startsWith('/')) {
-        return `${process.env.BASE_URL || '/my-portfolio/'}${cleanPath.slice(1)}`;
+        cleanPath = cleanPath.slice(1);
       }
       
-      // Otherwise, assume it's a path relative to BASE_URL
-      return `${process.env.BASE_URL || '/my-portfolio/'}${cleanPath}`;
+      // Add baseUrl to the clean path
+      return `${baseUrl}${cleanPath}`;
     };
 
     if (contentType === 'blogs') {
@@ -274,7 +326,7 @@ async function processContentDirectory(contentType: 'blogs' | 'projects'): Promi
       // Process folder-based content - only if it contains index.md
       const indexPath = path.join(entryPath, 'index.md');
       if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
-        const item = await processContentItem(contentType, entryPath, path.join(projectRoot, 'public', 'content'));
+        const item = await processContentItem(contentType, entryPath);
         if (item) {
           items.push(item);
         }
@@ -291,6 +343,10 @@ async function processContentDirectory(contentType: 'blogs' | 'projects'): Promi
  */
 async function generateStaticData() {
   console.log(colorize('🔍 Starting content preprocessing...', colors.cyan + colors.bright));
+  
+  // Get the baseUrl from onigiri.config.json
+  const baseUrl = getBaseUrl();
+  console.log(colorize(`🌐 Using baseUrl: ${baseUrl}`, colors.blue));
   
   try {
     // Process blogs
@@ -375,4 +431,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   generateStaticData();
 }
 
-export { generateStaticData };
+export { generateStaticData, getBaseUrl };

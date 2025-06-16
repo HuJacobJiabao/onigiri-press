@@ -9,9 +9,9 @@
       "Hello",
       "World"
     ],
-    "link": "/my-portfolio/projects/sample-project",
-    "contentPath": "projects/sample-project/index.md",
-    "image": "/my-portfolio/default_cover.jpg",
+    "link": "/my-portfolio1111/projects/sample-project",
+    "contentPath": "/my-portfolio1111/content/projects/sample-project/index.md",
+    "image": "/my-portfolio1111/default_cover.jpg",
     "assetPaths": []
   }
 ]

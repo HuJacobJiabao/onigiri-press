@@ -7,10 +7,11 @@
   "scripts": {
     "dev": "npx onigiri-press dev",
     "build": "npx onigiri-press build",
-    "generate": "npx onigiri-press generate"
+    "generate": "npx onigiri-press generate",
+    "deploy": "npx onigiri-press deploy"
   },
   "dependencies": {
-    "onigiri-press": "^1.0.3"
+    "onigiri-press": "^1.0.12"
   },
   "keywords": [
     "portfolio",

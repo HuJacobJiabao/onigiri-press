@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from '../styles/BlogCard.module.css';
 import { formatDateForDisplay } from '../utils/dateFormatter';
 import { getCategoryColor, getTagColor } from '../config/config';
+import { getAssetPath } from '../utils/staticDataLoader';
 
 interface BlogCardProps {
   title: string;
@@ -37,12 +38,17 @@ export default function BlogCard({
       console.log('Navigating to blog post:', id);
       
       // Use navigate to go to the blog detail page
-      const targetPath = `/my-portfolio/blogs/${id}`;
+      const targetPath = `/blogs/${id}`;
       navigate(targetPath);
     } else {
       console.log('No link provided for blog card');
     }
   };
+
+  // 直接使用图片路径，因为在预处理阶段已经添加了baseUrl
+  const processedImage = image ? 
+    image : 
+    getAssetPath('default_cover.jpg');
 
   return (
     <div 
@@ -51,7 +57,7 @@ export default function BlogCard({
     >
       <div className={styles.imageContainer}>
         <img 
-          src={image || `${import.meta.env.BASE_URL}default_cover.jpg`} 
+          src={processedImage} 
           alt={title} 
           className={styles.cardImage}
         />

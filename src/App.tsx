@@ -53,18 +53,18 @@ function AppContent() {
   return (
     <PageTransition transitionKey={transitionKey}>
       <Routes>
-        <Route path="/my-portfolio/" element={<Home />} />
-        <Route path="/my-portfolio/projects" element={<Projects />} />
-        <Route path="/my-portfolio/projects/" element={<Projects />} />
-        <Route path="/my-portfolio/projects/:id" element={<DetailPage />} />
-        <Route path="/my-portfolio/blogs" element={<Blogs />} />
-        <Route path="/my-portfolio/blogs/" element={<Blogs />} />
-        <Route path="/my-portfolio/blogs/:id" element={<DetailPage />} />
-        <Route path="/my-portfolio/archive" element={<Archive />} />
-        <Route path="/my-portfolio/archive/" element={<Archive />} />
-        <Route path="/my-portfolio/devlogs" element={<DeveloperLog />} />
-        <Route path="/my-portfolio/devlogs/" element={<DeveloperLog />} />
-        <Route path="/my-portfolio/devlogs/:date/:logType" element={<DetailPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/" element={<Projects />} />
+        <Route path="/projects/:id" element={<DetailPage />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<DetailPage />} />
+        <Route path="/archive" element={<Archive />} />
+        <Route path="/archive/" element={<Archive />} />
+        <Route path="/devlogs" element={<DeveloperLog />} />
+        <Route path="/devlogs/" element={<DeveloperLog />} />
+        <Route path="/devlogs/:date/:logType" element={<DetailPage />} />
       </Routes>
     </PageTransition>
   );
@@ -79,8 +79,21 @@ function App() {
   // Get global background from config (already processed with full URL)
   const backgroundUrl = config.backgrounds?.global || `${import.meta.env.BASE_URL}background/global.png`;
 
+  // Dynamically set favicon based on config
+  useEffect(() => {
+    const faviconPath = config.website?.favicon || `${import.meta.env.BASE_URL}favicon.png`;
+    let linkElement = document.querySelector("link[rel='icon']") as HTMLLinkElement;
+    if (!linkElement) {
+      linkElement = document.createElement('link');
+      linkElement.rel = 'icon';
+      linkElement.type = 'image/png';
+      document.head.appendChild(linkElement);
+    }
+    linkElement.href = faviconPath;
+  }, []);
+
   return (
-   <Router>
+   <Router basename={import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL}>
       {/* Global fixed background layer with dynamic background */}
       <div 
         className="global-background-fixed"

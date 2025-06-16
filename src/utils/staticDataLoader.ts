@@ -30,11 +30,41 @@ export interface Project {
 }
 
 /**
+ * Ensures the BASE_URL has a trailing slash
+ */
+function getFormattedBaseUrl(): string {
+  return import.meta.env.BASE_URL.endsWith('/') 
+    ? import.meta.env.BASE_URL 
+    : `${import.meta.env.BASE_URL}/`;
+}
+
+/**
+ * Builds a properly formatted asset path by adding the base URL if needed
+ * @param path - The asset path (either relative or absolute)
+ * @returns Properly formatted asset path with base URL
+ */
+export function getAssetPath(path: string): string {
+  if (!path) return '';
+  
+  // If it's already a complete URL, return as-is
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
+  }
+  
+  // For local paths, prepend the base URL, but make sure to avoid double slashes
+  const baseUrl = getFormattedBaseUrl();
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${baseUrl}${cleanPath}`;
+}
+
+/**
  * Load preprocessed blog posts from static JSON
  */
 export async function loadStaticBlogPosts(): Promise<BlogPost[]> {
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}data/blogs.json`);
+    const baseUrl = getFormattedBaseUrl();
+    const response = await fetch(`${baseUrl}data/blogs.json`);
+    
     if (!response.ok) {
       throw new Error(`Failed to load blogs: ${response.statusText}`);
     }
@@ -51,7 +81,9 @@ export async function loadStaticBlogPosts(): Promise<BlogPost[]> {
  */
 export async function loadStaticProjects(): Promise<Project[]> {
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}data/projects.json`);
+    const baseUrl = getFormattedBaseUrl();
+    const response = await fetch(`${baseUrl}data/projects.json`);
+    
     if (!response.ok) {
       throw new Error(`Failed to load projects: ${response.statusText}`);
     }
@@ -65,13 +97,12 @@ export async function loadStaticProjects(): Promise<Project[]> {
 
 /**
  * Load markdown content for a specific blog or project
- * @param contentPath - Path relative to content/ folder (from static data)
+ * @param contentPath - Full path including baseUrl (from static data)
  */
 export async function loadMarkdownContent(contentPath: string): Promise<string> {
   try {
-    // Convert content path to public content path
-    const publicPath = `${import.meta.env.BASE_URL}content/${contentPath}`;
-    const response = await fetch(publicPath);
+    // Use the contentPath directly as it now includes the baseUrl
+    const response = await fetch(contentPath);
     
     if (!response.ok) {
       throw new Error(`Failed to load content: ${response.statusText}`);
@@ -86,12 +117,19 @@ export async function loadMarkdownContent(contentPath: string): Promise<string> 
 
 /**
  * Get asset URL for a given asset path
- * @param assetPath - Path relative to content/ folder
+ * @param assetPath - Path relative to content/ folder or already including baseUrl
  */
 export function getAssetUrl(assetPath: string): string {
+  // If it's already a complete URL or already has baseUrl, return as is
+  if (assetPath.startsWith('http') || assetPath.startsWith(import.meta.env.BASE_URL)) {
+    return assetPath;
+  }
+  
   // Remove leading './' if present
   const cleanPath = assetPath.startsWith('./') ? assetPath.slice(2) : assetPath;
-  return `${import.meta.env.BASE_URL}content/${cleanPath}`;
+  // Add baseUrl and content/ prefix if needed
+  const baseUrl = getFormattedBaseUrl();
+  return `${baseUrl}content/${cleanPath}`;
 }
 
 /**
@@ -112,16 +150,25 @@ export async function findProjectById(id: string): Promise<Project | null> {
 
 /**
  * Get the last modification time of a content file
- * @param contentPath - Path relative to content/ folder (from static data) or devlogs/ for daily logs
+ * @param contentPath - Full path including baseUrl
  */
 export async function getFileLastModifiedTime(contentPath: string): Promise<string> {
   try {
+    // Extract the relative path from the full URL
+    const baseUrl = getFormattedBaseUrl();
+    let relativePath = contentPath;
+    
+    // Remove baseUrl prefix if present
+    if (relativePath.startsWith(baseUrl)) {
+      relativePath = relativePath.slice(baseUrl.length);
+    }
+    
     // Try to load file metadata first (generated at build time with actual fs.statSync)
     try {
-      const metadataResponse = await fetch(`${import.meta.env.BASE_URL}data/file-metadata.json`);
+      const metadataResponse = await fetch(`${baseUrl}data/file-metadata.json`);
       if (metadataResponse.ok) {
         const metadata = await metadataResponse.json();
-        const fileMetadata = metadata[contentPath];
+        const fileMetadata = metadata[relativePath];
         
         if (fileMetadata && fileMetadata.lastModified) {
           return new Date(fileMetadata.lastModified).toLocaleDateString();
@@ -132,8 +179,8 @@ export async function getFileLastModifiedTime(contentPath: string): Promise<stri
     }
 
     // For devlogs, extract date from path as fallback if metadata is not available
-    if (contentPath.startsWith('devlogs/')) {
-      const dateMatch = contentPath.match(/devlogs\/(\d{4}-\d{2}-\d{2})\//);
+    if (relativePath.includes('devlogs/')) {
+      const dateMatch = relativePath.match(/devlogs\/(\d{4}-\d{2}-\d{2})\//);
       if (dateMatch) {
         const dateStr = dateMatch[1];
         const date = new Date(dateStr);
@@ -144,8 +191,8 @@ export async function getFileLastModifiedTime(contentPath: string): Promise<stri
     }
 
     // For blogs/projects, try to extract date from the filename if metadata not available
-    if (contentPath.includes('blogs/') || contentPath.includes('projects/')) {
-      const dateMatch = contentPath.match(/(\d{4}-\d{2}-\d{2})/);
+    if (relativePath.includes('blogs/') || relativePath.includes('projects/')) {
+      const dateMatch = relativePath.match(/(\d{4}-\d{2}-\d{2})/);
       if (dateMatch) {
         const dateStr = dateMatch[1];
         const date = new Date(dateStr);
@@ -161,8 +208,17 @@ export async function getFileLastModifiedTime(contentPath: string): Promise<stri
     console.error(`Error getting last modified time for ${contentPath}:`, error);
     
     // Even in error case, try to extract date from path for devlogs
-    if (contentPath.startsWith('devlogs/')) {
-      const dateMatch = contentPath.match(/devlogs\/(\d{4}-\d{2}-\d{2})\//);
+    // Extract the relative path from the full URL for error handling
+    const baseUrl = getFormattedBaseUrl();
+    let relativePath = contentPath;
+    
+    // Remove baseUrl prefix if present
+    if (relativePath.startsWith(baseUrl)) {
+      relativePath = relativePath.slice(baseUrl.length);
+    }
+    
+    if (relativePath.includes('devlogs/')) {
+      const dateMatch = relativePath.match(/devlogs\/(\d{4}-\d{2}-\d{2})\//);
       if (dateMatch) {
         const dateStr = dateMatch[1];
         const date = new Date(dateStr);

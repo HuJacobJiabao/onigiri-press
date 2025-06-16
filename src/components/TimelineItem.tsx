@@ -27,10 +27,10 @@ export default function TimelineItem({
   const handleClick = () => {
     if (type === 'project' && id) {
       // Navigate to project detail page
-      navigate(`/my-portfolio/projects/${id}`);
+      navigate(`/projects/${id}`);
     } else if (type === 'blog' && id) {
       // Navigate to blog detail page
-      navigate(`/my-portfolio/blogs/${id}`);
+      navigate(`/blogs/${id}`);
     } else if (link) {
       // External link
       window.open(link, '_blank', 'noopener noreferrer');

@@ -1,22 +1,12 @@
 import configData from '../../config.yaml';
+import { getAssetPath } from '../utils/staticDataLoader';
 
-// Utility functions for URL processing
-function isExternalUrl(url: string): boolean {
-  return url.startsWith('http://') || url.startsWith('https://');
-}
-
+// Utility function for building URLs with baseUrl
 function buildUrl(path: string): string {
   if (!path) return '';
   
-  // If it's already a complete URL, return as-is
-  if (isExternalUrl(path)) {
-    return path;
-  }
-  
-  // For local paths, prepend the base URL, but make sure to avoid double slashes
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${baseUrl}${cleanPath}`;
+  // Use the shared getAssetPath utility from staticDataLoader
+  return getAssetPath(path);
 }
 
 // Removed buildImagePath - using buildUrl for all paths
@@ -84,6 +74,11 @@ function processConfig(rawConfig: any): Config {
         section.defaultCover = buildUrl(section.defaultCover);
       }
     });
+  }
+  
+  // Process profileCard avatar
+  if (processed.home?.profileCard?.avatar) {
+    processed.home.profileCard.avatar = buildUrl(processed.home.profileCard.avatar);
   }
   
   return processed;
