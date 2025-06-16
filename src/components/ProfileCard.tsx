@@ -5,12 +5,13 @@ import config from '../config/config';
 const ProfileCard: React.FC = () => {
   // Get contact data directly from navigation
   const contactData = config.home.navigation.contact;
-  const avatarSrc = config.home.profileCard.avatar || 'favicon.png';
+  // Use processed avatar path (already includes baseUrl) or fallback
+  const avatarSrc = config.home.profileCard.avatar || `${import.meta.env.BASE_URL}favicon.png`;
 
   return (
     <div className={styles.profileCard}>
       <div className={styles.photoWrapper}>
-        <img src={`${import.meta.env.BASE_URL}${avatarSrc}`} alt={config.home.profileCard.name} className={styles.photo} />
+        <img src={avatarSrc} alt={config.home.profileCard.name} className={styles.photo} />
       </div>
       <h3 className={styles.profileName}>{config.home.profileCard.name}</h3>
       <p className={styles.profileTitle}>{config.home.profileCard.title}</p>

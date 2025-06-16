@@ -80,6 +80,10 @@ function processConfig(rawConfig: any): Config {
   if (processed.home?.profileCard?.avatar) {
     processed.home.profileCard.avatar = buildUrl(processed.home.profileCard.avatar);
   }
+
+  if (processed.website?.favicon) {
+    processed.website.favicon = buildUrl(processed.website.favicon);
+  }
   
   return processed;
 }

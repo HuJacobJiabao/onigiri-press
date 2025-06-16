@@ -3,31 +3,6 @@ import react from '@vitejs/plugin-react'
 import yamlPlugin from '@rollup/plugin-yaml'
 import path from 'path'
 import fs from 'fs'
-import type { Plugin } from 'vite'
-
-// Custom plugin to replace asset paths in HTML
-function htmlAssetPathsPlugin(baseUrl: string): Plugin {
-  return {
-    name: 'html-asset-paths',
-    enforce: 'post',
-    configResolved(config) {
-      console.log('DEBUG - Plugin config resolved. Base:', config.base);
-      baseUrl = config.base;
-    },
-    transformIndexHtml(html) {
-      console.log('DEBUG - Transform HTML called with baseUrl:', baseUrl);
-      // 确保路径正确
-      const base = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
-      console.log('DEBUG - Final base path:', base);
-      
-      // 使用更精确的替换
-      return html.replace(
-        /<link[^>]*rel="icon"[^>]*href="\/favicon\.png"[^>]*>/,
-        `<link rel="icon" type="image/png" href="${base}favicon.png" />`
-      );
-    }
-  };
-}
 
 // Read config from onigiri.config.json
 function readOnigiriConfig(): any {
@@ -78,7 +53,6 @@ function getOutDir(): string {
 export default defineConfig({
   base: getBaseUrl(),
   plugins: [
-    htmlAssetPathsPlugin(getBaseUrl()),
     react(),
     yamlPlugin()
   ],

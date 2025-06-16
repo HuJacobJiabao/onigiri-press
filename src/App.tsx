@@ -81,15 +81,29 @@ function App() {
 
   // Dynamically set favicon based on config
   useEffect(() => {
-    const faviconPath = config.website?.favicon || `${import.meta.env.BASE_URL}favicon.png`;
+    const baseUrl = import.meta.env.BASE_URL;
+    // Ensure base URL ends with a slash
+    const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+    
+    // Use processed favicon from config (already includes baseUrl) or fallback
+    const faviconPath = config.website?.favicon || `${normalizedBaseUrl}favicon.png`;
+    
+    // console.log('Setting favicon with base URL:', baseUrl);
+    // console.log('Config favicon (processed):', config.website?.favicon);
+    // console.log('Final favicon path:', faviconPath);
+    
     let linkElement = document.querySelector("link[rel='icon']") as HTMLLinkElement;
     if (!linkElement) {
+      console.log('Creating new favicon link element');
       linkElement = document.createElement('link');
       linkElement.rel = 'icon';
       linkElement.type = 'image/png';
       document.head.appendChild(linkElement);
+    } else {
+      console.log('Found existing favicon link element');
     }
     linkElement.href = faviconPath;
+    console.log('Favicon href set to:', linkElement.href);
   }, []);
 
   return (
