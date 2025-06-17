@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "my-onigiri-project",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "My portfolio and blog built with OnigiriPress",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "deploy": "npx onigiri-press deploy"
   },
   "dependencies": {
-    "onigiri-press": "^1.0.12"
+    "onigiri-press": "^1.1.16"
   },
   "keywords": [
     "portfolio",

@@ -59,13 +59,17 @@ function convertToBaseUrlPath(path: string): string {
   // Remove leading '../' patterns as we want everything relative to BASE_URL
   cleanPath = cleanPath.replace(/^(\.\.\/)+/, '');
   
+  // Ensure BASE_URL ends with a slash
+  const baseUrl = import.meta.env.BASE_URL;
+  const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+  
   // If path starts with '/', treat it as absolute from BASE_URL
   if (cleanPath.startsWith('/')) {
-    return `${import.meta.env.BASE_URL}${cleanPath.slice(1)}`;
+    return `${normalizedBaseUrl}${cleanPath.slice(1)}`;
   }
   
   // For all other paths, treat them as relative to BASE_URL
-  return `${import.meta.env.BASE_URL}${cleanPath}`;
+  return `${normalizedBaseUrl}${cleanPath}`;
 }
 
 export interface TocItem {

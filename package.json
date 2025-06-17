@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "onigiri-press",
   "private": false,
-  "version": "1.0.12",
+  "version": "1.1.16",
   "type": "module",
   "description": "A modern, lightweight portfolio and blog framework built with React, TypeScript, and Vite. Easy to customize, supports markdown content, and includes powerful blog functionality.",
   "homepage": "https://github.com/HuJacobJiabao/onigiri-press",
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "dev": "npm run preprocess && vite",
-    "build": "npm run preprocess && tsc -b && vite build && cp public/404.html dist/404.html && touch dist/.nojekyll",
+    "build": "npm run preprocess && tsc -b && vite build && cp public/404.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
@@ -78,6 +78,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/katex": "^0.16.7",
     "@types/node": "^22.15.29",
     "@types/prismjs": "^1.26.5",

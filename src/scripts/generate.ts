@@ -85,8 +85,9 @@ async function generateContent(type: 'blog' | 'project', articleName: string) {
   const templatesDir = path.join(projectRoot, 'templates');
   const contentDir = path.join(projectRoot, 'public', 'content', type === 'blog' ? 'blogs' : 'projects');
   
-  // Sanitize the article name for use as folder name
+  // Sanitize the article name for use as folder name and file name
   const folderName = sanitizeFilename(articleName);
+  const fileName = 'index.md';
   
   if (!folderName) {
     throw new Error('Invalid article name provided');
@@ -118,7 +119,7 @@ async function generateContent(type: 'blog' | 'project', articleName: string) {
   const updatedContent = updateFrontmatter(templateContent, articleName);
   
   // Copy template to article folder as index.md
-  const articleFilePath = path.join(articleDir, 'index.md');
+  const articleFilePath = path.join(articleDir, fileName);
   fs.writeFileSync(articleFilePath, updatedContent, 'utf-8');
   
   // Convert to relative paths for display

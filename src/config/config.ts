@@ -1,5 +1,5 @@
-import configData from '../../config.yaml';
 import { getAssetPath } from '../utils/staticDataLoader';
+import configData from '../../config.yaml';
 
 // Utility function for building URLs with baseUrl
 function buildUrl(path: string): string {

@@ -3,7 +3,7 @@
 import { Command } from 'commander';
 import fs from 'fs';
 import path from 'path';
-import { execSync } from 'child_process';
+import { execSync, spawn } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,7 +14,7 @@ const program = new Command();
 program
   .name('ongr')
   .description('OnigiriPress - A modern portfolio framework')
-  .version('1.0.12');
+  .version('1.1.16');
 
 program
   .command('init [project-name]')
@@ -60,6 +60,7 @@ program
       console.log('   ✓ Created package.json');
     }
     
+    
     // Copy public directory
     const publicDir = path.join(packageDir, 'public');
     const publicTarget = path.join(projectPath, 'public');
@@ -74,6 +75,22 @@ program
     if (fs.existsSync(templatesDir)) {
       fs.cpSync(templatesDir, templatesTarget, { recursive: true });
       console.log('   ✓ Copied templates/ directory');
+    }
+
+    // Copy gitignore
+    const gitignoreTemplate = path.join(packageDir, 'gitignore.template');
+    const gitignoreTarget = path.join(projectPath, '.gitignore');
+    if (fs.existsSync(gitignoreTemplate)) {
+      fs.copyFileSync(gitignoreTemplate, gitignoreTarget);
+      console.log('   ✓ Created .gitignore');
+    }
+    
+    // Copy README
+    const readmeTemplate = path.join(packageDir, 'README.template.md');
+    const readmeTarget = path.join(projectPath, 'README.md');
+    if (fs.existsSync(readmeTemplate)) {
+      fs.copyFileSync(readmeTemplate, readmeTarget);
+      console.log('   ✓ Created README.md');
     }
     
     console.log('✅ Project created successfully!');
@@ -91,7 +108,7 @@ function getBaseUrl(userDir) {
     try {
       const configJson = JSON.parse(fs.readFileSync(configJsonPath, 'utf8'));
       if (configJson.baseUrl) {
-        console.log(`📍 Using baseUrl from onigiri.config.json: ${configJson.baseUrl}`);
+        // console.log(`📍 Using baseUrl from onigiri.config.json: ${configJson.baseUrl}`);
         return configJson.baseUrl;
       }
     } catch (error) {
@@ -109,7 +126,7 @@ function getBaseUrl(userDir) {
       const baseUrlMatch = configContent.match(/baseUrl:\s*["']?([^"']+)["']?/);
       if (baseUrlMatch && baseUrlMatch[1]) {
         const baseUrl = baseUrlMatch[1];
-        console.log(`📍 Using baseUrl from config.yaml: ${baseUrl}`);
+        // console.log(`📍 Using baseUrl from config.yaml: ${baseUrl}`);
         return baseUrl;
       }
     } catch (error) {
@@ -118,7 +135,7 @@ function getBaseUrl(userDir) {
   }
   
   // Default fallback
-  console.log('📍 Using default baseUrl: /');
+  // console.log('📍 Using default baseUrl: /');
   return '/';
 }
 
@@ -130,12 +147,14 @@ program
     try {
       const userDir = process.cwd();
       const packageDir = path.dirname(__dirname);
+      const preprocessScript = path.join(packageDir, 'src', 'scripts', 'preprocess-content.ts');
       
-      // First run preprocessing in user directory
+      // First run preprocessing from global package location
       console.log('🔄 Step 1: Preprocessing content...');
-      execSync('npx tsx node_modules/onigiri-press/src/scripts/preprocess-content.ts', { 
+      execSync(`npx tsx "${preprocessScript}"`, { 
         stdio: 'inherit', 
-        cwd: userDir 
+        cwd: userDir,
+        env: { ...process.env, NODE_PATH: packageDir }
       });
       
       // Get baseUrl from config for development
@@ -160,45 +179,63 @@ program
 program
   .command('build')
   .description('Build for production')
-  .action(() => {
+  .action(async () => {
     console.log('🔨 Building for production...');
     try {
       const userDir = process.cwd();
       const packageDir = path.dirname(__dirname);
+      const preprocessScript = path.join(packageDir, 'src', 'scripts', 'preprocess-content.ts');
       
-      // First run preprocessing in user directory
+      // First run preprocessing from global package location
       console.log('🔄 Step 1: Preprocessing content...');
-      execSync('npx tsx node_modules/onigiri-press/src/scripts/preprocess-content.ts', { 
+      execSync(`npx tsx "${preprocessScript}"`, { 
         stdio: 'inherit', 
-        cwd: userDir 
+        cwd: userDir,
+        env: { ...process.env, NODE_PATH: packageDir }
       });
       
       // Get baseUrl from config for production build
       const baseUrl = getBaseUrl(userDir);
       
-      console.log('🔨 Step 2: Building for production...');
-      execSync('npx vite build', { 
-        stdio: 'inherit', 
+      console.log('🔨 Step 2: Building with Vite...');
+      
+      // Run vite build from the package directory (where all dependencies exist)
+      // but output to the user directory
+      const viteBuild = spawn('npx', ['vite', 'build'], {
         cwd: packageDir,
         env: { 
           ...process.env, 
           VITE_USER_DIR: userDir,
           VITE_BASE_URL: baseUrl,
-          NODE_ENV: 'production'
-        }
+          NODE_ENV: 'production',
+          FORCE_COLOR: '1' // Preserve terminal colors
+        },
+        stdio: ['inherit', 'pipe', 'pipe']
       });
       
-      // Copy dist to user directory
-      console.log('📦 Step 3: Copying build output...');
-      const distSource = path.join(packageDir, 'dist');
-      const distTarget = path.join(userDir, 'dist');
-      if (fs.existsSync(distSource)) {
-        if (fs.existsSync(distTarget)) {
-          fs.rmSync(distTarget, { recursive: true });
-        }
-        fs.cpSync(distSource, distTarget, { recursive: true });
-        console.log('   ✓ Build output copied to ./dist');
-      }
+      // Process stdout line by line to clean paths in real-time
+      viteBuild.stdout.on('data', (data) => {
+        const output = data.toString();
+        // Replace long absolute paths with cleaner relative ones
+        const cleanedOutput = output.replace(/.*?onigiri-test.*?\/dist\//g, 'dist/');
+        process.stdout.write(cleanedOutput);
+      });
+      
+      // Pass stderr through unchanged
+      viteBuild.stderr.on('data', (data) => {
+        process.stderr.write(data);
+      });
+      
+      // Wait for build to complete
+      await new Promise((resolve, reject) => {
+        viteBuild.on('close', (code) => {
+          if (code === 0) {
+            resolve();
+          } else {
+            reject(new Error(`Build failed with exit code ${code}`));
+          }
+        });
+      });
       
       console.log('✅ Build completed!');
     } catch (error) {
@@ -246,73 +283,98 @@ program
   });
 
 program
-  .command('deploy')
-  .description('Build and deploy to GitHub Pages')
-  .option('-b, --base <url>', 'Override base URL for deployment')
-  .action(async (options) => {
-    console.log('🚀 Building and deploying to GitHub Pages...');
+  .command('load')
+  .alias('l')
+  .description('Load and preprocess content files (blogs and projects)')
+  .action(() => {
+    console.log('🔄 Loading and preprocessing content...');
+    
+    // Find the onigiri-press package directory
+    const packageDir = path.dirname(__dirname);
+    const preprocessScript = path.join(packageDir, 'src', 'scripts', 'preprocess-content.ts');
     
     try {
+      // Use tsx to run the preprocessing script directly
+      execSync(`npx tsx "${preprocessScript}"`, { 
+        stdio: 'inherit', 
+        cwd: process.cwd(),
+        env: { ...process.env, NODE_PATH: packageDir }
+      });
+      console.log('✅ Content preprocessing completed!');
+    } catch (error) {
+      console.error('❌ Content preprocessing failed');
+      console.error('Error details:', error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('deploy')
+  .alias('d')
+  .description('Deploy to GitHub Pages (requires manual build first)')
+  .option('-b, --base <url>', 'Override base URL for deployment')
+  .action(async (options) => {
+    console.log('🚀 Deploying to GitHub Pages...');
+    
+    try {
+      // Check if dist directory exists
+      if (!fs.existsSync('dist')) {
+        console.error('❌ No dist directory found!');
+        console.error('💡 Please run "ongr build" first to create the production build');
+        process.exit(1);
+      }
+      
       // Read config to get deployment settings
       let baseUrl = '/';
       let repoName = 'my-portfolio';
       let isUserRepo = false;
       
-      if (fs.existsSync('config.yaml')) {
-        const configContent = fs.readFileSync('config.yaml', 'utf8');
-        const yaml = await import('yaml');
-        const config = yaml.parse(configContent);
+      // First, try to read from onigiri.config.json
+      if (fs.existsSync('onigiri.config.json')) {
+        const onigiriConfigContent = fs.readFileSync('onigiri.config.json', 'utf8');
+        const onigiriConfig = JSON.parse(onigiriConfigContent);
         
-        if (config?.deployment?.github?.repository) {
-          repoName = config.deployment.github.repository;
-          // Check if this is a user/organization repository (username.github.io pattern)
-          isUserRepo = repoName.endsWith('.github.io');
+        if (onigiriConfig.baseUrl) {
+          baseUrl = onigiriConfig.baseUrl;
+          console.log(`📍 Using base URL from onigiri.config.json: ${baseUrl}`);
         }
         
-        if (options.base) {
-          baseUrl = options.base;
-          console.log(`📍 Using custom base URL: ${baseUrl}`);
-        } else if (config?.deployment?.baseUrl && config.deployment.baseUrl !== '') {
-          baseUrl = config.deployment.baseUrl;
-          console.log(`📍 Using configured base URL: ${baseUrl}`);
-        } else if (isUserRepo) {
-          baseUrl = '/';
-          console.log(`📍 Detected user/org repository (${repoName}), using base URL: /`);
-        } else {
-          baseUrl = `/${repoName}/`;
-          console.log(`📍 Detected project repository (${repoName}), using base URL: /${repoName}/`);
+        // Extract repository name from baseUrl if it follows GitHub Pages pattern
+        if (baseUrl !== '/' && baseUrl.startsWith('/') && baseUrl.endsWith('/')) {
+          const pathPart = baseUrl.slice(1, -1); // Remove leading and trailing slashes
+          if (pathPart && !pathPart.includes('/')) {
+            repoName = pathPart;
+            console.log(`📦 Detected repository name from baseUrl: ${repoName}`);
+          }
         }
       } else {
-        console.log('⚠️  No config.yaml found, using default base URL: /');
+        console.log('⚠️  No onigiri.config.json found, using default settings');
       }
       
-      console.log(`📦 Building with base URL: ${baseUrl}`);
+      // Allow command line override
+      if (options.base) {
+        baseUrl = options.base;
+        console.log(`📍 Using custom base URL from command line: ${baseUrl}`);
+      }
       
-      // First run preprocessing in user directory
-      console.log('🔄 Step 1: Preprocessing content...');
-      execSync('npx tsx node_modules/onigiri-press/src/scripts/preprocess-content.ts', { stdio: 'inherit', cwd: process.cwd() });
+      // Check if this looks like a user/organization repository
+      isUserRepo = baseUrl === '/';
       
-      // Then build with vite from onigiri-press directory but output to user directory
-      console.log('🔨 Step 2: Building for production...');
-      const packageDir = path.join(process.cwd(), 'node_modules', 'onigiri-press');
-      execSync(`npx vite build`, { 
-        stdio: 'inherit', 
-        cwd: packageDir,
-        env: { 
-          ...process.env, 
-          VITE_BASE_URL: baseUrl,
-          VITE_USER_DIR: process.cwd(),
-          NODE_ENV: 'production'
-        }
-      });
+      if (isUserRepo) {
+        console.log(`📍 Detected user/org repository, using base URL: /`);
+      } else {
+        console.log(`📍 Detected project repository, using base URL: ${baseUrl}`);
+      }
       
-      // Finally deploy with gh-pages
-      console.log('🌐 Step 3: Deploying to GitHub Pages...');
-      execSync('npx gh-pages -d dist', { stdio: 'inherit', cwd: process.cwd() });
+      // Deploy with gh-pages
+      console.log('🌐 Deploying to GitHub Pages...');
+      // Use nojekyll option to add .nojekyll without including other dotfiles like .gitignore
+      execSync('npx gh-pages -d dist --nojekyll --remove ".*"', { stdio: 'inherit', cwd: process.cwd() });
       
       console.log('✅ Deployment completed successfully!');
       if (isUserRepo) {
-        console.log(`🎉 Your site should be available at: https://${repoName}/`);
+        console.log(`🎉 Your site should be available at: https://<username>.github.io/`);
+        console.log('💡 Replace <username> with your actual GitHub username');
       } else {
         console.log(`🎉 Your site should be available at: https://<username>.github.io${baseUrl}`);
         console.log('💡 Replace <username> with your actual GitHub username');
@@ -320,10 +382,11 @@ program
     } catch (error) {
       console.error('❌ Deployment failed');
       console.error('💡 Make sure you have:');
+      console.error('   • Run "ongr build" to create a production build');
       console.error('   • Initialized a git repository');
       console.error('   • Set up GitHub Pages in your repository settings');
       console.error('   • Pushed your code to GitHub');
-      console.error('   • Configured deployment settings in config.yaml');
+      console.error('   • Configured baseUrl in onigiri.config.json (if needed)');
       process.exit(1);
     }
   });

@@ -20,7 +20,7 @@
 #       content: "Your content here..."
 
 website:
-  title: "Your Name"
+  title: "Your Title"
   titleSeparator: " | "
   favicon: "/favicon.png"
   description: "Portfolio website of Your Name. Customize this description with your own information."
@@ -69,7 +69,7 @@ home:
         content: >
           write your self-introduction here. This section supports markdown formatting, 
           so you can include [links](https://example.com) and other formatting.
-        photo: "onigiripress.svg"
+        photo: "favicon.png"  # Optional photo for the about section
 
     education:
       title: "Education"
@@ -481,14 +481,14 @@ footer:
 
 # Audio Player configuration
 audioPlayer:
-  enabled: false   # Set to true to enable audio player
+  enabled: true   # Set to true to enable audio player
   fixed: true   # Set to true for floating player
   volume: 0.7
   showLrc: true
   
   # MetingJS configuration
   meting:
-    enabled: false   # Set to true to use MetingJS instead of local audio files
+    enabled: true   # Set to true to use MetingJS instead of local audio files
     server: "netease"   # Music server: netease, tencent, kugou, xiami, baidu
     type: "playlist"    # Type: song, playlist, album, search, artist
     id: "50744483"    # Music ID from the platform

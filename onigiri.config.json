@@ -1,5 +1,5 @@
 {
-  "baseUrl": "/my-portfolio1111",
+  "baseUrl": "/deploy-test", 
   "dev": {
     "port": 5173,
     "open": false

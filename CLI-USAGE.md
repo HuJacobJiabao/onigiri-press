@@ -29,6 +29,23 @@ ongr build        # Build static files
 ```bash
 ongr generate blog "My New Blog Post"
 ongr generate project "Awesome Project"
+
+# Aliases available:
+ongr g blog "My Blog"     # g for generate
+ongr g b "My Blog"        # b for blog
+ongr g p "My Project"     # p for project
+```
+
+### Load and preprocess content
+```bash
+ongr load         # Load and preprocess all content files
+ongr l            # Short alias for load
+```
+
+### Deploy to GitHub Pages
+```bash
+ongr deploy       # Build and deploy to GitHub Pages
+ongr d            # Short alias for deploy
 ```
 
 ## Project Structure

@@ -1,5 +1,21 @@
 [
   {
+    "id": "file-path-test-project",
+    "title": "File Path Test Project",
+    "date": "2025-06-16T15:09:07.246Z",
+    "category": "testing",
+    "description": "Testing various file path references in markdown content",
+    "tags": [
+      "test",
+      "file-paths",
+      "markdown"
+    ],
+    "link": "/deploy-test/projects/file-path-test-project",
+    "contentPath": "/deploy-test/content/projects/file-path-test/index.md",
+    "image": "/deploy-test/background/default_proj.jpg",
+    "assetPaths": []
+  },
+  {
     "id": "sample-project",
     "title": "Sample project",
     "date": "2025-06-16T01:44:48.318Z",
@@ -9,9 +25,9 @@
       "Hello",
       "World"
     ],
-    "link": "/my-portfolio1111/projects/sample-project",
-    "contentPath": "/my-portfolio1111/content/projects/sample-project/index.md",
-    "image": "/my-portfolio1111/default_cover.jpg",
+    "link": "/deploy-test/projects/sample-project",
+    "contentPath": "/deploy-test/content/projects/sample-project/index.md",
+    "image": "/deploy-test/default_cover.jpg",
     "assetPaths": []
   }
 ]

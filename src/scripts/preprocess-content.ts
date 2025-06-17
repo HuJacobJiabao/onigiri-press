@@ -2,7 +2,6 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { getDefaultCoverImage } from './content-config-loader';
 import generateFileMetadata from './generate-file-metadata';
 
@@ -22,8 +21,11 @@ const colors = {
 
 // Read baseUrl from onigiri.config.json
 function getBaseUrl(): string {
+  // Try to get user directory from environment variable first (CLI usage)
+  const userDir = process.env.VITE_USER_DIR || process.cwd();
+  
   try {
-    const configPath = path.join(projectRoot, 'onigiri.config.json');
+    const configPath = path.join(userDir, 'onigiri.config.json');
     if (fs.existsSync(configPath)) {
       const configContent = fs.readFileSync(configPath, 'utf-8');
       const config = JSON.parse(configContent);
@@ -33,10 +35,29 @@ function getBaseUrl(): string {
       if (!baseUrl.startsWith('/')) baseUrl = '/' + baseUrl;
       if (!baseUrl.endsWith('/')) baseUrl = baseUrl + '/';
       
+      // console.log(`📍 Reading baseUrl from user config: ${configPath}`);
       return baseUrl;
     }
   } catch (error) {
-    console.warn(`⚠️ Error reading onigiri.config.json:`, error);
+    console.warn(`⚠️ Error reading onigiri.config.json from user directory:`, error);
+  }
+  
+  // Fallback to package directory for development
+  try {
+    const configPath = path.join(projectRoot, 'onigiri.config.json');
+    if (fs.existsSync(configPath)) {
+      const configContent = fs.readFileSync(configPath, 'utf-8');
+      const config = JSON.parse(configContent);
+      
+      let baseUrl = config.baseUrl || '/';
+      if (!baseUrl.startsWith('/')) baseUrl = '/' + baseUrl;
+      if (!baseUrl.endsWith('/')) baseUrl = baseUrl + '/';
+      
+      console.log(`📍 Reading baseUrl from package config: ${configPath}`);
+      return baseUrl;
+    }
+  } catch (error) {
+    console.warn(`⚠️ Error reading onigiri.config.json from package directory:`, error);
   }
   
   return '/';
@@ -46,10 +67,12 @@ function colorize(text: string, color: string): string {
   return `${color}${text}${colors.reset}`;
 }
 
-// Get project root directory
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const projectRoot = path.resolve(__dirname, '../..');
+// Get the actual project root (user directory when running via CLI)
+function getProjectRoot(): string {
+  return process.env.VITE_USER_DIR || process.cwd();
+}
+
+const projectRoot = getProjectRoot();
 
 interface ContentMetadata {
   type: 'blog' | 'project';
@@ -325,6 +348,7 @@ async function processContentDirectory(contentType: 'blogs' | 'projects'): Promi
     if (stat.isDirectory()) {
       // Process folder-based content - only if it contains index.md
       const indexPath = path.join(entryPath, 'index.md');
+      
       if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
         const item = await processContentItem(contentType, entryPath);
         if (item) {
