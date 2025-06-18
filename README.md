@@ -1,223 +1,344 @@
-# 🍙 Onigiri Portfolio Framework
+<div align="center">
 
-> A modern, lightweight portfolio framework built with React, TypeScript, and Vite
+  # 🍙 Onigiri Press
+  <img src="public/favicon.png" alt="Onigiri Press Logo" width="120" height="120">
+  
+  **A Modern, Lightweight Portfolio & Blog Framework**
+  
+  *Built with React, TypeScript, and Vite*
+  
+  [![npm version](https://badge.fury.io/js/onigiri-press.svg)](https://www.npmjs.com/package/onigiri-press) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/) [![React](https://img.shields.io/badge/React-18+-61dafb.svg)](https://reactjs.org/)
+  
+</div>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue.svg)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19-61dafb.svg)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.3-646cff.svg)](https://vitejs.dev/)
+---
 
-**Onigiri** is a beautiful, responsive portfolio framework that makes it easy to showcase your work, write blog posts, and create a professional online presence. Built with modern web technologies, it offers excellent performance, customization options, and a delightful developer experience.
+## 🍙 What is Onigiri?
 
-## ✨ Features
+**Onigiri** (おにぎり) is a traditional Japanese rice ball - simple, portable, and satisfying. Just like the beloved food that inspired its name, Onigiri Press embodies the Japanese philosophy of simplicity, functionality, and thoughtful design.
 
-- 🚀 **Modern Tech Stack**: React 19, TypeScript, Vite for lightning-fast development
-- 📱 **Fully Responsive**: Beautiful on desktop, tablet, and mobile devices
-- 📝 **Markdown Blog**: Write posts in markdown with syntax highlighting and math support
-- 🎨 **Highly Customizable**: YAML configuration, CSS variables, and modular components
-- 🔍 **SEO Optimized**: Meta tags, structured data, and social media integration
-- ⚡ **Performance First**: Code splitting, lazy loading, and optimized builds
-- 🌙 **Dark Mode Ready**: Easy to implement dark/light theme switching
-- 🎵 **Audio Player**: Optional background music integration
-- � **Analytics Ready**: Google Analytics and other tracking tools support
-- 🚀 **Deploy Anywhere**: GitHub Pages, Vercel, Netlify, and more
+Much like how onigiri wraps nutritious ingredients in perfectly seasoned rice, **Onigiri Press** wraps your content, projects, and ideas in a clean, efficient framework that's both beautiful and functional.
 
-## 🎯 Perfect For
+## 🚀 What is Onigiri Press?
 
-- **Developers** showcasing their projects and skills
-- **Designers** displaying their portfolio and creative work
-- **Students** creating academic and project portfolios
-- **Professionals** building their personal brand online
-- **Bloggers** sharing knowledge and experiences
+**Onigiri Press** is a modern, lightweight portfolio and blog framework designed for developers, designers, and content creators who value:
+
+- **Simplicity**: Clean, intuitive design that puts your content first
+- **Performance**: Lightning-fast loading with optimized static generation
+- **Flexibility**: Easy customization without compromising functionality
+- **Developer Experience**: Modern tooling with TypeScript, React, and Vite
+
+### ✨ Key Features
+
+🎨 **Beautiful & Responsive Design**
+- Modern, clean interface that works on all devices
+- Customizable themes and layouts
+- Smooth animations and transitions
+
+📝 **Powerful Content Management**
+- Markdown-based content with advanced features
+- Support for blogs, projects, and portfolios
+- Rich text formatting with syntax highlighting
+
+⚡ **Performance Optimized**
+- Static site generation for lightning-fast loading
+- Optimized images and assets
+- SEO-friendly structure
+
+🛠️ **Developer Friendly**
+- TypeScript support out of the box
+- Hot reload development server
+- Easy deployment to GitHub Pages, Netlify, Vercel
+
+🎵 **Rich Media Support**
+- Audio player integration (APlayer/MetingJS)
+- Image galleries and carousels
+- Video embedding support
+
+📊 **Advanced Features**
+- Math equations with KaTeX
+- Code syntax highlighting with Prism
+- Table of contents generation
+- Tag and category filtering
+
+---
 
 ## 🚀 Quick Start
 
-Get your portfolio up and running in under 5 minutes!
-
-### Option 1: Use This Template (Recommended)
-
-1. Click the "Use this template" button on GitHub
-2. Clone your new repository
-3. Install dependencies and start developing
+### Global Installation
 
 ```bash
-git clone https://github.com/yourusername/your-portfolio.git
-cd your-portfolio
+# Install Onigiri Press globally
+npm install -g onigiri-press
+```
+
+### Create Your First Project
+
+```bash
+# Initialize a new project
+ongr init my-awesome-portfolio
+
+# Navigate to your project
+cd my-awesome-portfolio
+
+# Install dependencies
 npm install
-npm run dev
+
+# Start development server
+ongr dev
 ```
 
-### Option 2: Fork or Download
+Your site will be available at `http://localhost:5173` 🎉
+
+---
+
+## 📖 Usage Guide
+
+### Essential Commands
 
 ```bash
-git clone https://github.com/yourusername/onigiri-portfolio.git
-cd onigiri-portfolio
-npm install
-npm run dev
+# Development
+ongr dev              # Start development server
+ongr build            # Build for production
+
+# Content Creation
+ongr generate blog "My First Post"     # Create a new blog post
+ongr g b "Another Post"                # Short form
+ongr generate project "Cool App"       # Create a new project
+ongr g p "My Project"                  # Short form
+
+# Content Processing
+ongr load             # Preprocess content files
+ongr l                # Short form
+
+# Deployment
+ongr deploy           # Deploy to GitHub Pages
+ongr d                # Short form
 ```
 
-Your portfolio will be running at `http://localhost:5173` 🎉
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-#### Content Generation
-- `npm run generate <type> <name>` - Generate new blog posts or projects
-- `npm run g <type> <name>` - Shortcut for generate command
-
-#### Development Logging
-- `npm run log` - Create daily logs for today
-- `npm run log YYYY-MM-DD` - Create daily logs for specific date
-
-### Project Structure
+### Content Structure
 
 ```
-src/
-├── components/          # Reusable UI components
-├── pages/              # Page components
-├── styles/             # CSS modules and global styles
-├── utils/              # Utility functions
-├── hooks/              # Custom React hooks
-├── config/             # Configuration files
-├── scripts/            # Development and automation scripts
-└── frame-logs/         # Daily development logs
-    └── YYYY-MM-DD/     # Date-based log directories
-        ├── change-log.md      # High-level daily changes
-        └── developer-log.md   # Detailed technical notes
-
-public/
-├── content/            # Markdown content files
-│   ├── blogs/         # Blog post markdown files
-│   └── projects/      # Project markdown files
-└── background/        # Background images
+my-portfolio/
+├── README.md
+├── config.yaml
+├── onigiri.config.json
+├── package.json
+├── public/
+│   ├── 404.html
+│   ├── content/
+│   │   ├── assets/
+│   │   │   └── markdown.png
+│   │   ├── blogs/
+│   │   │   └── markdown-demo/
+│   │   │       └── index.md
+│   │   └── projects/
+│   │       └── sample-project/
+│   │           └── index.md
+│   ├── data/
+│   │   ├── blogs.json
+│   │   ├── file-metadata.json
+│   │   ├── projects.json
+│   │   └── types.ts
+│   ├── default_cover.jpg
+│   ├── favicon.png
+│   └── vite.svg
+└── templates/
+    ├── blog-template.md
+    └── project-template.md
 ```
 
-### Adding Content
+---
 
-#### Blog Posts
-1. Create a new `.md` file in `public/content/blogs/`
-2. Add the blog post entry to `src/pages/Blog.tsx`
-3. Follow the existing markdown structure
+## ⚙️ Configuration
 
-#### Projects
-1. Create a new `.md` file in `public/content/projects/`
-2. Add the project entry to `src/pages/Projects.tsx`
-3. Include project metadata (title, description, tags, etc.)
+### Main Configuration (`config.yaml`)
 
-#### Automated Content Generation
-Use the content generation script for faster setup:
+```yaml
+# Website configuration
+website:
+  title: "Your Title"
+  titleSeparator: " | "
+  favicon: "/favicon.png"
+  description: "Portfolio website of Your Name. Customize this description with your own information."
 
-```bash
-# Generate a new blog post
-npm run g blog "My New Blog Post"
+# Background configuration
+backgrounds:
+  global: "your website background"  # Global background
+  hero: "your hero image"   # Hero section background
 
-# Generate a new project
-npm run g project "Awesome React App"
+# Home page configuration
+home:
+  hero:
+    name: "YOUR NAME"
+    quote: "Your inspiring quote or tagline here."
+
+  profileCard:
+    name: "Your Name"
+    title: "Your Job Title"
+    subtitle: "Your Subtitle"
+    avatar: "favicon.png"
+
+# ...
+
+# Footer configuration
+footer:
+  copyright: "© yyyy by Your Name. All rights reserved."
+  message: "Welcome to my portfolio website!"
 ```
 
-## 📊 Development Workflow
+### Build Configuration (`onigiri.config.json`)
 
-### Daily Logging System
-The project uses a structured daily logging system under `src/frame-logs/`:
-
-```bash
-# Create today's log files
-npm run log
-
-# Create logs for a specific date
-npm run log 2025-06-07
+```json
+{
+  "baseUrl": "/",
+  "dev": {
+    "port": 5173,
+    "open": true
+  }
+}
 ```
 
-This creates two files per day:
-- `change-log.md` - High-level summary of changes and accomplishments
-- `developer-log.md` - Detailed technical implementation notes
+---
 
-### Log Structure Benefits
-- **Daily Focus**: Easy to see what was accomplished each day
-- **Separated Concerns**: Change summaries vs technical deep-dives
-- **Scalable**: Unlimited daily entries without file size issues
-- **Searchable**: Isolated content per day for targeted searches
-- **Team Friendly**: Clear progress tracking and review-friendly format
+## 📝 Writing Content
 
-## 📋 Documentation
+### Blog Post Example
 
-- **[CHANGELOG.md](./CHANGELOG.md)** - Track all changes and feature additions
-- **[Daily Logs](./src/frame-logs/)** - Structured daily development logs
-  - `src/frame-logs/YYYY-MM-DD/change-log.md` - High-level daily changes
-  - `src/frame-logs/YYYY-MM-DD/developer-log.md` - Detailed technical implementation notes
-- **[DEVELOPER_LOG.md](./DEVELOPER_LOG.md)** - Legacy developer log (see daily logs for current development)
+```markdown
+---
+title: "My Amazing Blog Post"
+createTime: "2025-06-17T10:00:00.000Z"
+category: "Technology"
+description: "A comprehensive guide to..."
+tags: ["React", "TypeScript", "Web Development"]
+coverImage: "./cover.jpg"
+---
 
-## 🎯 Key Features Implementation
+# My Amazing Blog Post
 
-### Interactive Code Blocks
-- Expand/collapse functionality with visual feedback
-- Copy-to-clipboard with modern and legacy browser support
-- Syntax highlighting for 15+ programming languages
-- Robust event handling with WeakSet tracking
+Your content goes here...
 
-### Responsive Navigation
-- Mobile-friendly hamburger menu
-- Smooth scrolling with active section tracking
-- Dynamic table of contents generation
+## Features
 
-### Performance Optimizations
-- Code splitting and lazy loading
-- Optimized asset bundling
-- Efficient DOM manipulation
-- Memory leak prevention
-
-## 🔧 Configuration
-
-### Environment Variables
-No environment variables are required for basic functionality.
-
-### Customization
-- **Theme**: Modify CSS custom properties in `src/index.css`
-- **Colors**: Update color scheme in CSS modules
-- **Fonts**: Configure in CSS and update Font Awesome imports
-- **Content**: Update markdown files and metadata arrays
-
-## 🌐 Deployment
-
-The project is configured for deployment to GitHub Pages with base URL support.
-
-```bash
-# Build for GitHub Pages
-npm run build
-
-# The dist/ folder contains the production build
+- Markdown support
+- Code highlighting
+- Math equations: $E = mc^2$
+- And much more!
 ```
 
-## 🐛 Troubleshooting
+### Project Example
 
-### Code Block Issues
-If code blocks aren't interactive:
-1. Check browser console for JavaScript errors
-2. Verify `initializeCodeBlocks()` is being called
-3. Ensure markdown content has loaded before initialization
+```markdown
+---
+title: "Awesome Project"
+createTime: "2025-06-17T10:00:00.000Z"
+category: "Web Development"
+description: "A revolutionary web application"
+tags: ["React", "Node.js", "MongoDB"]
+coverImage: "./screenshot.png"
+---
 
-### Build Issues
-If TypeScript compilation fails:
-1. Run `npm run build` to see detailed errors
-2. Check imports and type definitions
-3. Verify all dependencies are installed
+# Awesome Project
+
+Project description and documentation...
+```
+
+---
+
+## 🚀 Deployment
+
+### GitHub Pages (Recommended)
+
+1. **Configure your repository**:
+   ```json
+   // onigiri.config.json
+   {
+     "baseUrl": "/your-repo-name/"
+   }
+   ```
+
+2. **Build and deploy**:
+   ```bash
+   ongr build
+   ongr deploy
+   ```
+
+3. **Enable GitHub Pages**:
+   - Go to your repository settings
+   - Enable GitHub Pages from the `gh-pages` branch
+
+### Other Platforms
+
+Not available yet, but you can deploy to any static hosting service like Netlify or Vercel by following their documentation.
+
+---
+
+## 🎨 Customization
+
+### Themes and Styling
+
+Onigiri Press uses CSS modules for styling. You can customize:
+
+- Colors and typography in CSS files
+- Layout components in React
+- Background images and assets
+- Component styles and animations
+
+### Advanced Configuration
+
+- Custom Vite plugins
+- Additional markdown-it plugins
+- Custom React components
+- Build optimizations
+
+---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Update documentation:
-   - Add entry to `CHANGELOG.md` for user-facing changes
-   - Create or update daily logs in `src/frame-logs/YYYY-MM-DD/`
-   - Use `change-log.md` for high-level summaries
-   - Use `developer-log.md` for detailed technical notes
-5. Test thoroughly
-6. Submit a pull request
+Contributions are welcomed! Feel free to open issues or submit pull requests to help improve Onigiri Press.
+
+### Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/HuJacobJiabao/onigiri-press.git
+
+# Install dependencies
+npm install
+
+# Start development
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
 
 ## 📄 License
 
-This project is open source and available under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Inspired by the simplicity and elegance of Japanese design philosophy
+- Built with modern web technologies and best practices
+- Thanks to all contributors and the open-source community
+
+---
+
+## 📞 Support
+- 🐛 [Issue Tracker](https://github.com/HuJacobJiabao/onigiri-press/issues)
+
+---
+
+<div align="center">
+  
+  **Made with 🍙 and ❤️**
+  
+  *Onigiri Press - Simple. Beautiful. Functional.*
+  
+</div>
