@@ -5,7 +5,7 @@ createTime: "2025-06-16T01:44:48.318Z"
 description: "This is the default description for project."
 tags: ["Hello", "World"]
 category: "default"
-coverImage: "default"
+coverImage: "favicon.png"
 ---
 
 # {{title}}

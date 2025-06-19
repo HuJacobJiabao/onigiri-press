@@ -345,7 +345,7 @@ navbar:
   showCV: true
   showProjects: true
   showBlogs: true
-  showLogs: false
+  showLogs: true
   showArchive: true
 
 # Content display settings

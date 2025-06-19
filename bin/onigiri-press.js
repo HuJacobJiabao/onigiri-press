@@ -14,7 +14,7 @@ const program = new Command();
 program
   .name('ongr')
   .description('OnigiriPress - A modern portfolio framework')
-  .version('1.1.16');
+  .version('1.2.0');
 
 program
   .command('init [project-name]')
@@ -387,6 +387,31 @@ program
       console.error('   • Set up GitHub Pages in your repository settings');
       console.error('   • Pushed your code to GitHub');
       console.error('   • Configured baseUrl in onigiri.config.json (if needed)');
+      process.exit(1);
+    }
+  });
+
+program
+  .command('log')
+  .description('Create a new daily log entry')
+  .action(() => {
+    console.log('📝 Creating daily log entry...');
+    
+    // Find the onigiri-press package directory
+    const packageDir = path.dirname(__dirname);
+    const logScript = path.join(packageDir, 'src', 'scripts', 'create-daily-log.ts');
+    
+    try {
+      // Use tsx to run the daily log script directly
+      execSync(`npx tsx "${logScript}"`, { 
+        stdio: 'inherit', 
+        cwd: process.cwd(),
+        env: { ...process.env, NODE_PATH: packageDir }
+      });
+      console.log('✅ Daily log entry created successfully!');
+    } catch (error) {
+      console.error('❌ Failed to create daily log entry');
+      console.error('Error details:', error.message);
       process.exit(1);
     }
   });

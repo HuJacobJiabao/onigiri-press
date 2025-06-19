@@ -27,7 +27,7 @@
     ],
     "link": "/deploy-test/projects/sample-project",
     "contentPath": "/deploy-test/content/projects/sample-project/index.md",
-    "image": "/deploy-test/default_cover.jpg",
+    "image": "/deploy-test/favicon.png",
     "assetPaths": []
   }
 ]

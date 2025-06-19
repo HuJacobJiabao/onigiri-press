@@ -57,7 +57,10 @@ export default function Layout({
   };
 
   const headerStyle = headerBackground ? {
-    backgroundImage: `url('${headerBackground}')`
+    backgroundImage: `url('${headerBackground}')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
   } : undefined;
 
   // Function to get dynamic title class based on title length

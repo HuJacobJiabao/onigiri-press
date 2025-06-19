@@ -524,6 +524,79 @@ export async function parseMarkdown(
         return `<a${before} href="${resolvedHref}"${after}>`;
       }
     );
+
+    // Replace relative paths in HTML img src attributes
+    html = html.replace(
+      /<img([^>]*)\ssrc=["']([^"']*?)["']([^>]*)>/gi,
+      (_fullMatch, before, src, after) => {
+        // Convert to BASE_URL-based path
+        const resolvedSrc = convertToBaseUrlPath(src);
+        return `<img${before} src="${resolvedSrc}"${after}>`;
+      }
+    );
+
+    // Replace relative paths in HTML video src attributes
+    html = html.replace(
+      /<video([^>]*)\ssrc=["']([^"']*?)["']([^>]*)>/gi,
+      (_fullMatch, before, src, after) => {
+        const resolvedSrc = convertToBaseUrlPath(src);
+        return `<video${before} src="${resolvedSrc}"${after}>`;
+      }
+    );
+
+    // Replace relative paths in HTML audio src attributes
+    html = html.replace(
+      /<audio([^>]*)\ssrc=["']([^"']*?)["']([^>]*)>/gi,
+      (_fullMatch, before, src, after) => {
+        const resolvedSrc = convertToBaseUrlPath(src);
+        return `<audio${before} src="${resolvedSrc}"${after}>`;
+      }
+    );
+
+    // Replace relative paths in HTML source src attributes (for video/audio elements)
+    html = html.replace(
+      /<source([^>]*)\ssrc=["']([^"']*?)["']([^>]*)>/gi,
+      (_fullMatch, before, src, after) => {
+        const resolvedSrc = convertToBaseUrlPath(src);
+        return `<source${before} src="${resolvedSrc}"${after}>`;
+      }
+    );
+
+    // Replace relative paths in HTML track src attributes (for video subtitles)
+    html = html.replace(
+      /<track([^>]*)\ssrc=["']([^"']*?)["']([^>]*)>/gi,
+      (_fullMatch, before, src, after) => {
+        const resolvedSrc = convertToBaseUrlPath(src);
+        return `<track${before} src="${resolvedSrc}"${after}>`;
+      }
+    );
+
+    // Replace relative paths in HTML iframe src attributes
+    html = html.replace(
+      /<iframe([^>]*)\ssrc=["']([^"']*?)["']([^>]*)>/gi,
+      (_fullMatch, before, src, after) => {
+        const resolvedSrc = convertToBaseUrlPath(src);
+        return `<iframe${before} src="${resolvedSrc}"${after}>`;
+      }
+    );
+
+    // Replace relative paths in HTML embed src attributes
+    html = html.replace(
+      /<embed([^>]*)\ssrc=["']([^"']*?)["']([^>]*)>/gi,
+      (_fullMatch, before, src, after) => {
+        const resolvedSrc = convertToBaseUrlPath(src);
+        return `<embed${before} src="${resolvedSrc}"${after}>`;
+      }
+    );
+
+    // Replace relative paths in HTML object data attributes
+    html = html.replace(
+      /<object([^>]*)\sdata=["']([^"']*?)["']([^>]*)>/gi,
+      (_fullMatch, before, data, after) => {
+        const resolvedData = convertToBaseUrlPath(data);
+        return `<object${before} data="${resolvedData}"${after}>`;
+      }
+    );
       
     // Replace relative paths in CSS url() functions within style attributes
     html = html.replace(

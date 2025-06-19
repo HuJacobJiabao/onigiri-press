@@ -1,15 +1,53 @@
-<div style="text-align: center;">
+---
+type: "blog"
+title: "Read Me"
+createTime: "2025-06-19T03:11:30.456Z"
+description: "This is the default description for blog."
+tags: ["Hello", "world"]
+category: "default"
+coverImage: "favicon.png"
+---
 
-  # 🍙 Onigiri Press
-  <img src="public/favicon.png" alt="Onigiri Press Logo" width="120" height="120">
+# {{title}}
+<div align="center">
+
+# 🍙 Onigiri Press
+
+  <img src="favicon.png" alt="Onigiri Press Logo" style="width: 100px; height: auto; margin: 20px 0;" />
   
+
   **A Modern, Lightweight Portfolio & Blog Framework**
   
   *Built with React, TypeScript, and Vite*
-  
-  [![npm version](https://badge.fury.io/js/onigiri-press.svg)](https://www.npmjs.com/package/onigiri-press) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/) [![React](https://img.shields.io/badge/React-19+-61dafb.svg)](https://reactjs.org/) [![Vite](https://img.shields.io/badge/Vite-6+-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/) [![Markdown](https://img.shields.io/badge/Markdown-Support-000000.svg?logo=markdown)](https://github.com/markdown-it/markdown-it) [![Audio](https://img.shields.io/badge/🎵_Audio_Player-APlayer-FF6B35.svg)](https://github.com/MoePlayer/APlayer) [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deploy-222222.svg?logo=github)](https://pages.github.com/)
-  
 </div>
+  
+  <div style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; align-items: center;">
+    <a href="https://www.npmjs.com/package/onigiri-press" style="display: inline-block; width: auto !important; height: auto !important; line-height: 1;">
+      <img src="https://badge.fury.io/js/onigiri-press.svg" alt="npm version" style="display: inline-block; width: auto !important; height: 20px; vertical-align: middle; margin: 0 !important;" />
+    </a>
+    <a href="https://opensource.org/licenses/MIT" style="display: inline-block; width: auto !important; height: auto !important; line-height: 1;">
+      <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" style="display: inline-block; width: auto !important; height: 20px; vertical-align: middle; margin: 0 !important;" />
+    </a>
+    <a href="https://www.typescriptlang.org/" style="display: inline-block; width: auto !important; height: auto !important; line-height: 1;">
+      <img src="https://img.shields.io/badge/TypeScript-Ready-blue.svg" alt="TypeScript" style="display: inline-block; width: auto !important; height: 20px; vertical-align: middle; margin: 0 !important;" />
+    </a>
+    <a href="https://reactjs.org/" style="display: inline-block; width: auto !important; height: auto !important; line-height: 1;">
+      <img src="https://img.shields.io/badge/React-19+-61dafb.svg" alt="React" style="display: inline-block; width: auto !important; height: 20px; vertical-align: middle; margin: 0 !important;" />
+    </a>
+    <a href="https://vitejs.dev/" style="display: inline-block; width: auto !important; height: auto !important; line-height: 1;">
+      <img src="https://img.shields.io/badge/Vite-6+-646CFF.svg?logo=vite&logoColor=white" alt="Vite" style="display: inline-block; width: auto !important; height: 20px; vertical-align: middle; margin: 0 !important;" />
+    </a>
+    <a href="https://github.com/markdown-it/markdown-it" style="display: inline-block; width: auto !important; height: auto !important; line-height: 1;">
+      <img src="https://img.shields.io/badge/Markdown-Support-000000.svg?logo=markdown" alt="Markdown" style="display: inline-block; width: auto !important; height: 20px; vertical-align: middle; margin: 0 !important;" />
+    </a>
+    <a href="https://github.com/MoePlayer/APlayer" style="display: inline-block; width: auto !important; height: auto !important; line-height: 1;">
+      <img src="https://img.shields.io/badge/🎵_Audio_Player-APlayer-FF6B35.svg" alt="Audio" style="display: inline-block; width: auto !important; height: 20px; vertical-align: middle; margin: 0 !important;" />
+    </a>
+    <a href="https://pages.github.com/" style="display: inline-block; width: auto !important; height: auto !important; line-height: 1;">
+      <img src="https://img.shields.io/badge/GitHub_Pages-Deploy-222222.svg?logo=github" alt="GitHub Pages" style="display: inline-block; width: auto !important; height: 20px; vertical-align: middle; margin: 0 !important;" />
+    </a>
+  </div>
+
 
 ---
 
@@ -326,6 +364,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Inspired by the simplicity and elegance of Japanese design philosophy
 - Built with modern web technologies and best practices
+- Thanks to all contributors and the open-source community
 
 ---
 
@@ -334,7 +373,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<div style="text-align: center;">
+<div align="center">
   
   **Made with 🍙 and ❤️**
   
