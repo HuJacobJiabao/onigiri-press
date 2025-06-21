@@ -53,7 +53,7 @@ export default function NavBar() {
   return (
     <nav className={`${styles.nav} ${visible ? styles.show : styles.hide} ${atTop ? styles.transparent : styles.solid}`}>
       <Link to="/" onClick={(e) => handleNavClick('/', e)} className={styles.logoLink}>
-        <div className={styles.logo}>🌟 {config.home.hero.name}</div>
+        <div className={styles.logo}> {config.home.hero.name}</div>
       </Link>
 
       <div className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
@@ -64,8 +64,8 @@ export default function NavBar() {
         {config.navbar.showHome && (
           <li><Link to="/" onClick={(e) => handleNavClick('/', e)}>Home</Link></li>
         )}
-        {config.navbar.showCV && (
-          <li><a href={`${import.meta.env.BASE_URL}${config.resume.filename}`} target="_blank" rel="noopener noreferrer">CV</a></li>
+        {config.navbar.showCV && config.resume?.filename && (
+          <li><a href={config.resume.filename} target="_blank" rel="noopener noreferrer">CV</a></li>
         )}
         {config.navbar.showProjects && (
           <li><Link to="/projects/" onClick={(e) => handleNavClick('/projects/', e)}>Projects</Link></li>

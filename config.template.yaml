@@ -20,7 +20,7 @@
 #       content: "Your content here..."
 
 website:
-  title: "Your Name"
+  title: "Your Title"
   titleSeparator: " | "
   favicon: "/favicon.png"
   description: "Portfolio website of Your Name. Customize this description with your own information."
@@ -28,10 +28,21 @@ website:
 
 # Background configuration
 backgrounds:
-  # Global fixed background for all pages - test with external URL
+  # Global fixed background for all pages
+  # Supports both images and videos (.mp4, .webm, .ogg, .mov, .avi)
+  # Examples:
+  # "https://example.com/background.jpg" or "background/video.png"
+  # "https://example.com/background.mp4" or "background/video.mp4"
   global: "https://w.wallhaven.cc/full/6l/wallhaven-6lqk2l.png"
-  # Hero section background (Home page) - using local path
-  hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
+  # global: "background/space.mp4" 
+  # Hero section background (Home page)
+  # Supports both images and videos (.mp4, .webm, .ogg, .mov, .avi)  
+  # Video backgrounds: auto-play on desktop, paused at first frame on mobile
+  # Examples:
+  # "https://example.com/hero.jpg" or "background/hero.jpg"
+  # "https://example.com/hero.mp4" or "background/hero.mp4"
+  # hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
+  hero: "background/space.mp4"  # Uncomment to use video background
 
 home:
   hero:
@@ -67,19 +78,25 @@ home:
         icon: "👤"
         type: "about"
         content: >
-          Write your self-introduction here. This section supports markdown formatting, 
+          write your self-introduction here. This section supports markdown formatting, 
           so you can include [links](https://example.com) and other formatting.
-        photo: "onigiripress.svg"
+        photo: "favicon.png"  # Optional photo for the about section
 
     education:
       title: "Education"
       icon: "🎓"
       type: "education"
+      # Color properties support various CSS color formats:
+      # - Hex: "#990000", "#cc0000"
+      # - RGB: "rgb(19, 41, 75)"
+      # - RGBA: "rgba(19, 41, 75, 0.8)"
+      # - HSL: "hsl(210, 100%, 30%)"
+      # - Named colors: "red", "blue", etc.
       items:
-        - schoolName: "Your University"
-          degree: "Your Degree"
-          duration: "Your Duration"
-          location: "Your Location"
+        - schoolName: "State University"
+          degree: "Master of Science in Computer Science"
+          duration: "Aug. 2023 - Dec. 2025"
+          location: "City, State"
           logo:
             src: ""
             backgroundColor: "#990000"
@@ -88,32 +105,68 @@ home:
             hoverColor: "#cc0000"
           highlightColor: "#990000"
           highlights:
-            - "Add your achievements and coursework here"
+            - "Related Courses: Operating System, Networking, Algorithms, Web Technologies"
+
+        - schoolName: "Tech University"
+          degree: "Bachelor of Science in Computer Science with Honors"
+          duration: "Sep. 2019 - Jun. 2023"
+          location: "City, State"
+          logo:
+            src: ""
+            backgroundColor: "#13294b"
+          border:
+            color: "#000080"
+            hoverColor: "#ff5f05"
+          highlightColor: "#ff5f05"
+          highlights:
+            - "Minor in Mathematics"
+            - "Graduated with Honors, GPA: 3.8/4.0"
 
     experience:
       title: "Experience"
       icon: "💼"
       type: "experience"
       items:
-        - companyName: "Your Company"
+        - companyName: "Tech Institute"
           location: "City, Country"
           logo:
-            src: "company-logo.png"
+            src: "xxx.webp"
+            # backgroundColor: "#e74d29"
           border:
             color: "#e74d29"
             hoverColor: "#e77e29"
           highlightColor: "#e74d29"
           positions:
-          - position: "Your Position"
-            duration: "Your Duration"
-            highlights:
-            - "Describe your achievements and responsibilities"
-            - "Add more bullet points as needed"
-          - position: "Another Position"
-            duration: "Another Duration"
-            highlights:
-            - "Describe your achievements and responsibilities for this position"
-            - "Add more bullet points as needed"
+            - position: "Teaching Assistant - CS 101"
+              duration: "Feb 2023 - Jun 2023"
+              highlights:
+                - "Assisted students in understanding programming concepts and software development fundamentals."
+                - "Provided tutoring and graded assignments to help students improve coding skills."
+                - "Collaborated with professors to ensure students' success in grasping complex computer science concepts."
+            - position: "Research Assistant"
+              duration: "Sep 2022 - Apr 2023"
+              highlights:
+                - "Developed web applications using modern frameworks"
+                - "Built scalable backend systems and APIs"
+                - "Implemented frontend interfaces with responsive design"
+
+        - companyName: "Software Solutions Inc."
+          location: "City, Country"
+          logo:
+            src: "xxx.webp"
+            backgroundColor: "#1e40af"
+          border:
+            color: "#1e40af"
+            hoverColor: "#3b82f6"
+          highlightColor: "#1e40af"
+          positions:
+            - position: "Software Developer Intern"
+              duration: "Oct 2021 - Jun 2022"
+              highlights:
+                - "Developed web applications using React and Node.js"
+                - "Collaborated with senior developers on large-scale projects"
+                - "Participated in code reviews and agile development processes"
+
 
     projects:
       title: "Projects"
@@ -121,21 +174,48 @@ home:
       type: "projects"
       defaultCover: "default_cover.jpg"
       items:
-        - projectName: "Your Project Name"
-          description: "Brief description of your project"
+        - projectName: "E-Commerce Platform"
+          description: "A full-stack e-commerce platform with modern payment integration and admin dashboard"
           tag:
-            items: ["Technology1", "Technology2", "Technology3"]
-          duration: "Project Duration"
+            items: ["React", "Node.js", "MongoDB", "Stripe"]
+          duration: "Jan 2024 - May 2024"
           projectLink:
-            url: "https://your-project-url.com"
+            url: "https://example.com/ecommerce-demo"
             textColor: ""
           githubLink:
-            url: "https://github.com/yourusername/your-repo"
+            url: "https://github.com/"
             textColor: ""
             backgroundColor: "#2c3e50"
           highlights:
-            - "Key feature or achievement 1"
-            - "Key feature or achievement 2"
+            - "Implemented secure payment processing with Stripe API"
+            - "Built comprehensive admin dashboard for inventory management"
+            - "Optimized for performance with lazy loading and caching"
+            - "Responsive design with mobile-first approach"
+            
+        - projectName: "Task Management App"
+          description: "A collaborative task management application with real-time updates and team features"
+          tag:
+            items: ["Vue.js", "Express", "Socket.io", "PostgreSQL"]
+            backgroundColor: "#f0fdf4"
+            textColor: "#16a34a"
+          duration: "Aug 2023 - Dec 2023"
+          projectLink:
+            url: "https://example.com/taskapp"
+            textColor: "#ffffff"
+          githubLink:
+            url: "https://github.com"
+            backgroundColor: "#059669"
+            textColor: "#ffffff"
+          coverImage: "default_cover.jpg"
+          border:
+            color: "#16a34a"
+            hoverColor: "#15803d"
+          highlightColor: "#16a34a"
+          highlights:
+            - "Real-time collaboration with WebSocket integration"
+            - "Drag-and-drop interface for intuitive task management"
+            - "Team permissions and role-based access control"
+            - "Email notifications and deadline reminders"
 
         - projectName: "Weather Analytics Dashboard"
           description: "An interactive dashboard for weather data visualization and climate trend analysis"
@@ -187,16 +267,86 @@ home:
             - "Multi-language support and sentiment analysis"
             - "Integration with popular messaging platforms"
 
-    # Example contact section - you can add multiple contact sections if needed
+        - projectName: "Fitness Tracker Mobile App"
+          description: "A cross-platform mobile app for fitness tracking with social features and gamification"
+          tag:
+            items: ["React Native", "Firebase", "Swift", "Kotlin"]
+            backgroundColor: "#fce7f3"
+            textColor: "#be185d"
+          duration: "May 2023 - Sep 2023"
+          projectLink:
+            url: "https://example.com/fitness-app"
+            textColor: ""
+          githubLink:
+            url: "https://github.com"
+            backgroundColor: "#be185d"
+            textColor: "#ffffff"
+          coverImage: "default_cover.jpg"
+          border:
+            color: "#ec4899"
+            hoverColor: "#db2777"
+          highlightColor: "#ec4899"
+          highlights:
+            - "Cross-platform development with React Native"
+            - "Integration with wearable devices and health APIs"
+            - "Social features with friend challenges and leaderboards"
+            - "Offline data synchronization and cloud backup"
+        
+
+
+    # certificates:
+    #   title: "Certificates & Achievements"
+    #   icon: "🏆"
+    #   type: "projects"
+    #   defaultCover: "background/hero.jpg"
+    #   items:
+    #     - projectName: "AWS Solutions Architect Associate"
+    #       description: "Comprehensive certification covering AWS architecture best practices and cloud solutions design"
+    #       technologies: ["AWS", "Cloud Architecture", "EC2", "S3", "Lambda"]
+    #       duration: "Dec 2024"
+    #       projectUrl: "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
+    #       githubUrl: ""
+    #       imageSrc: "default_cover.jpg"
+    #       highlights:
+    #         - "Validated expertise in designing distributed applications on AWS"
+    #         - "Demonstrated knowledge of security and compliance on AWS platform"
+    #         - "Proven ability to optimize costs and performance"
+            
+    #     - projectName: "React Developer Certification"
+    #       description: "Advanced certification in React development covering hooks, state management, and modern patterns"
+    #       technologies: ["React", "JavaScript", "TypeScript", "Redux"]
+    #       duration: "Nov 2024"
+    #       projectUrl: "https://reactjs.org/"
+    #       githubUrl: ""
+    #       imageSrc: "default_cover.jpg"
+    #       highlights:
+    #         - "Advanced component architecture and optimization"
+    #         - "State management with Redux and Context API"
+    #         - "Testing strategies for React applications"
+    
+
     contact:
       title: "Get In Touch"
       icon: "📬"
-      type: "contact"  # Required: must be 'contact' for contact sections
+      type: "contact"
       content: "Feel free to reach out for collaborations, opportunities, or just to say hello!"
-      email: "your.email@example.com"
-      github: "https://github.com/yourusername"
-      linkedin: "https://www.linkedin.com/in/yourprofile"
-      textColor: "#2958e7"  # Color for contact links and icons
+      email: "demo@example.com"
+      github: "https://github.com/"
+      linkedin: "https://www.linkedin.com/"
+      twitter: "https://twitter.com/"
+      instagram: "https://instagram.com/"
+      weibo: "https://weibo.com/"
+      xiaohongshu: "https://xiaohongshu.com/"
+      wechat: "your-wechat-id"  # WeChat ID or QR code image URL
+      qq: "your-qq-number"
+      discord: "https://discord.com/"
+      youtube: "https://youtube.com/"
+      bilibili: "https://bilibili.com/"
+      zhihu: "https://zhihu.com/"
+      # Contact color configuration - simplified to only include text and icon colors
+      # Icons and text use the same color settings
+      # Supports various CSS color formats: hex, RGB, RGBA, HSL, named colors
+      textColor: "#2958e7" # Color for both icons and text/links (including underlines)
 
     # Example: Add a custom section (uncomment and customize)
     # skills:
@@ -342,27 +492,27 @@ content:
       textColor: "#f3f4f6"
 
 resume:
-  filename: "Your_Resume.pdf"
+  filename: "John_Doe_Resume.pdf"
 
 # Footer configuration
 footer:
   copyright: "© 2025 by Your Name. All rights reserved."
   message: "Welcome to my portfolio website!"
-  background: "/background/hero.jpg"  # Footer background image - can be local path or URL
+  background: "/background/hero.jpg"  # Footer background image
 
 # Audio Player configuration
 audioPlayer:
-  enabled: false   # Set to true to enable audio player
+  enabled: true   # Set to true to enable audio player
   fixed: true   # Set to true for floating player
   volume: 0.7
   showLrc: true
   
   # MetingJS configuration
   meting:
-    enabled: false   # Set to true to use MetingJS instead of local audio files
+    enabled: true   # Set to true to use MetingJS instead of local audio files
     server: "netease"   # Music server: netease, tencent, kugou, xiami, baidu
     type: "playlist"    # Type: song, playlist, album, search, artist
-    id: "your-playlist-id"    # Music ID from the platform
+    id: "50744483"    # Music ID from the platform
     mutex: true         # Prevent multiple players from playing simultaneously
     listFolded: false   # Whether to fold the playlist
     listMaxHeight: "340px"  # Maximum height of the playlist

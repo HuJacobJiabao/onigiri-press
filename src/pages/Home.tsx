@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from "../styles/Home.module.css"
 import NavBar from "../components/NavBar"
 import EducationCard from "../components/EducationCard"
@@ -98,6 +98,26 @@ const Home = () => {
 
     // Get hero background from config (already processed with full URL)
     const heroBackgroundUrl = config.backgrounds?.hero || `${import.meta.env.BASE_URL}background/hero.jpg`;
+    
+    // Check if hero background is a video file
+    const isHeroVideoBackground = heroBackgroundUrl && /\.(mp4|webm|ogg|mov|avi)(\?.*)?$/i.test(heroBackgroundUrl);
+    
+    // Check if device is mobile to disable video on mobile
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 768);
+    
+    // Handle window resize for responsive behavior
+    useEffect(() => {
+        const handleResize = () => {
+            const nowMobile = window.innerWidth <= 768;
+            setIsMobile(nowMobile);
+            
+            // Note: We now render different elements for mobile vs desktop,
+            // so React will handle the transition automatically on re-render.
+        };
+        
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isMobile, isHeroVideoBackground]);
 
     const handleSectionChange = (sectionId: string) => {
         setActiveSection(sectionId);
@@ -263,28 +283,82 @@ const Home = () => {
                         }
                         <div className={styles.contactSection} style={contactColors}>
                             {navigationSection.email && (
-                                <div className={styles.contactItem}>
+                                <a href={`mailto:${navigationSection.email}`} className={styles.contactItem}>
                                     <i className="fas fa-envelope"></i>
-                                    <a href={`mailto:${navigationSection.email}`}>{navigationSection.email}</a>
-                                </div>
+                                    <span>{navigationSection.email}</span>
+                                </a>
                             )}
                             {navigationSection.github && (
-                                <div className={styles.contactItem}>
+                                <a href={navigationSection.github} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
                                     <i className="fab fa-github"></i>
-                                    <a href={navigationSection.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                                </div>
+                                    <span>GitHub</span>
+                                </a>
                             )}
                             {navigationSection.linkedin && (
-                                <div className={styles.contactItem}>
+                                <a href={navigationSection.linkedin} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
                                     <i className="fab fa-linkedin"></i>
-                                    <a href={navigationSection.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                                </div>
+                                    <span>LinkedIn</span>
+                                </a>
                             )}
                             {navigationSection.twitter && (
+                                <a href={navigationSection.twitter} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+                                    <i className="fa-brands fa-x-twitter"></i>
+                                    <span>Twitter</span>
+                                </a>
+                            )}
+                            {navigationSection.instagram && (
+                                <a href={navigationSection.instagram} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+                                    <i className="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            )}
+                            {navigationSection.weibo && (
+                                <a href={navigationSection.weibo} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+                                    <i className="fab fa-weibo"></i>
+                                    <span>Weibo</span>
+                                </a>
+                            )}
+                            {navigationSection.xiaohongshu && (
+                                <a href={navigationSection.xiaohongshu} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+                                    <i className="fas fa-heart"></i>
+                                    <span>Red Note</span>
+                                </a>
+                            )}
+                            {navigationSection.wechat && (
                                 <div className={styles.contactItem}>
-                                    <i className="fab fa-twitter"></i>
-                                    <a href={navigationSection.twitter} target="_blank" rel="noopener noreferrer">Twitter</a>
+                                    <i className="fab fa-weixin"></i>
+                                    <span>WeChat: {navigationSection.wechat}</span>
                                 </div>
+                            )}
+                            {navigationSection.qq && (
+                                <div className={styles.contactItem}>
+                                    <i className="fab fa-qq"></i>
+                                    <span>QQ: {navigationSection.qq}</span>
+                                </div>
+                            )}
+                            {navigationSection.discord && (
+                                <a href={navigationSection.discord} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+                                    <i className="fab fa-discord"></i>
+                                    <span>Discord</span>
+                                </a>
+                            )}
+                            {navigationSection.youtube && (
+                                <a href={navigationSection.youtube} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+                                    <i className="fab fa-youtube"></i>
+                                    <span>YouTube</span>
+                                </a>
+                            )}
+                            {navigationSection.bilibili && (
+                                <a href={navigationSection.bilibili} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+                                    <i className="fa-brands fa-bilibili"></i>
+                                    <span>Bilibili</span>
+                                </a>
+                            )}
+                            {navigationSection.zhihu && (
+                                <a href={navigationSection.zhihu} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
+                                    <i className="fa-brands fa-zhihu"></i>
+                                    <span>Zhihu</span>
+                                </a>
                             )}
                         </div>
                     </div>
@@ -308,12 +382,62 @@ const Home = () => {
             />
             
             {/* Hero Section */}
-            <section 
-                className={styles.hero}
-                style={{
-                    backgroundImage: `url('${heroBackgroundUrl}')`
-                }}
-            >
+            <section className={styles.hero}>
+                {/* Hero background - video or image */}
+                {isHeroVideoBackground ? (
+                    // Video background for both mobile and desktop
+                    <video 
+                        className={styles.heroVideo}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        webkit-playsinline="true"
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            zIndex: -1,
+                            pointerEvents: 'none'
+                        }}  
+                    >
+                        <source src={heroBackgroundUrl} type="video/mp4" />
+                        {/* Fallback for browsers that don't support video */}
+                        <div 
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                backgroundImage: `url('${import.meta.env.BASE_URL}background/hero.jpg')`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat'
+                            }}
+                        ></div>
+                    </video>
+                ) : (
+                    // Image background (when hero background is not a video)
+                    <div 
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundImage: `url('${heroBackgroundUrl}')`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            zIndex: 0
+                        }}
+                    ></div>
+                )}
+                
                 <div className={styles.heroContent}>
                     <h1>{config.home.hero.name}</h1>
                     <p>{config.home.hero.quote}</p>

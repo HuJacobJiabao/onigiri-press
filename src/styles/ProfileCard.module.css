@@ -64,18 +64,22 @@
 .contactList {
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: 8px; /* Reduced gap to accommodate more icons */
   justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping for more icons */
+  max-width: 100%;
 }
 
 .contactItem {
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 6px; /* Slightly reduced padding */
   text-decoration: none;
   color: #34495e;
   border-radius: 8px;
   font-size: 0.9rem;
+  min-width: 32px; /* Ensure minimum clickable area */
+  justify-content: center;
 }
 
 .contactItem:hover {

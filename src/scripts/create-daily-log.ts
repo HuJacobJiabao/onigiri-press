@@ -50,40 +50,56 @@ function createChangeLogTemplate(dateStr: string, displayDate: string): string {
       .replace(/{{dateStr}}/g, dateStr);
   } catch {
     // Fallback to hardcoded template if file doesn't exist
-    return `# Change Log - ${displayDate}
+    return `<!-- 
+FORMATTING REQUIREMENTS:
+1. Maintain proper heading hierarchy:
+   - Level 1 (#): Document title only (# Change Log - {{displayDate}})
+   - Level 2 (##): Major sections and numbered changes
+     * Top-level sections: ## Summary, ## Benefits, ## Next Steps
+     * Numbered changes: ## 1. Feature/Fix Title, ## 2. Another Change, etc.
+   - Level 3 (###): Subsections within major sections
+     * Under Benefits: ### Improvements, ### Technical Benefits
+     * Can be used for detailed breakdowns within numbered changes if needed
+   - Level 4 (####): Minor details if needed for deeper analysis
+
+2. Required structure:
+   - ## Summary: Brief overview of the day's development work
+   - Numbered changes: ## 1., ## 2., etc. with concise but comprehensive descriptions
+   - ## Benefits: Organized into ### Improvements and ### Technical Benefits
+   - ## Next Steps: Numbered list with Immediate, Short-term, and Long-term priorities
+
+3. Content guidelines:
+   - Use bold (**text**) for important terms, file names, and key concepts
+   - Include checkmarks (✅) for completed items and measurable results
+   - Keep descriptions concise but comprehensive for stakeholder communication
+   - Focus on user-facing changes and business impact
+   - Maintain consistency with corresponding developer log entries
+-->
+
+# Change Log - {{displayDate}}
 
 ## Summary
 Brief overview of today's development work.
 
-## Changes Made
+<!-- Changes Made -->
 
-### 1. Feature/Fix Title
+## 1. Feature/Fix Title
 Description of the change made.
 
-### 2. Another Change
+## 2. Another Change
 Description of another change made.
 
 ## Benefits
 
-### ✅ Improvements
+### Improvements
 - **User Experience**: How changes improve the user experience
 - **Developer Experience**: Improvements for development workflow
 - **Performance**: Any performance gains achieved
 
-### ✅ Technical Benefits
+### Technical Benefits
 - **Code Quality**: Improvements to codebase maintainability
 - **Architecture**: Structural improvements
 - **Testing**: Test coverage or reliability improvements
-
-## Next Steps
-1. **Immediate**: What needs to be done next
-2. **Short-term**: Near-future development priorities
-3. **Long-term**: Strategic development goals
-
----
-
-*Log created: ${displayDate}*
-*Development status: In progress*
 `;
   }
 }
@@ -100,7 +116,33 @@ function createDeveloperLogTemplate(dateStr: string, displayDate: string): strin
       .replace(/{{currentDate}}/g, currentDate);
   } catch {
     // Fallback to hardcoded template if file doesn't exist
-    return `# Developer Log - ${displayDate}
+    return `<!-- 
+FORMATTING REQUIREMENTS:
+1. Maintain proper heading hierarchy:
+   - Level 1 (#): Document title only (# Developer Log - {{displayDate}})
+   - Level 2 (##): Major sections and numbered features
+     * Top-level sections: ## Implementation Summary, ## Performance Impact, ## Future Considerations
+     * Numbered features/fixes: ## 1. Feature/Fix Name, ## 2. Another Feature/Fix Name
+   - Level 3 (###): Subsections within major sections
+     * Under Implementation Summary: ### Problem Statement, ### Solution Overview
+     * Under numbered features: ### Problem Analysis, ### Solution Design, ### Implementation Details, ### Files Modified, ### Testing Results
+     * Under Performance Impact: ### Before/After Metrics, ### Optimization Notes
+   - Level 4 (####): Minor details if needed for deeper analysis
+
+2. Required sections for each numbered feature/fix:
+   - ### Problem Analysis (with Issue, Root Cause, Impact)
+   - ### Solution Design (with Approach, Architecture, Alternatives Considered)
+   - ### Implementation Details (with code examples in typescript blocks)
+   - ### Files Modified (with file paths and descriptions)
+   - ### Testing Results (with checkmarks for completed tests)
+
+3. Content guidelines:
+   - Use bold (**text**) for important terms, file names, and key concepts
+   - Include code examples using \`\`\`typescript blocks
+   - Use checkmarks (✅) for completed items and test results
+   - Provide detailed technical analysis and comprehensive documentation
+-->
+# Developer Log - {{displayDate}}
 
 ## Implementation Summary
 
@@ -110,31 +152,31 @@ Describe the main technical challenges addressed today.
 ### Solution Overview
 High-level description of the technical approach taken.
 
-## Technical Implementations
+<!--Technical Implementations -->
 
-### 1. Feature/Fix Name
+## 1. Feature/Fix Name
 
-#### Problem Analysis
+### Problem Analysis
 - **Issue**: Description of the specific problem
 - **Root Cause**: Technical analysis of why the issue occurred
 - **Impact**: How this affected users or development
 
-#### Solution Design
+### Solution Design
 - **Approach**: Technical strategy chosen
 - **Architecture**: How the solution fits into the overall system
 - **Alternatives Considered**: Other approaches that were evaluated
 
-#### Implementation Details
+### Implementation Details
 \`\`\`typescript
 // Code examples and technical details
 // Include relevant code snippets that demonstrate the solution
 \`\`\`
 
-#### Files Modified
+### Files Modified
 - \`path/to/file1.ts\` - Description of changes
 - \`path/to/file2.tsx\` - Description of changes
 
-#### Testing Results
+### Testing Results
 - ✅ Unit tests passing
 - ✅ Integration tests verified
 - ✅ Manual testing completed
@@ -152,25 +194,10 @@ High-level description of the technical approach taken.
 - **Resource Usage**: Better utilization of system resources
 - **User Experience**: Perceived performance improvements
 
-## Future Considerations
 
-### Technical Debt
-- **Identified**: Any technical debt discovered
-- **Planned**: Debt reduction strategies
+## 2. Another Feature/Fix Name
 
-### Potential Improvements
-- **Short-term**: Quick wins and minor improvements
-- **Long-term**: Architectural improvements and major features
 
-### Architecture Notes
-- **Patterns**: Design patterns used or established
-- **Dependencies**: New dependencies added or removed
-- **Interfaces**: API or interface changes
-
----
-
-*Technical implementation completed: ${displayDate}*
-*Documentation updated: ${currentDate}*
 `;
   }
 }

@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useParams, Navigate, useLocation } from 'react-router-dom';
 import Layout from '../components/Layout';
 import MarkdownContent from '../components/MarkdownContent';
-import { loadStaticProjects, loadStaticBlogPosts, loadMarkdownContent, getFileLastModifiedTime, type Project, type BlogPost } from '../utils/staticDataLoader';
+import { loadStaticProjects, loadStaticBlogPosts, loadMarkdownContent, getFileLastModifiedTime, getAssetPath, type Project, type BlogPost } from '../utils/staticDataLoader';
 import { parseMarkdown, type ParsedMarkdown } from '../utils/markdown';
 import config from '../config/config';
 import styles from '../styles/DetailPage.module.css';
@@ -76,15 +76,16 @@ export default function DetailPage() {
       // Create a mock content item for daily logs
       if (date && logType) {
         const title = logType === 'developer-log' ? `Developer Log - ${date}` : `Change Log - ${date}`;
-        const mockItem = {
+        const relativePath = `devlogs/${date}/${logType}.md`;
+        const mockItem: ContentItem = {
           id: `${date}-${logType}`,
           title,
-          date: date, // Keep the original date string from URL params
+          date: date, // date is guaranteed to be string here due to the if condition
           category: 'Daily Log',
           description: `Daily ${logType.replace('-', ' ')} for ${date}`,
           link: `/devlogs/${date}/${logType}`,
           tags: ['Development', 'Daily Log'],
-          contentPath: `devlogs/${date}/${logType}.md`
+          contentPath: getAssetPath(relativePath) // Use getAssetPath to include baseUrl
         };
         return mockItem;
       }
@@ -186,15 +187,12 @@ export default function DetailPage() {
         let markdownContent: string;
         
         if (contentType === 'dailylog') {
-          // For daily logs, load directly from the path
-          // contentPath should already include baseUrl
-          const response = await fetch(contentItem.contentPath);
+          // For daily logs, use the same asset loading approach as other content
+          markdownContent = await loadMarkdownContent(contentItem.contentPath);
           
-          if (!response.ok) {
+          if (!markdownContent) {
             throw new Error(`Daily log not found: ${contentItem.contentPath}`);
           }
-          
-          markdownContent = await response.text();
         } else {
           // For regular content, use the existing loading method
           // contentPath should already include baseUrl

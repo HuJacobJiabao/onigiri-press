@@ -20,23 +20,34 @@
 #       content: "Your content here..."
 
 website:
-  title: "Your Title"
+  title: "Onigiri-Press"
   titleSeparator: " | "
   favicon: "/favicon.png"
-  description: "Portfolio website of Your Name. Customize this description with your own information."
+  description: "Portfolio website demostration of Ongiri-Press framework."
 
 
 # Background configuration
 backgrounds:
-  # Global fixed background for all pages - test with external URL
+  # Global fixed background for all pages
+  # Supports both images and videos (.mp4, .webm, .ogg, .mov, .avi)
+  # Examples:
+  # "https://example.com/background.jpg" or "background/video.png"
+  # "https://example.com/background.mp4" or "background/video.mp4"
   global: "https://w.wallhaven.cc/full/6l/wallhaven-6lqk2l.png"
-  # Hero section background (Home page) - using local path
-  hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
+  # global: "background/space.mp4" 
+  # Hero section background (Home page)
+  # Supports both images and videos (.mp4, .webm, .ogg, .mov, .avi)  
+  # Video backgrounds: auto-play on desktop, paused at first frame on mobile
+  # Examples:
+  # "https://example.com/hero.jpg" or "background/hero.jpg"
+  # "https://example.com/hero.mp4" or "background/hero.mp4"
+  # hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
+  hero: "background/space.mp4"  # Uncomment to use video background
 
 home:
   hero:
-    name: "YOUR NAME"
-    quote: "Your inspiring quote or tagline here."
+    name: "🍙Onigiri Press"
+    quote: "A modern portfolio framework for developers and creators."
 
   profileCard:
     name: "Your Name"
@@ -230,56 +241,6 @@ home:
             - "Historical weather data analysis and trend prediction"
             - "RESTful API integration with multiple weather services"
             - "Responsive design with data export functionality"
-
-        - projectName: "AI Chat Assistant"
-          description: "An intelligent chatbot with natural language processing and context awareness"
-          tag:
-            items: ["Python", "OpenAI API", "FastAPI", "React"]
-            backgroundColor: "#fef3c7"
-            textColor: "#d97706"
-          duration: "Sep 2023 - Nov 2023"
-          projectLink:
-            url: ""
-            textColor: "#ffffff"
-          githubLink:
-            url: "https://github.com"
-            backgroundColor: "#ea580c"
-            textColor: "#ffffff"
-          coverImage: "default_cover.jpg"
-          border:
-            color: "#f59e0b"
-            hoverColor: "#d97706"
-          highlightColor: "#f59e0b"
-          highlights:
-            - "Context-aware conversations with memory management"
-            - "Custom training on domain-specific knowledge"
-            - "Multi-language support and sentiment analysis"
-            - "Integration with popular messaging platforms"
-
-        - projectName: "Fitness Tracker Mobile App"
-          description: "A cross-platform mobile app for fitness tracking with social features and gamification"
-          tag:
-            items: ["React Native", "Firebase", "Swift", "Kotlin"]
-            backgroundColor: "#fce7f3"
-            textColor: "#be185d"
-          duration: "May 2023 - Sep 2023"
-          projectLink:
-            url: "https://example.com/fitness-app"
-            textColor: ""
-          githubLink:
-            url: "https://github.com"
-            backgroundColor: "#be185d"
-            textColor: "#ffffff"
-          coverImage: "default_cover.jpg"
-          border:
-            color: "#ec4899"
-            hoverColor: "#db2777"
-          highlightColor: "#ec4899"
-          highlights:
-            - "Cross-platform development with React Native"
-            - "Integration with wearable devices and health APIs"
-            - "Social features with friend challenges and leaderboards"
-            - "Offline data synchronization and cloud backup"
         
 
 
@@ -322,6 +283,16 @@ home:
       email: "demo@example.com"
       github: "https://github.com/"
       linkedin: "https://www.linkedin.com/"
+      twitter: "https://twitter.com/"
+      instagram: "https://instagram.com/"
+      weibo: "https://weibo.com/"
+      xiaohongshu: "https://xiaohongshu.com/"
+      wechat: "your-wechat-id"  # WeChat ID or QR code image URL
+      qq: "your-qq-number"
+      discord: "https://discord.com/"
+      youtube: "https://youtube.com/"
+      bilibili: "https://bilibili.com/"
+      zhihu: "https://zhihu.com/"
       # Contact color configuration - simplified to only include text and icon colors
       # Icons and text use the same color settings
       # Supports various CSS color formats: hex, RGB, RGBA, HSL, named colors
@@ -345,7 +316,7 @@ navbar:
   showCV: true
   showProjects: true
   showBlogs: true
-  showLogs: true
+  showLogs: false
   showArchive: true
 
 # Content display settings
@@ -471,7 +442,7 @@ content:
       textColor: "#f3f4f6"
 
 resume:
-  filename: "Your_Resume.pdf"
+  filename: "John_Doe_Resume.pdf"
 
 # Footer configuration
 footer:

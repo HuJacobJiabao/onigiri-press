@@ -111,6 +111,9 @@ ongr g p "My Project"                  # Short form
 ongr load             # Preprocess content files
 ongr l                # Short form
 
+# Daily Logging
+ongr log              # Create a new daily log entry
+
 # Deployment
 ongr deploy           # Deploy to GitHub Pages
 ongr d                # Short form
@@ -164,8 +167,16 @@ website:
 
 # Background configuration
 backgrounds:
-  global: "your website background"  # Global background
-  hero: "your hero image"   # Hero section background
+  global: "your website background"  # Global background (supports images and videos)
+  hero: "your hero image"   # Hero section background (images only)
+
+# Video Background Support
+# The global background supports both images and videos
+# Supported video formats: .mp4, .webm, .ogg, .mov, .avi
+# Examples:
+# backgrounds:
+#   global: "background/video.mp4"      # Local video file
+#   global: "https://example.com/bg.mp4" # External video URL
 
 # Home page configuration
 home:
@@ -178,6 +189,27 @@ home:
     title: "Your Job Title"
     subtitle: "Your Subtitle"
     avatar: "favicon.png"
+
+  navigation:
+    contact:
+      title: "Get In Touch"
+      icon: "📬"
+      type: "contact"
+      content: "Feel free to reach out!"
+      email: "your-email@example.com"
+      github: "https://github.com/yourusername"
+      linkedin: "https://linkedin.com/in/yourusername"
+      twitter: "https://twitter.com/yourusername"
+      instagram: "https://instagram.com/yourusername"
+      weibo: "https://weibo.com/yourusername"
+      xiaohongshu: "https://xiaohongshu.com/yourusername"
+      wechat: "your-wechat-id"
+      qq: "your-qq-number"
+      discord: "https://discord.com/users/yourusername"
+      youtube: "https://youtube.com/@yourusername"
+      bilibili: "https://space.bilibili.com/youruid"
+      zhihu: "https://zhihu.com/people/yourusername"
+      textColor: "#2958e7"
 
 # ...
 
@@ -274,7 +306,58 @@ Not available yet, but you can deploy to any static hosting service like Netlify
 
 ---
 
-## 🎨 Customization
+## � Social Media Integration
+
+Onigiri Press supports extensive social media integration in the contact section. The following platforms are supported:
+
+### Western Platforms
+- **Email** - `email`: Direct email links
+- **GitHub** - `github`: Developer portfolio integration  
+- **LinkedIn** - `linkedin`: Professional networking
+- **Twitter** - `twitter`: Microblogging platform
+- **Instagram** - `instagram`: Photo and story sharing
+- **Discord** - `discord`: Gaming and community platform
+- **YouTube** - `youtube`: Video content platform
+
+### Chinese Platforms
+- **微博 (Weibo)** - `weibo`: Chinese microblogging platform
+- **小红书 (Xiaohongshu)** - `xiaohongshu`: Lifestyle and shopping platform
+- **微信 (WeChat)** - `wechat`: Displays WeChat ID (no direct link)
+- **QQ** - `qq`: Displays QQ number (no direct link)
+- **哔哩哔哩 (Bilibili)** - `bilibili`: Chinese video platform
+- **知乎 (Zhihu)** - `zhihu`: Chinese Q&A platform
+
+### Configuration Example
+
+```yaml
+home:
+  navigation:
+    contact:
+      title: "Get In Touch"
+      icon: "📬"
+      type: "contact"
+      # Add any combination of the following social media links
+      email: "your-email@example.com"
+      github: "https://github.com/yourusername"
+      linkedin: "https://linkedin.com/in/yourusername"
+      twitter: "https://twitter.com/yourusername"
+      instagram: "https://instagram.com/yourusername"
+      weibo: "https://weibo.com/yourusername"
+      xiaohongshu: "https://xiaohongshu.com/yourusername"
+      wechat: "your-wechat-id"  # Will display as text
+      qq: "your-qq-number"      # Will display as text
+      discord: "https://discord.com/users/yourusername"
+      youtube: "https://youtube.com/@yourusername"
+      bilibili: "https://space.bilibili.com/youruid"
+      zhihu: "https://zhihu.com/people/yourusername"
+      textColor: "#2958e7"  # Customize icon and text colors
+```
+
+**Note**: Only add the platforms you actually use. Empty or undefined fields will not be displayed.
+
+---
+
+## �🎨 Customization
 
 ### Themes and Styling
 

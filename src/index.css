@@ -9,29 +9,6 @@ html, body, #root {
   /* Remove background styles - now handled by fixed background layers */
 }
 
-/* Global fixed background for pages without specific background */
-.global-background-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('/background/about.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  z-index: -2; /* Lower than component-specific backgrounds */
-  pointer-events: none;
-}
-
-/* Mobile background fix - use scroll instead of fixed for performance */
-@media (max-width: 768px) {
-  .global-background-fixed {
-    background-attachment: scroll;
-  }
-}
-
 html {
   scroll-behavior: smooth;
   /* 防止页面刷新时的背景跳动 - 强制显示滚动条槽 */

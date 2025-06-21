@@ -79,6 +79,9 @@ function App() {
   // Get global background from config (already processed with full URL)
   const backgroundUrl = config.backgrounds?.global || `${import.meta.env.BASE_URL}background/global.png`;
 
+  // Check if background is a video file
+  const isVideoBackground = backgroundUrl && /\.(mp4|webm|ogg|mov|avi)(\?.*)?$/i.test(backgroundUrl);
+
   // Dynamically set favicon based on config
   useEffect(() => {
     const baseUrl = import.meta.env.BASE_URL;
@@ -109,12 +112,41 @@ function App() {
   return (
    <Router basename={import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL}>
       {/* Global fixed background layer with dynamic background */}
-      <div 
-        className="global-background-fixed"
-        style={{
-          backgroundImage: `url('${backgroundUrl}')`
-        }}
-      ></div>
+      {isVideoBackground ? (
+        <video 
+          className="global-background-fixed"
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: -1,
+            pointerEvents: 'none'
+          }}
+        >
+          <source src={backgroundUrl} type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+          <div 
+            className="global-background-fixed"
+            style={{
+              backgroundImage: `url('${import.meta.env.BASE_URL}background/global.png')`
+            }}
+          ></div>
+        </video>
+      ) : (
+        <div 
+          className="global-background-fixed"
+          style={{
+            backgroundImage: `url('${backgroundUrl}')`
+          }}
+        ></div>
+      )}
       
       <ScrollToTop />
       <AppContent />

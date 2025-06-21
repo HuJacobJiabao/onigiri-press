@@ -84,6 +84,11 @@ function processConfig(rawConfig: any): Config {
   if (processed.website?.favicon) {
     processed.website.favicon = buildUrl(processed.website.favicon);
   }
+
+  // Process resume filename to build full URL
+  if (processed.resume?.filename) {
+    processed.resume.filename = buildUrl(processed.resume.filename);
+  }
   
   return processed;
 }
@@ -140,6 +145,11 @@ export interface FooterConfig {
   background?: string;
 }
 
+// Define resume configuration
+export interface ResumeConfig {
+  filename: string;
+}
+
 // Define contact color configuration
 export interface ContactConfig {
   textColor?: string;
@@ -184,6 +194,7 @@ export interface Config {
   website?: WebsiteConfig;
   backgrounds?: BackgroundConfig;
   footer?: FooterConfig;
+  resume?: ResumeConfig;
   audioPlayer?: AudioPlayerConfig;
   content?: ContentConfig;
   [key: string]: any; // Allow other config properties

@@ -14,7 +14,7 @@ const program = new Command();
 program
   .name('ongr')
   .description('OnigiriPress - A modern portfolio framework')
-  .version('1.2.0');
+  .version('1.1.17');
 
 program
   .command('init [project-name]')
@@ -35,7 +35,7 @@ program
     console.log('📁 Setting up project structure...');
     
     // Copy config files
-    const configTemplate = path.join(packageDir, 'config.yaml');
+    const configTemplate = path.join(packageDir, 'config.template.yaml');
     const configTarget = path.join(projectPath, 'config.yaml');
     if (fs.existsSync(configTemplate)) {
       fs.copyFileSync(configTemplate, configTarget);
@@ -392,18 +392,41 @@ program
   });
 
 program
-  .command('log')
-  .description('Create a new daily log entry')
-  .action(() => {
-    console.log('📝 Creating daily log entry...');
+  .command('log [date]')
+  .description('Create a new daily log entry (date format: yyyy-mm-dd, defaults to today)')
+  .action((date) => {
+    if (date) {
+      // Validate date format
+      const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+      if (!dateRegex.test(date)) {
+        console.error('❌ Invalid date format. Please use yyyy-mm-dd format (e.g., 2025-06-18)');
+        process.exit(1);
+      }
+      
+      // Validate that it's a valid date
+      const [year, month, day] = date.split('-').map(Number);
+      const testDate = new Date(year, month - 1, day);
+      if (testDate.getFullYear() !== year || testDate.getMonth() !== month - 1 || testDate.getDate() !== day) {
+        console.error('❌ Invalid date. Please provide a valid date in yyyy-mm-dd format');
+        process.exit(1);
+      }
+      
+      console.log(`📝 Creating daily log entry for ${date}...`);
+    } else {
+      console.log('📝 Creating daily log entry for today...');
+    }
     
     // Find the onigiri-press package directory
     const packageDir = path.dirname(__dirname);
     const logScript = path.join(packageDir, 'src', 'scripts', 'create-daily-log.ts');
     
     try {
-      // Use tsx to run the daily log script directly
-      execSync(`npx tsx "${logScript}"`, { 
+      // Pass the date argument to the script if provided
+      const command = date 
+        ? `npx tsx "${logScript}" "${date}"` 
+        : `npx tsx "${logScript}"`;
+        
+      execSync(command, { 
         stdio: 'inherit', 
         cwd: process.cwd(),
         env: { ...process.env, NODE_PATH: packageDir }
