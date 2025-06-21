@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div align="center">
 
   # 🍙 Onigiri Press
   <img src="public/favicon.png" alt="Onigiri Press Logo" width="120" height="120">
