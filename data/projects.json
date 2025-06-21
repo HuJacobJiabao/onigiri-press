@@ -1,0 +1,33 @@
+[
+  {
+    "id": "file-path-test-project",
+    "title": "File Path Test Project",
+    "date": "2025-06-16T15:09:07.246Z",
+    "category": "testing",
+    "description": "Testing various file path references in markdown content",
+    "tags": [
+      "test",
+      "file-paths",
+      "markdown"
+    ],
+    "link": "/onigiri-press/projects/file-path-test-project",
+    "contentPath": "/onigiri-press/content/projects/file-path-test/index.md",
+    "image": "/onigiri-press/background/default_proj.jpg",
+    "assetPaths": []
+  },
+  {
+    "id": "sample-project",
+    "title": "Sample project",
+    "date": "2025-06-16T01:44:48.318Z",
+    "category": "default",
+    "description": "This is the default description for project.",
+    "tags": [
+      "Hello",
+      "World"
+    ],
+    "link": "/onigiri-press/projects/sample-project",
+    "contentPath": "/onigiri-press/content/projects/sample-project/index.md",
+    "image": "/onigiri-press/favicon.png",
+    "assetPaths": []
+  }
+]
