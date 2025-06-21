@@ -190,27 +190,6 @@ home:
     subtitle: "Your Subtitle"
     avatar: "favicon.png"
 
-  navigation:
-    contact:
-      title: "Get In Touch"
-      icon: "📬"
-      type: "contact"
-      content: "Feel free to reach out!"
-      email: "your-email@example.com"
-      github: "https://github.com/yourusername"
-      linkedin: "https://linkedin.com/in/yourusername"
-      twitter: "https://twitter.com/yourusername"
-      instagram: "https://instagram.com/yourusername"
-      weibo: "https://weibo.com/yourusername"
-      xiaohongshu: "https://xiaohongshu.com/yourusername"
-      wechat: "your-wechat-id"
-      qq: "your-qq-number"
-      discord: "https://discord.com/users/yourusername"
-      youtube: "https://youtube.com/@yourusername"
-      bilibili: "https://space.bilibili.com/youruid"
-      zhihu: "https://zhihu.com/people/yourusername"
-      textColor: "#2958e7"
-
 # ...
 
 # Footer configuration
@@ -306,7 +285,7 @@ Not available yet, but you can deploy to any static hosting service like Netlify
 
 ---
 
-## � Social Media Integration
+## 🌐 Social Media Integration
 
 Onigiri Press supports extensive social media integration in the contact section. The following platforms are supported:
 
@@ -357,7 +336,7 @@ home:
 
 ---
 
-## �🎨 Customization
+## 🎨 Customization
 
 ### Themes and Styling
 

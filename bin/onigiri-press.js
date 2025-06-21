@@ -14,7 +14,7 @@ const program = new Command();
 program
   .name('ongr')
   .description('OnigiriPress - A modern portfolio framework')
-  .version('1.1.17');
+  .version('1.1.19');
 
 program
   .command('init [project-name]')
@@ -216,8 +216,16 @@ program
       // Process stdout line by line to clean paths in real-time
       viteBuild.stdout.on('data', (data) => {
         const output = data.toString();
-        // Replace long absolute paths with cleaner relative ones
-        const cleanedOutput = output.replace(/.*?onigiri-test.*?\/dist\//g, 'dist/');
+        // Replace long absolute paths and relative paths with cleaner ones
+        let cleanedOutput = output
+          // Remove complex relative paths like ../../../../../../../portfolio/dist/
+          .replace(/(?:\.\.\/)+[^/\s]*\/dist\//g, 'dist/')
+          // Also clean any remaining complex paths
+          .replace(/.*?onigiri-test.*?\/dist\//g, 'dist/')
+          // Clean paths that start with many ../
+          .replace(/(?:\.\.\/){3,}[^/\s]*\//g, '')
+          // Clean any remaining long absolute paths to user directories
+          .replace(/\/[^/\s]*\/[^/\s]*\/[^/\s]*\/portfolio\/dist\//g, 'dist/');
         process.stdout.write(cleanedOutput);
       });
       

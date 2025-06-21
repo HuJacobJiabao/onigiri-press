@@ -119,6 +119,26 @@ const Home = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, [isMobile, isHeroVideoBackground]);
 
+    // Video parallax effect (for desktop only)
+    useEffect(() => {
+        if (!isHeroVideoBackground || isMobile) return;
+
+        const handleScroll = () => {
+            const scrolled = window.pageYOffset;
+            const heroElement = document.querySelector(`.${styles.heroWithVideo}`) as HTMLElement;
+            const videoElement = heroElement?.querySelector('video') as HTMLVideoElement;
+            
+            if (videoElement && heroElement) {
+                // Apply parallax transform - video moves slower than scroll
+                const translateY = scrolled; // Adjust multiplier for different parallax intensity
+                videoElement.style.transform = `translateY(${translateY}px)`    ;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isHeroVideoBackground, isMobile]);
+
     const handleSectionChange = (sectionId: string) => {
         setActiveSection(sectionId);
     };
@@ -382,60 +402,33 @@ const Home = () => {
             />
             
             {/* Hero Section */}
-            <section className={styles.hero}>
-                {/* Hero background - video or image */}
-                {isHeroVideoBackground ? (
-                    // Video background for both mobile and desktop
-                    <video 
-                        className={styles.heroVideo}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        webkit-playsinline="true"
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            zIndex: -1,
-                            pointerEvents: 'none'
-                        }}  
-                    >
-                        <source src={heroBackgroundUrl} type="video/mp4" />
-                        {/* Fallback for browsers that don't support video */}
-                        <div 
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                height: '100%',
-                                backgroundImage: `url('${import.meta.env.BASE_URL}background/hero.jpg')`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                backgroundRepeat: 'no-repeat'
-                            }}
-                        ></div>
-                    </video>
-                ) : (
-                    // Image background (when hero background is not a video)
-                    <div 
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            backgroundImage: `url('${heroBackgroundUrl}')`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                            zIndex: 0
-                        }}
-                    ></div>
+            <section 
+                className={isHeroVideoBackground ? styles.heroWithVideo : styles.hero}
+                style={!isHeroVideoBackground ? {
+                    backgroundImage: `url('${heroBackgroundUrl}')`,
+                } : {}}
+            >
+                {/* Video background - only render when needed */}
+                {isHeroVideoBackground && (
+                    <div className={styles.heroVideoWrapper}>
+                        <video 
+                            className={styles.heroVideo}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            webkit-playsinline="true"
+                        >
+                            <source src={heroBackgroundUrl} type="video/mp4" />
+                            {/* Fallback for browsers that don't support video */}
+                            <div 
+                                className={styles.heroVideoFallback}
+                                style={{
+                                    backgroundImage: `url('${import.meta.env.BASE_URL}background/hero.jpg')`,
+                                }}
+                            ></div>
+                        </video>
+                    </div>
                 )}
                 
                 <div className={styles.heroContent}>

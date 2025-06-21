@@ -41,8 +41,8 @@ backgrounds:
   # Examples:
   # "https://example.com/hero.jpg" or "background/hero.jpg"
   # "https://example.com/hero.mp4" or "background/hero.mp4"
-  # hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
-  hero: "background/space.mp4"  # Uncomment to use video background
+  hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
+  # hero: "background/space.mp4"  # Uncomment to use video background
 
 home:
   hero:

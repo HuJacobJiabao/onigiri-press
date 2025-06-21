@@ -1,23 +1,6 @@
 # OnigiriPress Configuration Template
 # Copy this file to config.yaml and customize with your information
 #
-# NAVIGATION CUSTOMIZATION:
-# You can add unlimited custom sections under 'home.navigation' by creating new keys.
-# Each section requires a 'type' field that must be one of:
-# - about: For text content with optional photo
-# - education: For educational background entries
-# - experience: For work experience entries  
-# - projects: For project showcases
-# - contact: For contact information
-#
-# Example of adding a custom section:
-# home:
-#   navigation:
-#     my_custom_section:
-#       title: "My Custom Section"
-#       icon: "🚀"
-#       type: "about"
-#       content: "Your content here..."
 
 website:
   title: "Your Title"
@@ -41,8 +24,8 @@ backgrounds:
   # Examples:
   # "https://example.com/hero.jpg" or "background/hero.jpg"
   # "https://example.com/hero.mp4" or "background/hero.mp4"
-  # hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
-  hero: "background/space.mp4"  # Uncomment to use video background
+  hero: "https://w.wallhaven.cc/full/5y/wallhaven-5yd6d5.png"
+  # hero: "background/space.mp4"  # Uncomment to use video background
 
 home:
   hero:
@@ -292,37 +275,6 @@ home:
             - "Social features with friend challenges and leaderboards"
             - "Offline data synchronization and cloud backup"
         
-
-
-    # certificates:
-    #   title: "Certificates & Achievements"
-    #   icon: "🏆"
-    #   type: "projects"
-    #   defaultCover: "background/hero.jpg"
-    #   items:
-    #     - projectName: "AWS Solutions Architect Associate"
-    #       description: "Comprehensive certification covering AWS architecture best practices and cloud solutions design"
-    #       technologies: ["AWS", "Cloud Architecture", "EC2", "S3", "Lambda"]
-    #       duration: "Dec 2024"
-    #       projectUrl: "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
-    #       githubUrl: ""
-    #       imageSrc: "default_cover.jpg"
-    #       highlights:
-    #         - "Validated expertise in designing distributed applications on AWS"
-    #         - "Demonstrated knowledge of security and compliance on AWS platform"
-    #         - "Proven ability to optimize costs and performance"
-            
-    #     - projectName: "React Developer Certification"
-    #       description: "Advanced certification in React development covering hooks, state management, and modern patterns"
-    #       technologies: ["React", "JavaScript", "TypeScript", "Redux"]
-    #       duration: "Nov 2024"
-    #       projectUrl: "https://reactjs.org/"
-    #       githubUrl: ""
-    #       imageSrc: "default_cover.jpg"
-    #       highlights:
-    #         - "Advanced component architecture and optimization"
-    #         - "State management with Redux and Context API"
-    #         - "Testing strategies for React applications"
     
 
     contact:

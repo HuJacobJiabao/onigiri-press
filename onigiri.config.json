@@ -1,5 +1,5 @@
 {
-  "baseUrl": "/deploy-test", 
+  "baseUrl": "/onigiri-press", 
   "dev": {
     "port": 5173,
     "open": false
