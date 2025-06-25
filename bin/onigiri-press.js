@@ -14,7 +14,7 @@ const program = new Command();
 program
   .name('ongr')
   .description('OnigiriPress - A modern portfolio framework')
-  .version('1.1.19');
+  .version('1.1.20');
 
 program
   .command('init [project-name]')

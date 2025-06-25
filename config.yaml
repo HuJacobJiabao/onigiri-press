@@ -174,23 +174,23 @@ home:
       type: "projects"
       defaultCover: "default_cover.jpg"
       items:
-        - projectName: "E-Commerce Platform"
-          description: "A full-stack e-commerce platform with modern payment integration and admin dashboard"
+        - projectName: "Onigiri-Press Portfolio Framework"
+          description: "A comprehensive, highly customizable portfolio framework engineered with React and TypeScript for modern web development"
           tag:
-            items: ["React", "Node.js", "MongoDB", "Stripe"]
-          duration: "Jan 2024 - May 2024"
+            items: ["OnigiriPress", "React", "TypeScript", "CSS Modules", "Vite"]
+          duration: "Jun 2025 - Present"
           projectLink:
-            url: "https://example.com/ecommerce-demo"
+            url: "https://hujacobjiabao.github.io/portfolio/projects/onigiri-press-portfolio-framework"
             textColor: ""
           githubLink:
-            url: "https://github.com/"
-            textColor: ""
-            backgroundColor: "#2c3e50"
+            url: "https://github.com/HuJacobJiabao/onigiri-press/"
+          coverImage: "favicon.png"
           highlights:
-            - "Implemented secure payment processing with Stripe API"
-            - "Built comprehensive admin dashboard for inventory management"
-            - "Optimized for performance with lazy loading and caching"
-            - "Responsive design with mobile-first approach"
+            - "Architected a modular framework supporting dynamic content generation and flexible configuration management"
+            - "Implemented responsive design system with advanced CSS Modules and glass morphism effects for modern aesthetics"
+            - "Integrated OnigiriPress static site generation with React components for optimal performance and SEO"
+            - "Developed comprehensive theming system with customizable color schemes and layout configurations"
+            - "Built automated deployment pipeline with Vite bundling and GitHub Pages integration"
             
         - projectName: "Task Management App"
           description: "A collaborative task management application with real-time updates and team features"
@@ -201,12 +201,12 @@ home:
           duration: "Aug 2023 - Dec 2023"
           projectLink:
             url: "https://example.com/taskapp"
-            textColor: "#ffffff"
+            textColor: "#132321"
           githubLink:
             url: "https://github.com"
             backgroundColor: "#059669"
             textColor: "#ffffff"
-          coverImage: "default_cover.jpg"
+          coverImage: "favicon.png"
           border:
             color: "#16a34a"
             hoverColor: "#15803d"
