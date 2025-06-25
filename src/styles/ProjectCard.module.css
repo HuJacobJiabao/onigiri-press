@@ -209,8 +209,8 @@
   left: 0;
 }
 
-/* Responsive design for project cards */
-@media (max-width: 1024px) {
+/* Mobile layout for medium screens (900px-1024px) */
+@media (max-width: 1024px) and (min-width: 901px) {
   .projectCard {
     flex-direction: column;
     text-align: center;
@@ -221,7 +221,7 @@
   .projectImageSection {
     align-self: center;
     width: 100%;
-    max-width: 300px; /* Match projectImage max-width */
+    max-width: 300px;
     margin-right: 0;
     align-items: center;
   }
@@ -234,7 +234,7 @@
   
   .projectActions {
     width: 100%;
-    max-width: 300px; /* Match the max-width of projectImage */
+    max-width: 300px;
   }
   
   .projectName {
@@ -246,6 +246,68 @@
   }
 }
 
+/* Desktop layout with optimized sizing for small-medium screens (481px-900px) */
+@media (max-width: 900px) and (min-width: 481px) {
+  .projectContent {
+    min-width: 0; /* Allow content to shrink */
+  }
+  
+  .projectName {
+    font-size: 1.2rem; /* Slightly smaller title */
+  }
+  
+  .description {
+    font-size: 1rem; /* Smaller description */
+  }
+  
+  .technologies {
+    gap: 4px; /* Tighter spacing */
+  }
+  
+  .techTag {
+    font-size: 0.75rem; /* Smaller tags */
+    padding: 3px 8px;
+  }
+  
+  .highlights li {
+    font-size: 0.9rem; /* Smaller highlights */
+  }
+}
+
+/* Mobile layout for small screens (<480px) */
+@media (max-width: 480px) {
+  .projectCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .projectImageSection {
+    align-self: center;
+    width: 100%;
+    max-width: 300px;
+    margin-right: 0;
+    align-items: center;
+  }
+  
+  .projectImage {
+    width: 100%;
+    max-width: 300px;
+    height: 180px;
+  }
+  
+  .projectActions {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .highlights li {
+    text-align: left;
+  }
+}
+
+/* Additional mobile optimizations */
 @media (max-width: 480px) {
   .projectCard {
     padding: 15px;
