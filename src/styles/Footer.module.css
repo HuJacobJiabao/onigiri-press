@@ -63,7 +63,7 @@
 }
 
 /* Mobile background fix - use scroll instead of fixed for performance */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .backgroundFixed {
     background-attachment: scroll;
   }

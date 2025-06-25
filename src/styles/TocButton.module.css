@@ -52,7 +52,7 @@
 }
 
 /* Remove animation delay on mobile for immediate appearance */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .tocBtn {
     animation: none; /* Remove animation on mobile for immediate display */
   }
@@ -70,7 +70,7 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .tocButton {
     display: block; /* Show TOC button on mobile for navigation control */
     bottom: 65px; /* Position just above scroll-to-top button: 15px + 45px + 5px spacing */

@@ -64,22 +64,18 @@
 .contactList {
   display: flex;
   flex-direction: row;
-  gap: 8px; /* Reduced gap to accommodate more icons */
+  gap: 12px;
   justify-content: center;
-  flex-wrap: wrap; /* Allow wrapping for more icons */
-  max-width: 100%;
 }
 
 .contactItem {
   display: flex;
   align-items: center;
-  padding: 6px; /* Slightly reduced padding */
+  padding: 8px;
   text-decoration: none;
   color: #34495e;
   border-radius: 8px;
   font-size: 0.9rem;
-  min-width: 32px; /* Ensure minimum clickable area */
-  justify-content: center;
 }
 
 .contactItem:hover {
@@ -95,7 +91,7 @@
 }
 
 /* Responsive design for profile card */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   /* OVERRIDE BASE PROFILE CARD - this is the key fix */
   .profileCard {
     width: 100% !important;

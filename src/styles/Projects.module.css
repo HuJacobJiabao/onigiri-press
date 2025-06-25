@@ -174,7 +174,7 @@
   animation: contentFadeIn 0.8s cubic-bezier(0.4,0,0.2,1);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .projectsGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;

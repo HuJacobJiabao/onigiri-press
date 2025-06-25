@@ -128,7 +128,7 @@
 }
 
 /* Responsive design for work cards */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .workCard {
     flex-direction: column;
     text-align: center;

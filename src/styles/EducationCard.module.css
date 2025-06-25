@@ -116,7 +116,7 @@
 /* Logo images will display normally without placeholder styling */
 
 /* Responsive design for education cards */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .educationCard {
     flex-direction: column;
     text-align: center;

@@ -106,7 +106,7 @@
 }
 
 /* ✅ 移动端折叠处理 */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hamburger {
     display: block;
   }

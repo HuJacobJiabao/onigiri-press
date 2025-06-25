@@ -302,7 +302,7 @@ td[align="right"] {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   /* 移动端表格样式 */
   .markdownContent table {
     font-size: 14px;
@@ -553,7 +553,7 @@ td[align="right"] {
   background-color: rgba(255, 230, 0, 0.5);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .content {
     padding: 1.5rem;
     margin: 0;

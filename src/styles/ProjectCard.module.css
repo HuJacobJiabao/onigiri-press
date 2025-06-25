@@ -210,7 +210,7 @@
 }
 
 /* Responsive design for project cards */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .projectCard {
     flex-direction: column;
     text-align: center;

@@ -162,7 +162,7 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .cardContent {
     padding: 1.2rem;
   }

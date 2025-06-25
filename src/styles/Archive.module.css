@@ -253,7 +253,7 @@
   max-width: 100%;
 }
 
-/* Enhanced Responsive design */
+/* Enhanced Responsive design
 @media (max-width: 1024px) {
   .archiveContainer {
     max-width: 800px;
@@ -280,9 +280,9 @@
   .yearText {
     font-size: 1rem;
   }
-}
+} */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .archiveContainer {
     gap: 2rem;
     padding: 0;

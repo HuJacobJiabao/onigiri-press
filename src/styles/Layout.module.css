@@ -257,6 +257,7 @@
   background: transparent;
   border-radius: 20px;
   padding: 40px;
+  padding-right: 0px;
   padding-top: 0;
   animation: fadeIn 1s ease-in-out;
   min-height: 500px;
@@ -301,7 +302,7 @@
   margin-top: 0 !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .pageHeader {
     padding: 60px 0 20px; /* Further reduced for mobile */
     height: 220px; /* Reduced fixed height for mobile */

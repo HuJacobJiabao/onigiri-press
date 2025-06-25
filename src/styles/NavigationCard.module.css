@@ -435,7 +435,7 @@
 }
 
 /* Responsive design - Show mobile floating card even on mobile, hide normal navigation card */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .navigationCard:not(.mobileFloatingNavigationCard):not(.mobileFloatingCard) {
     display: none !important;
   }
