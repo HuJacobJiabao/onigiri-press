@@ -14,7 +14,7 @@
   padding: 1.25rem;
   gap: 1.25rem;
   width: 100%;
-  max-width: 100%;
+  box-sizing: border-box;
   position: relative;
   backdrop-filter: blur(10px);
 }
