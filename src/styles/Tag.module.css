@@ -52,10 +52,14 @@
   }
   
   .tagIcon,
-  .svgIcon svg,
   .faIcon {
     width: 14px;
     height: 14px;
     margin-right: 4px;
+  }
+  .svgIcon svg {
+   width: 14px;
+   height: 14px;
+   vertical-align: middle;
   }
 }
