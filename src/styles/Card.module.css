@@ -92,7 +92,7 @@
 .cardTags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.25rem;
   margin-bottom: 1rem;
 }
 
@@ -104,6 +104,9 @@
   font-size: 0.8rem;
   font-weight: 500;
   border: 1px solid #e9ecef;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
 }
 
 .cardFooter {

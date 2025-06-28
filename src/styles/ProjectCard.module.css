@@ -166,7 +166,7 @@
 .technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 3px;
   margin-top: 8px;
   line-height: 1.6;
 }
@@ -180,6 +180,9 @@
   font-weight: 500;
   white-space: nowrap;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
 }
 
 .projectDetails {

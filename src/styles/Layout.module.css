@@ -12,17 +12,18 @@
   left: 0;
   right: 0;
   z-index: 998;
-  padding: 100px 0 15px; /* Further reduced padding to make header even smaller */
+  padding: 100px 0 15px; /* Consistent padding */
   text-align: center;
   margin-top: 0;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to visible */
   background-color: #ffffff;
   animation: fadeInDown 1s ease-in-out;
-  min-height: 200px; /* Reduced from 240px to 200px */
-  height: 200px; /* Reduced fixed height to 200px */
+  min-height: 315px; /* Consistent min-height for all headers */
+  height: auto; /* Let height adjust based on content */
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .pageHeader::before {
@@ -57,6 +58,60 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  position: relative;
+  overflow: visible;
+  align-items: center; /* Ensure horizontal centering */
+}
+
+.titleOnlyHeader {
+  justify-content: center !important; /* Ensures vertical centering */
+  min-height: unset !important; /* Don't affect the page header height */
+  padding: 0 !important; /* No additional padding */
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important; /* Fill the parent's height */
+}
+
+/* Special page header styles for title-only pages */
+.titleOnlyPageHeader {
+  padding: 0 !important; /* Remove standard padding */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.titleOnlyArea {
+  max-height: none !important; /* Remove the max-height constraint */
+  height: 100% !important; /* Fill the parent's height */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important; /* Take up all available space */
+  margin: 0 !important; /* Remove any margin */
+  padding: 0 !important; /* Remove any padding */
+  position: absolute !important; /* Position absolutely */
+  top: 0 !important; /* Align to top */
+  left: 0 !important; /* Align to left */
+  right: 0 !important; /* Align to right */
+  bottom: 0 !important; /* Align to bottom */
+}
+
+/* Special class for title-only scenarios to ensure perfect centering */
+.titleOnlyArea {
+  margin: 0 auto !important; /* Center horizontally */
+  max-height: none !important; /* Allow natural height */
+  flex: 0 0 auto !important; /* Don't grow or shrink */
+  width: fit-content !important; /* Only take up as much width as needed */
+  /* Ensure vertical centering in title-only headers */
+  position: relative !important;
+  top: 0 !important; /* Don't offset */
+}
+
+/* Add spacing around title in title-only headers for visual balance */
+.titleOnlyArea h1 {
+  padding: 0 30px !important; /* Only horizontal padding */
+  margin: 0 !important;
+  text-align: center !important;
 }
 
 /* Title area - first red box */
@@ -67,12 +122,14 @@
   justify-content: center;
   max-height: 90px; /* 从80px增加到90px，给分行标题更多空间 */
   padding: 3px 0;
+  width: 100%; /* Ensure full width for better centering */
+  margin: auto 0; /* Center vertically in available space */
 }
 
 .pageTitle {
   font-size: 3.5rem; /* Keep large size */
   color: #ffffff;
-  margin: 0;
+  margin: 0 auto; /* Center horizontally */
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   position: relative;
@@ -156,11 +213,17 @@
 .tagsArea {
   flex-shrink: 0;
   padding: 5px 0; /* Reduced from 8px to fit smaller header */
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  position: relative;
 }
 
 .tagsArea .headerTags {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
 }
 
 .headerTags {
@@ -168,6 +231,44 @@
   flex-wrap: wrap;
   gap: 6px; /* Reduced from 8px */
   justify-content: center;
+  overflow: visible;
+  position: relative;
+  padding-bottom: 5px; /* Add padding to ensure no clipping */
+}
+
+.toggleTagsButton {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  border-radius: 10px; /* Same as tag border-radius */
+  padding: 0.2rem 0.4rem; /* Same as tag padding */
+  font-size: 0.8rem; /* Same as tag font-size */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500; /* Same as tag font-weight */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.3rem; /* Same as tag margin-right */
+  margin-bottom: 0.3rem; /* Same as tag margin-bottom */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  white-space: nowrap; /* Prevent text wrapping */
+  gap: 0.25rem; /* Space between icon and text */
+}
+
+.toggleTagsButton:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.toggleTagsButton:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .headerTag {
@@ -181,6 +282,9 @@
   white-space: nowrap;
   border: 1px solid rgba(255, 255, 255, 0.3);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
 }
 
 @keyframes fadeInUp {
@@ -305,14 +409,36 @@
 @media (max-width: 900px) {
   .pageHeader {
     padding: 60px 0 20px; /* Further reduced for mobile */
-    height: 220px; /* Reduced fixed height for mobile */
-    min-height: 220px;
+    height: auto; /* Changed to auto from fixed height */
+    min-height: 300px;
+    overflow: visible;
   }
 
   .titleArea {
     max-height: 80px; /* 从70px增加到80px，给移动端分行标题更多空间 */
     text-align: center; /* 确保移动端标题居中 */
     width: 100%;
+  }
+  
+  .toggleTagsButton {
+    padding: 0.2rem 0.4rem; /* Same as mobile tag padding */
+    font-size: 0.75rem; /* Same as mobile tag font-size */
+    margin-right: 0.2rem; /* Same as mobile tag margin-right */
+    margin-bottom: 0.2rem; /* Same as mobile tag margin-bottom */
+    gap: 0.2rem; /* Smaller gap for mobile */
+  }
+  
+  .toggleTagsButton i {
+    font-size: 0.7rem; /* Smaller icon for mobile */
+  }
+  
+  .headerTags {
+    gap: 5px;
+    padding-bottom: 8px;
+  }
+  
+  .tagsArea {
+    padding-bottom: 5px;
   }
 
   .pageTitle {
@@ -421,10 +547,14 @@
   }
 
   /* Mobile title-only header styling */
+  .titleOnlyPageHeader {
+    padding: 0 !important; /* Remove padding completely */
+  }
+  
   .titleOnlyHeader {
-    height: 180px !important; /* Smaller height for title-only on mobile */
-    min-height: 180px !important;
-    padding: 40px 0 !important; /* More balanced padding */
+    min-height: unset !important;
+    height: auto !important;
+    padding: 0 !important;
   }
 
   .titleOnlyHeader .titleArea {

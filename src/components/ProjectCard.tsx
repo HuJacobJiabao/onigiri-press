@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/ProjectCard.module.css';
+import Tag from './Tag';
 
 interface ProjectCardProps {
   // Basic project information
@@ -92,7 +93,7 @@ const ProjectCard = ({
           <p className={styles.duration}>{duration}</p>
           <div className={styles.technologies}>
             {technologies.map((tech, index) => (
-              <span key={index} className={styles.techTag}>{tech}</span>
+              <Tag key={index} tag={tech} />
             ))}
           </div>
         </div>

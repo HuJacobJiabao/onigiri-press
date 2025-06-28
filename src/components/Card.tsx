@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Card.module.css';
 import { formatDateForDisplay } from '../utils/dateFormatter';
-import { getCategoryColor, getTagColor } from '../config/config';
+import { getCategoryColor } from '../config/config';
 import { getAssetPath } from '../utils/staticDataLoader';
+import Tag from './Tag';
 
 interface CardProps {
   title: string;
@@ -83,21 +84,12 @@ export default function Card({
         
         {tags.length > 0 && (
           <div className={styles.cardTags}>
-            {tags.map((tag, index) => {
-              const tagColors = getTagColor(tag);
-              return (
-                <span 
-                  key={index} 
-                  className={styles.tag}
-                  style={{
-                    backgroundColor: tagColors.backgroundColor,
-                    color: tagColors.textColor
-                  }}
-                >
-                  {tag}
-                </span>
-              );
-            })}
+            {tags.map((tag, index) => (
+              <Tag 
+                key={index} 
+                tag={tag}
+              />
+            ))}
           </div>
         )}
         

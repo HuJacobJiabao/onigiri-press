@@ -3,7 +3,7 @@ type: "blog"
 title: "Read Me"
 createTime: "2025-06-19T03:11:30.456Z"
 description: "This is the default description for blog."
-tags: ["Hello", "world"]
+tags: ["Node.js", "React", "TypeScript", "Vite"]
 category: "default"
 coverImage: "favicon.png"
 ---

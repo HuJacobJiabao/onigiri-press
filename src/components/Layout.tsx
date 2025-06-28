@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 import TocButton from './TocButton';
 import NavigationCard from './NavigationCard';
+import Tag from './Tag';
 import styles from '../styles/Layout.module.css';
 import ScrollToTop from './ScrollToTop';
 import { formatDateForDisplay } from '../utils/dateFormatter';
@@ -23,6 +24,8 @@ interface LayoutProps {
   contentItemTags?: string[];
   contentItemCategory?: string;
   contentItemLastUpdate?: string;
+  // Tag folding props
+  maxVisibleTags?: number;
 }
 
 export default function Layout({ 
@@ -37,14 +40,21 @@ export default function Layout({
   contentItemTags,
   contentType,
   contentItemCategory,
-  contentItemLastUpdate
+  contentItemLastUpdate,
+  maxVisibleTags = 8  // Default to showing 8 tags
 }: LayoutProps) {
   const [activeSection, setActiveSection] = useState('about');
   const [isMobileNavigationVisible, setIsMobileNavigationVisible] = useState(false);
+  const [showAllTags, setShowAllTags] = useState(false);
 
   // Toggle mobile navigation visibility
   const toggleMobileNavigation = () => {
     setIsMobileNavigationVisible(!isMobileNavigationVisible);
+  };
+
+  // Toggle between showing all tags or limited tags
+  const toggleTagsVisibility = () => {
+    setShowAllTags(!showAllTags);
   };
 
   // Determine current page type for TOC button
@@ -78,6 +88,16 @@ export default function Layout({
     return baseClass;
   };
 
+  // Determine if we need to show the "show more/less" button
+  const shouldShowToggleButton = contentItemTags && contentItemTags.length > maxVisibleTags;
+  
+  // Get the tags to display based on the showAllTags state
+  const tagsToDisplay = contentItemTags && contentItemTags.length > 0 
+    ? (showAllTags ? contentItemTags : contentItemTags.slice(0, maxVisibleTags))
+    : [];
+    
+  const hiddenTagsCount = contentItemTags ? contentItemTags.length - maxVisibleTags : 0;
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -85,9 +105,9 @@ export default function Layout({
         <NavBar />
         
         {title && (
-          <header className={styles.pageHeader} style={headerStyle}>
+          <header className={`${styles.pageHeader} ${!contentType ? styles.titleOnlyPageHeader : ''}`} style={headerStyle}>
             <div className={`${styles.headerContent} ${!contentType ? styles.titleOnlyHeader : ''}`}>
-              <div className={styles.titleArea}>
+              <div className={`${styles.titleArea} ${!contentType ? styles.titleOnlyArea : ''}`}>
                 <h1 className={getTitleClasses()}>{title}</h1>
               </div>
               {contentType && (
@@ -123,9 +143,28 @@ export default function Layout({
                   {contentItemTags && contentItemTags.length > 0 && (
                     <div className={styles.tagsArea}>
                       <div className={styles.headerTags}>
-                        {contentItemTags.map((tag, index) => (
-                          <span key={index} className={styles.headerTag}>{tag}</span>
+                        {tagsToDisplay.map((tag, index) => (
+                          <Tag key={index} tag={tag} />
                         ))}
+                        
+                        {shouldShowToggleButton && (
+                          <button 
+                            className={styles.toggleTagsButton}
+                            onClick={toggleTagsVisibility}
+                            aria-expanded={showAllTags}
+                          >
+                            {showAllTags ? (
+                              <>
+                                <i className="fa-solid fa-caret-up"></i>
+                              </>
+                            ) : (
+                              <>
+                                <i className="fa-solid fa-caret-down"></i>
+                                Expand +{hiddenTagsCount}
+                              </>
+                            )}
+                          </button>
+                        )}
                       </div>
                     </div>
                   )}

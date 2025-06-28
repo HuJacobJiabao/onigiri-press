@@ -163,6 +163,7 @@ export interface CategoryColor {
 export interface TagColor {
   backgroundColor: string;
   textColor: string;
+  icon?: string; // SVG icon as string or path to SVG file
 }
 
 export interface ContentConfig {
@@ -219,7 +220,7 @@ export function getCategoryColor(category: string): string {
   return defaultColor ? defaultColor.textColor : '#6b7280';
 }
 
-export function getTagColor(tag: string): { backgroundColor: string; textColor: string } {
+export function getTagColor(tag: string): { backgroundColor: string; textColor: string; icon?: string } {
   const tagColors = config.content?.tagColors;
   const defaultColors = { backgroundColor: '#f3f4f6', textColor: '#374151' };
   
@@ -230,7 +231,8 @@ export function getTagColor(tag: string): { backgroundColor: string; textColor: 
   if (tagColor) {
     return {
       backgroundColor: tagColor.backgroundColor,
-      textColor: tagColor.textColor
+      textColor: tagColor.textColor,
+      icon: tagColor.icon
     };
   }
   
@@ -238,7 +240,8 @@ export function getTagColor(tag: string): { backgroundColor: string; textColor: 
   const defaultColor = tagColors['default'];
   return defaultColor ? {
     backgroundColor: defaultColor.backgroundColor,
-    textColor: defaultColor.textColor
+    textColor: defaultColor.textColor,
+    icon: defaultColor.icon
   } : defaultColors;
 }
 

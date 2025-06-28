@@ -110,8 +110,10 @@ export interface Project {
 }
 
 /**
- * Parse frontmatter manually without YAML dependency
+ * Parse frontmatter using YAML library
  */
+import { parse as parseYAML } from 'yaml';
+
 function parseFrontmatter(content: string): { metadata: ContentMetadata; content: string } {
   const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
   const match = content.match(frontmatterRegex);
@@ -121,44 +123,24 @@ function parseFrontmatter(content: string): { metadata: ContentMetadata; content
   }
 
   const [, frontmatterStr, bodyContent] = match;
-  const metadata: any = {};
-
-  // Parse YAML-like frontmatter manually
-  const lines = frontmatterStr.split('\n');
   
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith('#')) continue;
-
-    const colonIndex = trimmed.indexOf(':');
-    if (colonIndex === -1) continue;
-
-    const key = trimmed.substring(0, colonIndex).trim();
-    let value = trimmed.substring(colonIndex + 1).trim();
-
-    // Remove quotes
-    if ((value.startsWith('"') && value.endsWith('"')) || 
-        (value.startsWith("'") && value.endsWith("'"))) {
-      value = value.slice(1, -1);
+  try {
+    // Parse YAML frontmatter with the yaml library
+    const metadata = parseYAML(frontmatterStr);
+    
+    // Ensure tags is always an array
+    if (metadata.tags && !Array.isArray(metadata.tags)) {
+      metadata.tags = [metadata.tags];
+    } else if (!metadata.tags) {
+      metadata.tags = [];
     }
-
-    // Handle arrays (basic support for tags)
-    if (value.startsWith('[') && value.endsWith(']')) {
-      const arrayContent = value.slice(1, -1);
-      if (arrayContent.trim()) {
-        metadata[key] = arrayContent
-          .split(',')
-          .map(item => item.trim().replace(/['"]/g, ''))
-          .filter(item => item);
-      } else {
-        metadata[key] = [];
-      }
-    } else {
-      metadata[key] = value;
-    }
+    
+    return { metadata: metadata as ContentMetadata, content: bodyContent };
+  } catch (error) {
+    console.warn(`⚠️ Error parsing frontmatter YAML:`, error);
+    // Fallback to empty metadata on error
+    return { metadata: {} as ContentMetadata, content: bodyContent };
   }
-
-  return { metadata: metadata as ContentMetadata, content: bodyContent };
 }
 
 /**

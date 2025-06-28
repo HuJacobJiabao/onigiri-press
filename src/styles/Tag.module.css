@@ -1,0 +1,61 @@
+/* Tag component styles */
+.tag {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  padding: 0.2rem 0.4rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(52, 152, 219, 0.2);
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Image icon styles */
+.tagIcon {
+  width: 17px;
+  height: 17x;;
+  vertical-align: middle;
+  object-fit: contain;
+  margin-right: 5px;
+}
+
+/* SVG icon styles */
+.svgIcon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.svgIcon svg {
+  width: 17px;
+  height: 17px;
+  vertical-align: middle;
+}
+
+/* Font Awesome icon styles */
+.faIcon {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .tag {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .tagIcon,
+  .svgIcon svg,
+  .faIcon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+  }
+}

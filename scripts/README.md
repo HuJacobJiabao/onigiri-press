@@ -1,37 +1,10 @@
 # Publishing Scripts
 
-This directory contains automated scripts for version management and npm publishing.
+Simple automated script for version management and npm publishing.
 
 ## Available Scripts
 
-### 1. Bash Script (`publish.sh`)
-Cross-platform bash script for automated publishing.
-
-```bash
-# Make executable (first time only)
-chmod +x scripts/publish.sh
-
-# Usage examples
-./scripts/publish.sh patch                    # Bump patch version and publish
-./scripts/publish.sh minor --dry-run          # Show what would happen
-./scripts/publish.sh major --tag beta         # Publish with custom tag
-./scripts/publish.sh prerelease --skip-tests  # Skip tests during publish
-```
-
-### 2. Node.js Script (`publish.js`)
-Node.js version for better cross-platform compatibility.
-
-```bash
-# Usage examples
-node scripts/publish.js patch                 # Bump patch version and publish
-node scripts/publish.js minor --dry-run       # Show what would happen
-node scripts/publish.js major --tag beta      # Publish with custom tag
-node scripts/publish.js prerelease --skip-tests # Skip tests during publish
-```
-
-### 3. NPM Scripts (Recommended)
-Use the predefined npm scripts for common tasks:
-
+### NPM Scripts (Recommended)
 ```bash
 # Version bumping and publishing
 npm run publish:patch      # Patch version (1.0.0 -> 1.0.1)
@@ -48,6 +21,22 @@ npm run version:minor
 npm run version:major
 ```
 
+### Direct Script Usage
+```bash
+node scripts/publish.js patch          # Bump patch version and publish
+node scripts/publish.js minor --dry-run # Show what would happen
+```
+
+## What the Script Does
+
+**Simple and focused:**
+1. **Update package.json version** using `npm version`
+2. **Update package-user.json** onigiri-press dependency to match
+3. **Update CLI version** in `bin/onigiri-press.js`  
+4. **Publish to npm** using `npm publish`
+
+That's it! No complex checks, no git operations, just version updates and publish.
+
 ## Version Types
 
 - **patch**: Bug fixes and small improvements (1.0.0 → 1.0.1)
@@ -55,39 +44,10 @@ npm run version:major
 - **major**: Breaking changes (1.0.0 → 2.0.0)
 - **prerelease**: Pre-release versions for testing (1.0.0 → 1.0.1-0)
 
-## Available Options
+## Options
 
 - `--dry-run`: Show what would be done without executing
-- `--skip-tests`: Skip running tests before publishing
-- `--skip-build`: Skip building the project
-- `--tag <tag>`: Specify npm tag (default: latest)
 - `--help`: Show help message
-
-## What the Scripts Do
-
-1. **Version Validation**: Checks current version and calculates new version
-2. **Prerequisites Check**: Ensures git repository and package.json exist
-3. **Uncommitted Changes**: Warns about uncommitted changes
-4. **Testing**: Runs `npm run test` or `npm run test:ci` (unless skipped)
-5. **Building**: Runs `npm run build` (unless skipped)
-6. **Distribution**: Runs `scripts/create-distribution.sh` if it exists
-7. **Package User Update**: Updates `package-user.json` with new onigiri-press version
-8. **Git Operations**: 
-   - Commits version bump (includes package.json and package-user.json)
-   - Creates git tag
-   - Pushes to origin
-9. **NPM Publishing**: Publishes to npm registry
-10. **Success Notification**: Shows completion message and package URL
-
-## Key Features
-
-### Automatic Package User Update
-The scripts automatically update the `onigiri-press` dependency version in `package-user.json` when publishing. This ensures that the example project configuration stays in sync with the latest published version.
-
-**What gets updated:**
-- `package.json` - Main package version
-- `package-user.json` - Example project's onigiri-press dependency version
-- Both files are committed together in the same release commit
 
 ## Examples
 
@@ -101,50 +61,7 @@ npm run publish:patch
 npm run publish:dry
 ```
 
-### Major Release with Custom Tag
+### Major Release
 ```bash
-node scripts/publish.js major --tag next
+npm run publish:major
 ```
-
-### Skip Tests for Quick Fix
-```bash
-./scripts/publish.sh patch --skip-tests
-```
-
-### Manual Version Bump Only
-```bash
-npm run version:minor
-git add package.json
-git commit -m "chore: bump version"
-```
-
-## Troubleshooting
-
-### Common Issues
-
-1. **"Not a git repository"**: Initialize git first with `git init`
-2. **"Build failed"**: Fix build errors before publishing
-3. **"Tests failed"**: Fix tests or use `--skip-tests` flag
-4. **"Uncommitted changes"**: Commit changes or stash them first
-5. **"Permission denied"**: Make sure you're logged into npm (`npm login`)
-
-### Manual Recovery
-
-If a publish fails partway through:
-
-```bash
-# Reset version if needed
-git reset --hard HEAD~1
-git tag -d v1.x.x  # Delete the tag if created
-
-# Or continue from where it failed
-git push origin main --tags  # If git operations succeeded
-npm publish                  # If only npm publish failed
-```
-
-## Security Notes
-
-- Never commit npm tokens to the repository
-- Use `.npmrc` for authentication configuration
-- Consider using npm 2FA for additional security
-- Review changes before publishing with `--dry-run`
