@@ -179,8 +179,6 @@ home:
           description: "A collaborative task management application with real-time updates and team features"
           tag:
             items: ["Vue.js", "Express", "Socket.io", "PostgreSQL"]
-            backgroundColor: "#f0fdf4"
-            textColor: "#16a34a"
           duration: "Aug 2023 - Dec 2023"
           projectLink:
             url: "https://example.com/taskapp"
@@ -204,8 +202,6 @@ home:
           description: "An interactive dashboard for weather data visualization and climate trend analysis"
           tag:
             items: ["Python", "D3.js", "Flask", "OpenWeather API"]
-            backgroundColor: "#eff6ff"
-            textColor: "#1d4ed8"
           duration: "Mar 2023 - Jul 2023"
           projectLink:
             url: "https://example.com/weather-dashboard"
@@ -230,7 +226,6 @@ home:
           tag:
             items: ["Python", "OpenAI API", "FastAPI", "React"]
             backgroundColor: "#fef3c7"
-            textColor: "#d97706"
           duration: "Sep 2023 - Nov 2023"
           projectLink:
             url: ""
@@ -254,8 +249,6 @@ home:
           description: "A cross-platform mobile app for fitness tracking with social features and gamification"
           tag:
             items: ["React Native", "Firebase", "Swift", "Kotlin"]
-            backgroundColor: "#fce7f3"
-            textColor: "#be185d"
           duration: "May 2023 - Sep 2023"
           projectLink:
             url: "https://example.com/fitness-app"
@@ -343,7 +336,7 @@ content:
     default: # Default fallback for all unspecified categories
       textColor: "#5a0cea"
 
-  # Each tag uses backgroundColor, textColor, and optionally an icon
+  # Each tag uses backgroundColor and optionally an icon
   # Icons can be:
   # 1. SVG strings: "<svg>...</svg>" 
   # 2. URLs to SVG files: "https://example.com/icon.svg"
@@ -351,10 +344,8 @@ content:
   tagColors:
     default:
       backgroundColor: "#f3f4f6"
-      textColor: "#374151"
     "JavaScript":
       backgroundColor: "#fef3c7"
-      textColor: "#d97706"
       icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg
 
 resume:

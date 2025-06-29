@@ -11,7 +11,7 @@
     "deploy": "npx onigiri-press deploy"
   },
   "dependencies": {
-    "onigiri-press": "^1.2.0"
+    "onigiri-press": "^1.2.1"
   },
   "keywords": [
     "portfolio",
