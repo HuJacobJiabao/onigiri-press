@@ -225,7 +225,6 @@ home:
           description: "An intelligent chatbot with natural language processing and context awareness"
           tag:
             items: ["Python", "OpenAI API", "FastAPI", "React"]
-            backgroundColor: "#fef3c7"
           duration: "Sep 2023 - Nov 2023"
           projectLink:
             url: ""

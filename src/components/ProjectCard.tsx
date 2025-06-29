@@ -25,10 +25,6 @@ interface ProjectCardProps {
   borderColor?: string;
   borderHoverColor?: string;
   
-  // Tag styling for technologies
-  tagBackgroundColor?: string;
-  tagTextColor?: string;
-  
   // Highlight bullet points
   highlightColor?: string; // For li::before color
 }
@@ -45,8 +41,6 @@ const ProjectCard = ({
   highlights,
   borderColor,
   borderHoverColor,
-  tagBackgroundColor,
-  tagTextColor,
   highlightColor,
   projectLinkTextColor,
   githubLinkBackgroundColor,
@@ -56,8 +50,6 @@ const ProjectCard = ({
   const cardStyle = {
     '--border-color': borderColor || '#9b59b6',
     '--border-hover-color': borderHoverColor || '#7d3c98',
-    '--tag-background-color': tagBackgroundColor || 'linear-gradient(135deg, #9b59b6, #8e44ad)',
-    '--tag-text-color': tagTextColor || 'white',
     '--highlight-color': highlightColor || '#9b59b6',
     '--project-link-text-color': projectLinkTextColor || '#9b59b6',
     '--github-link-background-color': githubLinkBackgroundColor || 'rgba(155, 89, 182, 0.1)',

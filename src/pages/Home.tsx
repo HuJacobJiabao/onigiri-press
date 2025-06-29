@@ -141,6 +141,17 @@ const Home = () => {
 
     const handleSectionChange = (sectionId: string) => {
         setActiveSection(sectionId);
+        
+        // Only scroll to about section top on desktop
+        if (!isMobile) {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
     };
 
     // Helper function to render content dynamically based on navigation section type
@@ -250,8 +261,6 @@ const Home = () => {
                                     highlights={project.highlights}
                                     borderColor={project.border?.color}
                                     borderHoverColor={project.border?.hoverColor}
-                                    tagBackgroundColor={project.tag?.backgroundColor}
-                                    tagTextColor={project.tag?.textColor}
                                     highlightColor={project.highlightColor}
                                     projectLinkTextColor={project.projectLink?.textColor}
                                     githubLinkBackgroundColor={project.githubLink?.backgroundColor}
