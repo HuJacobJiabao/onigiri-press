@@ -1,0 +1,660 @@
+categoryColors:
+  default: # Default fallback for all unspecified categories
+    textColor: "#5a0cea"
+  "Full Stack": 
+    textColor: "#059669"
+  "Frontend":
+    textColor: "#3b82f6"
+  "Backend":
+    textColor: "#8b5cf6"
+  "Machine Learning":
+    textColor: "#f59e0b"
+  "Research":
+    textColor: "#ef4444"
+  "Web Development":
+    textColor: "#10b981"
+  "Mobile Development":
+    textColor: "#f97316"
+  "Data Science":
+    textColor: "#8b5cf6"
+  "Computer Vision":
+    textColor: "#06b6d4"
+  "Tutorial":
+    textColor: "#3b82f6"
+  "Technology":
+    textColor: "#6366f1"
+  "Personal":
+    textColor: "#ec4899"
+  "Documentation":
+    textColor: "#f43f5e"
+
+# =====================
+# Tag Colors by Technology Stack  
+# =====================
+# Each tag uses backgroundColor, textColor, and optionally an icon
+# Icons can be:
+# 1. SVG strings: "<svg>...</svg>" 
+# 2. URLs to SVG files: "https://example.com/icon.svg"
+# 3. FontAwesome classes: "fab fa-react"
+
+tagColors:
+  default: # Default fallback for all unspecified tags
+    backgroundColor: "#f3f4f6"
+    textColor: "#374151"
+
+  OnigiriPress:
+    backgroundColor: "#f3f4f6"
+    textColor: "#5a0cea"
+    icon: favicon.png
+
+  # =====================
+  # Programming Languages
+  # =====================
+  "JavaScript":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg
+  "TypeScript":
+    backgroundColor: "#eff6ff"
+    textColor: "#2563eb"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg
+  "Python":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg
+  "Java":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg
+  "C++":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg
+  "C#":
+    backgroundColor: "#ecfdf5"
+    textColor: "#065f46"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg
+  "Go":
+    backgroundColor: "#f0f9ff"
+    textColor: "#0284c7"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg
+  "Rust":
+    backgroundColor: "#fef2f2"
+    textColor: "#b91c1c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg
+  "PHP":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg
+  "Ruby":
+    backgroundColor: "#fef2f2"
+    textColor: "#b91c1c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original.svg
+  "Kotlin":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg
+  "Scala":
+    backgroundColor: "#fef2f2"
+    textColor: "#b91c1c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scala/scala-original.svg
+  "Dart":
+    backgroundColor: "#e0f2fe"
+    textColor: "#0369a1"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg
+  "R":
+    backgroundColor: "#f1f5f9"
+    textColor: "#1e40af"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg
+  "Swift":
+    backgroundColor: "#fee2e2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg
+  "C":
+    backgroundColor: "#f1f5f9"
+    textColor: "#475569"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg
+  "Objective-C":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/objectivec/objectivec-plain.svg
+  "HTML":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg
+  "CSS":
+    backgroundColor: "#dbeafe"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg
+  "Lua":
+    backgroundColor: "#dbeafe"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lua/lua-original.svg
+  "Fortran":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fortran/fortran-original.svg
+  "LaTeX":
+    backgroundColor: "#f3f4f6"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/latex/latex-original.svg
+  "Bash":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg
+
+  # ================================
+  # Frontend Frameworks & Libraries
+  # ================================
+  "React":
+    backgroundColor: "#e1f5fe" 
+    textColor: "#0277bd"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg
+  "Vue.js":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg
+  "Angular":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg
+  "Svelte":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg
+  "Next.js":
+    backgroundColor: "#f9fafb"
+    textColor: "#111827"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg
+  "Nuxt.js":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg
+  "Gatsby":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gatsby/gatsby-original.svg
+  "TailwindCSS":
+    backgroundColor: "#f0f9ff"
+    textColor: "#0369a1"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg
+  "Bootstrap":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg
+  "Material-UI":
+    backgroundColor: "#e3f2fd"
+    textColor: "#1976d2"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg
+  "Ant Design":
+    backgroundColor: "#e8f5e8"
+    textColor: "#52c41a"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/antdesign/antdesign-original.svg
+  "CSS Modules":
+    backgroundColor: "#fce7f3"
+    textColor: "#be185d"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>CSS Modules</title><path d="M19.705 2.147v19.706H0V2.147h19.705ZM.141 21.712h19.423V2.288H.141v19.424Zm2.561-10.444c.428 0 .76.113.996.338.236.225.367.482.393.768h-.446a.926.926 0 0 0-.303-.517c-.15-.128-.362-.191-.635-.191-.333 0-.602.117-.808.352-.204.233-.306.59-.306 1.074 0 .396.092.717.276.964.186.245.462.368.828.368.338 0 .595-.13.771-.389.094-.136.163-.316.21-.538h.446c-.04.356-.172.654-.396.895-.268.29-.63.434-1.086.434-.392 0-.722-.118-.989-.356-.35-.315-.527-.8-.527-1.456 0-.499.132-.907.396-1.226.285-.347.679-.52 1.18-.52Zm2.28 2.38c.01.192.056.348.135.467.152.224.42.336.803.336.172 0 .328-.024.47-.073.272-.095.409-.266.409-.511 0-.184-.058-.315-.173-.393-.116-.077-.299-.144-.547-.2l-.458-.104c-.299-.067-.51-.142-.635-.223-.214-.141-.322-.352-.322-.633 0-.303.105-.553.315-.747.21-.195.508-.292.893-.292.354 0 .655.085.902.257.248.17.372.443.372.82h-.43a.847.847 0 0 0-.147-.417c-.14-.177-.377-.265-.71-.265-.27 0-.465.057-.583.17a.533.533 0 0 0-.177.396c0 .166.07.287.207.364.09.049.295.11.614.184l.474.108c.229.052.405.123.53.214.214.158.321.387.321.687 0 .375-.136.642-.41.803a1.822 1.822 0 0 1-.947.242c-.42 0-.75-.108-.987-.322-.237-.213-.354-.502-.35-.867h.43Zm3.137 0c.011.192.056.348.136.467.152.224.42.336.803.336.171 0 .328-.024.469-.073.273-.095.41-.266.41-.511 0-.184-.058-.315-.173-.393-.117-.077-.3-.144-.548-.2l-.457-.104c-.3-.067-.511-.142-.635-.223-.215-.141-.322-.352-.322-.633 0-.303.105-.553.315-.747.21-.195.508-.292.892-.292.355 0 .655.085.902.257.249.17.373.443.373.82h-.43a.847.847 0 0 0-.148-.417c-.14-.177-.376-.265-.71-.265-.27 0-.464.057-.582.17a.533.533 0 0 0-.177.396c0 .166.069.287.207.364.09.049.295.11.614.184l.474.108c.228.052.404.123.529.214.214.158.322.387.322.687 0 .375-.137.642-.41.803a1.822 1.822 0 0 1-.947.242c-.42 0-.75-.108-.987-.322-.238-.213-.355-.502-.35-.867h.43Zm-6.197 3.6.97 2.857.965-2.857h.648v3.38h-.434v-1.995c0-.07.001-.183.004-.343.003-.16.005-.33.005-.513l-.964 2.85h-.453l-.97-2.85v.104c0 .083 0 .21.004.38.004.168.007.292.007.372v1.994h-.437v-3.379h.655Zm4.743-.091c.597 0 1.038.191 1.325.575.224.299.336.681.336 1.147 0 .505-.128.924-.384 1.259-.3.392-.73.589-1.286.589-.52 0-.929-.172-1.226-.516-.265-.33-.398-.75-.398-1.256 0-.457.113-.848.34-1.173.292-.417.723-.625 1.293-.625Zm.046 3.16c.403 0 .695-.144.874-.432.181-.29.272-.623.272-.999 0-.397-.105-.717-.313-.959-.207-.242-.49-.363-.851-.363-.35 0-.635.12-.856.36-.22.24-.331.594-.331 1.061 0 .375.094.69.283.948.19.256.497.384.922.384Zm3.455-.08c.155 0 .283-.017.382-.049a.84.84 0 0 0 .437-.345c.09-.136.156-.311.196-.524a2 2 0 0 0 .034-.355c0-.418-.083-.743-.25-.975-.166-.231-.434-.347-.803-.347H9.35v2.595h.816ZM8.89 17.247h1.368c.465 0 .825.165 1.081.495.229.297.343.679.343 1.143 0 .36-.067.683-.202.973-.238.512-.647.769-1.226.769H8.89v-3.38Zm3.88 0v2.089c0 .245.046.45.138.612.136.245.367.368.69.368.388 0 .652-.133.791-.398.076-.144.113-.338.113-.582v-2.089h.465v1.898c0 .415-.056.735-.168.96-.206.407-.594.61-1.164.61s-.958-.203-1.162-.61c-.112-.225-.168-.545-.168-.96v-1.898h.465Zm2.899 0Zm.458 0v2.977h1.711v.402h-2.17v-3.379h.459Zm2.208 0h2.463v.414h-2.017v1.026h1.865v.391h-1.865v1.146h2.052v.402h-2.498v-3.379Zm3.402 2.29c.01.19.056.347.135.466.152.224.42.336.803.336.172 0 .328-.025.47-.074.272-.095.409-.265.409-.51 0-.184-.058-.315-.173-.394-.116-.076-.299-.143-.547-.2l-.458-.103c-.299-.068-.51-.142-.635-.223-.215-.141-.322-.352-.322-.633 0-.304.105-.553.315-.748.21-.194.508-.292.893-.292.354 0 .655.086.901.258.249.17.373.443.373.819h-.43a.847.847 0 0 0-.147-.416c-.14-.177-.377-.265-.711-.265-.27 0-.464.057-.582.17a.533.533 0 0 0-.177.396c0 .165.069.287.207.363.09.05.295.11.614.184l.474.108c.228.053.405.124.529.214.215.158.322.388.322.688 0 .374-.136.642-.41.803a1.822 1.822 0 0 1-.947.241c-.42 0-.75-.107-.987-.322-.238-.213-.354-.502-.35-.867h.43Z"/></svg>
+  "SASS":
+    backgroundColor: "#fdf2f8"
+    textColor: "#be185d"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg
+  "LESS":
+    backgroundColor: "#eff6ff"
+    textColor: "#2563eb"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/less/less-plain-wordmark.svg
+  "Vite":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg
+  "Webpack":
+    backgroundColor: "#eff6ff"
+    textColor: "#1e40af"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webpack/webpack-original.svg
+  "Rollup":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rollup/rollup-original.svg
+  "Parcel":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Parcel</title><path d="M10.225 2.573c.994-.565 2.556-.565 3.55 0l7.671 4.379c.994.565 1.775 1.996 1.775 3.252v8.632c0 1.256-.781 2.687-1.775 3.252l-7.671 4.379c-.994.565-2.556.565-3.55 0l-7.671-4.379C1.561 21.523.78 20.092.78 18.836v-8.632c0-1.256.781-2.687 1.775-3.252L10.226 2.573z" fill="#FFC864"/></svg>
+  "ESLint":
+    backgroundColor: "#f5f3ff"
+    textColor: "#6366f1"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg
+  "Prettier":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Prettier</title><path fill="#F7B93E" d="M8.571 23.429A.571.571 0 0 1 8 24H2.286a.571.571 0 0 1 0-1.143H8c.316 0 .571.256.571.572zM8 20.57H6.857a.571.571 0 0 0 0 1.143H8a.571.571 0 0 0 0-1.143zm-5.714 1.143H4.57a.571.571 0 0 0 0-1.143H2.286a.571.571 0 0 0 0 1.143zM8 18.286H2.286a.571.571 0 0 0 0 1.143H8a.571.571 0 0 0 0-1.143zM16 16H5.714a.571.571 0 0 0 0 1.143H16A.571.571 0 0 0 16 16zM2.286 17.143h1.143a.571.571 0 0 0 0-1.143H2.286a.571.571 0 0 0 0 1.143zm17.143-3.429H16a.571.571 0 0 0 0 1.143h3.429a.571.571 0 0 0 0-1.143zM9.143 14.857h4.571a.571.571 0 0 0 0-1.143H9.143a.571.571 0 0 0 0 1.143zm-6.857 0h4.571a.571.571 0 0 0 0-1.143H2.286a.571.571 0 0 0 0 1.143zM20.57 11.43H11.43a.571.571 0 0 0 0 1.142h9.142a.571.571 0 0 0 0-1.142zM9.714 12a.571.571 0 0 0-.571-.571H5.714a.571.571 0 0 0 0 1.142h3.429A.571.571 0 0 0 9.714 12zm-7.428.571h1.143a.571.571 0 0 0 0-1.142H2.286a.571.571 0 0 0 0 1.142zm19.428-3.428H16a.571.571 0 0 0 0 1.143h5.714a.571.571 0 0 0 0-1.143zM2.286 10.286H8a.571.571 0 0 0 0-1.143H2.286a.571.571 0 0 0 0 1.143zm13.143-2.857c0 .315.255.571.571.571h5.714a.571.571 0 0 0 0-1.143H16a.571.571 0 0 0-.571.572zm-8.572-.572a.571.571 0 0 0 0 1.143H8a.571.571 0 0 0 0-1.143H6.857zM2.286 8H4.57a.571.571 0 0 0 0-1.143H2.286a.571.571 0 0 0 0 1.143zm16.571-2.857c0 .315.256.571.572.571h1.142a.571.571 0 0 0 0-1.143H19.43a.571.571 0 0 0-.572.572zm-1.143 0a.571.571 0 0 0-.571-.572H12.57a.571.571 0 0 0 0 1.143h4.572a.571.571 0 0 0 .571-.571zm-15.428.571h8a.571.571 0 0 0 0-1.143h-8a.571.571 0 0 0 0 1.143zm5.143-2.857c0 .316.255.572.571.572h11.429a.571.571 0 0 0 0-1.143H8a.571.571 0 0 0-.571.571zm-5.143.572h3.428a.571.571 0 0 0 0-1.143H2.286a.571.571 0 0 0 0 1.143zm0-2.286H16A.571.571 0 0 0 16 0H2.286a.571.571 0 0 0 0 1.143z"/></svg>
+  "Babel":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/babel/babel-original.svg
+  "PostCSS":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postcss/postcss-original.svg
+  "XML":
+    backgroundColor: "#f3f4f6"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xml/xml-original.svg
+  "YAML":
+    backgroundColor: "#f3f4f6" 
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/yaml/yaml-original.svg
+  "JSON":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/json/json-original.svg
+  "Maven":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg
+
+  # ==============================
+  # Backend & Server Frameworks
+  # ==============================
+  "Node.js":
+    backgroundColor: "#dcfce7"
+    textColor: "#059669"
+    icon: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Node.js</title><path fill="#5FA04E" d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></svg>'
+  "Django":
+    backgroundColor: "#ecfdf5"
+    textColor: "#092E20"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg
+  "Express":
+    backgroundColor: "#f3f4f6"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg
+  "Spring Boot":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg
+  "Laravel":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg
+  "FastAPI":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg
+  "Flask":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg
+  "Ruby on Rails":
+    backgroundColor: "#fef2f2"
+    textColor: "#b91c1c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rails/rails-original-wordmark.svg
+  "ASP.NET":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg
+  "Nest.js":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg
+  "Koa":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Koa</title><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm6 12a6 6 0 1 1-12 0 6 6 0 0 1 12 0z" fill="#33333d"/></svg>
+  "Gin":
+    backgroundColor: "#f0f9ff"
+    textColor: "#0284c7"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gin</title><path fill="#008ECF" d="M11.836 23.977c-2.0587-.1046-3.3698-.3594-4.468-.8684-.131-.0606-.1153-.0272-.278-.596-.2755-.9627-.5534-2.128-.7848-3.29-.135-.678-.1535-.7614-.4716-2.1176-.5104-2.1762-.6402-2.831-.804-4.0557-.1064-.7962.1223-1.3156.2754-.6255.6026 2.7148 1.124 4.6969 1.6753 6.3684.1901.5764.1752.5525.3347.537.1095-.0105.1097-.0096.0278.1811-.1118.2604-.0573.3991.2913.7409.2612.256.2638.2712.0407.2387-.174-.0254-.1655-.0434-.1023.2138.0295.1199.0809.3448.1141.4997.2644 1.2314.6094 1.8336 1.1121 1.941 1.4684.3139 3.6012.4502 5.4794.3503 2.1817-.116 2.7037-.1989 3.3812-.5368.4582-.2286.8528-.6569.611-.6632-.1781-.0047-.1948-.0464-.0437-.109.329-.1365.468-.2818.4411-.4612-.008-.0535.0021-.1094.0422-.2318.1232-.3762.1439-.6822.1123-1.664-.0146-.4543-.0136-.487.021-.6574.0912-.449.132-.7886.199-1.6564.0474-.6126.0627-.766.1118-1.1186.0491-.3532.0648-.5537.0929-1.1868.0549-1.2385.116-1.7317.2287-1.8443.1884-.1885.1874-.289-.006-.5633-.2205-.3129-.2198-.4765.003-.711.1085-.1142.1132-.242.0391-1.0652-.019-.2114-.0394-.5284-.0452-.7045-.0073-.217-.0169-.3202-.0297-.3202-.041 0-.306.2264-.8894.76-.6635.6068-.8368.75-1.2089.9984-.7674.5123-1.5042.7633-2.7787.9462-1.2864.1847-2.8008.1411-3.7922-.1092-.6681-.1686-1.055-.3507-1.8085-.8512-.7058-.4688-.6674-1.2277.079-1.5624.3362-.1507.076-.3149-.5986-.3778-.5074-.0474-.2495-.1461.3996-.153.7887-.0083 1.349-.2884 2.0736-1.0363.3034-.3131.374-.3746.7782-.677.6428-.4808.8696-.6895.972-.8947.0776-.155.0733-.3082-.0094-.3397-.0271-.0103-.0404-.029-.0404-.0566 0-.0517.1571-.0442-2.5615-.122-2.8682-.0822-5.0395-.2118-6.1476-.367-.2164-.0304-.1133.1615.1509.2806.0836.0377.0914.0714.0198.0852-.1952.0377-.1844.01-.1284.3283.2173 1.235.5548 1.5418 1.2152 1.1047.1309-.0866.1765-.1027.4961-.1753.7-.1589 1.4556-.2464 2.5838-.2993 1.1633-.0545 1.2892-.0588 1.3032-.0448.0305.0304-.5599.1101-1.5935.215-1.07.1086-1.4287.1577-1.926.2638-.1342.0286-.2802.0521-.3245.0522-.2895.0008-.7114.2931-.8644.5988-.1926.3851-.0152.6153.5107.6627.1761.0159.6063.0923.6826.1213.0658.025.0525.0663-.0337.1044-.0932.0413-.093.039-.0085.0922.1688.1066.0969.0998-.37-.0351-.7785-.225-.9368-.2379-.723-.0588.1015.085.0972.1096-.0132.076-.1712-.0519-.1676-.0865-.0636.6052.1332.8858.031.8419-.1545-.0665-.2554-1.25-.6686-2.3144-.484-1.2466.04.2318.0853.4146.2197.888.1811.638.2872 1.2493.2237 1.2885-.0297.0184-.1904-.4844-.3028-.947-.124-.5102-.1767-.8005-.4328-2.3821-.1298-.802-.2425-1.3464-.378-1.8265-.0773-.2736-.0497-.403.128-.6008.3644-.4052 1.2746-.6528 1.2746-.3466 0 .147-.187.2458-.6436.3402-.5204.1076-.5632.1751-.2897.4578.2486.2569 1.8142.4808 3.7254.5327.3663.01.9119.0259 1.2124.0354 2.1339.0674 4.3877.0663 4.5184-.0022.015-.0079.0837-.105.1527-.2158.2825-.454.552-.795.9445-1.1954.2782-.2838.2865-.2942.2417-.3055-.132-.033-.1427-.5621-.0127-.6282.2383-.121.3542-.2918.7283-1.0725.198-.4133.3093-.5955.4777-.7825.1457-.1618.2569-.385.421-.8452.1614-.4524.2639-.6635.3799-.7823.223-.2285.2324-.103.0363.4903-.162.49-.7111 1.686-1.1268 2.4542-.355.656-.307.8451.1881.7427.0883-.0182.1706-.024.2462-.017.1306.0119.2723-.0174.6213-.1284.2892-.092.3264-.0769.201.0818-.0891.1128-.0887.1142.053.1799.1405.065.1301.0783-.0611.0783-.265 0-.4498.1059-.4766.2732-.0118.074-.0118.074-.1226-.0473-.3058-.335-.6452-.2808-.851.136-.072.1458-.1856.2528-.2684.2528-.0513 0-.0393-.0339.082-.232.293-.4784.2985-.5618.028-.4245-.308.1563-.7837.8261-.803 1.1308-.017.2655.2956.4083.5327.2434.9017-.627 1.348-.8748.9794-.5438-.0765.0687-.159.148-.1832.1762-.1744.2028-.3106.2933-.5656.3757-.8493.2745-.8493.6558 0 .6355.2265-.0055.4225-.0022.4774.0079.412.0756 2.2334-.2378 3.1616-.544.5878-.1938.6844-.4293.3229-.7867-.4647-.4592-.959-.3684-.6466.1189.1936.302-.3882.6232-1.3705.7565-.4425.06-.6113.0898-.7738.1363-.1108.0318-.4379.0719-.704.0863-.3523.019-.4642-.0274-.1925-.08.4158-.0804.5822-.105 1.0783-.1598 1.3303-.1468 1.7592-.3548 1.7627-.8548.0019-.2777-.2227-.3198-.8506-.1598-.201.0513-.2093.0324-.0248-.0564.2821-.1358.2599-.2519-.0717-.374-.1107-.0408-.1107-.0408.0516-.0538.7422-.0595 1.1048-.3546.7593-.6182-.0677-.0516-.0657-.0685.01-.0837.029-.0058.086-.0344.1266-.0635.1634-.1174.2997.246.1556.4144-.198.2313-.0359.5312.357.6602.403.1323.5887-.0506.4222-.4158-.03-.0657-.089-.2578-.131-.4269-.2398-.9631-.7595-2.0407-.9843-2.0407-.0216 0-.036-.0196-.0475-.064-.2147-.8343-.2878-.9893-.5348-1.1333-.4195-.2445-.551-.6687-.1636-.5275.8873.3236 1.8223 1.4494 2.5325 3.0495.5654 1.274.6932 3.168.3239 4.8039-.203.8994-.363 2.6656-.5462 6.0301-.0749 1.3745-.1492 2.3884-.2385 3.2532-.0223.216-.0453.4696-.051.5635-.0438.708-.2035 2.0275-.3607 2.98-.033.1995-.0473.3696-.0585.6915-.0422 1.2204-.4315 1.8227-1.2581 1.9468a2.7189 2.7189 0 0 0-.325.075c-1.0801.3317-2.166.471-4.3425.557-.728.0288-.7087.0288-1.3064-.0016zm.2615-.2356c.0474-.0474-.2411-.0896-.8847-.1297-.1644-.0102-.3527-.026-.4184-.0352-.4177-.058-1.1698-.1029-1.1698-.0699 0 .1276 2.3564.3514 2.473.2348zm-4.0952-.8634c0-.0406-.3364-1.3698-.4044-1.5977-.1252-.42-.3766-1.0159-.4231-1.003-.0697.0192.0988.9043.2754 1.447.1744.5358.5521 1.3252.5521 1.1537zm-.5246-.1305c.0433-.2745-.0418-.6732-.3351-1.5704-.176-.5382-.2341-.7414-.276-.9641-.0441-.2356-.0402-.2248-.0799-.2188-.1655.0246-.151.285.054.9752.1484.4996.1654.5673.1879.7506.064.5203.4057 1.3021.449 1.0275zm-.7904-3.2816c-.0001-.3436-.0485-.6234-.2044-1.1826-.1744-.6253-.2435-.896-.2825-1.1058-.0745-.4017-.2292-.621-.1807-.2564.026.1948.215 1.1792.2665 1.3878.0233.094.0618.3268.0857.5174.0662.5282.1018.6734.197.8049.0977.1347.1185.1055.1184-.1653zm5.7823-8.2201c.047-.0521.0384-.1659-.0348-.4592-.1-.3999-.0996-.5862.0013-.7401.1707-.2607-.8164-.3768-1.398-.1645-.53.1934-.648.5174-.3192.877.1613.1766-.0747.272-.2973.1203-.3041-.2074-.2766-.8612.0363-.8612.0362 0 .106-.073.106-.111 0-.0561-.0674-.1035-.211-.148-.1984-.0617-.1974-.0741.0085-.108.4832-.0793.939-.4219 1.6589-1.2467.935-1.0714 1.3075-1.3927.8116-.7002-.2504.3497-.4599.592-.8783 1.016-.7501.7603-.8434.9222-.5313.9222.472 0 .6826-.1937 1.1142-1.0246.4076-.7848.6084-.9866.8963-.901.1217.0362.121.0386-.2186.8754-.314.7736-.2997.986.0543.8106.1767-.0875.17-.0762.2403-.4093.173-.8206.5299-1.9468.617-1.9468.1153 0 .0463.5054-.1424 1.0417-.2842.8081-.298 1.0686-.0684 1.2959.2501.2476.5305.202.7474-.1216.0793-.1184.1145-.1023.1763.0809.046.1363.0536.1408.244.1434.2617.0037.6195-.091.6392-.169.0064-.0254.0206-.0402.035-.0364.1408.0369.1388-.1065-.0025-.1673-.0918-.0395-.0998-.0645-.032-.0992.1499-.0764.3061.038.3061.2243 0 .0784.0186.0885.205.11 1.2175.1412 1.9496-.176 2.364-1.024.0706-.1445.205-.4086.299-.587.3348-.6367.4726-1.1026.4121-1.3938-.0352-.1699-.0169-.164-.3792-.12-1.8582.2256-3.5292.3794-4.933.454-.2677.0141-.5553.0298-.639.0348-.1525.009-.1525.009-.4526.3035-.4846.4754-.9042.8606-1.7005 1.5606-.2254.1982-.4329.3853-.461.4158-.0804.0868-.3442.2954-.7344.5806-.815.5957-1.2381 1.0543-1.0973 1.189.1613.1545 1.371.3751 2.378.4339.1692.0099.4035.029.521.0426.3097.036.319.0367.4797.0397.1296.0024.1506-.0015.1793-.0333zm4.9335-2.6883c-.6352-.103-1.2474-.4616-1.8828-1.103-.419-.4228-.3704-.4557.2256-.1524.4367.2222.5944.2777.7778.2734.0704-.0017.1626-.0037.2049-.0045.1903-.0038.9252.4017.8551.4718-.024.024-.159-.0192-.4196-.1342-.8347-.3685-1.3685-.3711-.8026-.0041.5953.3862 1.2494.571 1.64.4632.146-.0402.186-.0393.1923.0044.0242.1694-.3493.257-.7907.1854zm-3.5168 2.6903c.0746-.0187.3623-.0728.6394-.1204 1.31-.2247 1.6092-.3389 2.4225-.9243.552-.3972.6191-.7887.1254-.731-.5517.0644-.6125.1133-.7745.6229-.1885.5932-.272.665-.7748.6656-.5271.0006-.7398-.181-.889-.7596-.0528-.2045-.067-.2222-.2166-.2715-.5559-.1833-.8321.1858-.8322 1.112 0 .1586-.0097.1672-.1927.1722-.2981.0081-.3303-.091-.1542-.4747.2334-.509.2423-.6089.0614-.6855-.392-.1659-.7831.2546-.7091.7622.0663.4551.3933.6953.8023.5892.116-.0301.116-.0301.2182.0226.123.0634.1069.0622.274.0203zm1.822-.7768c.2327-.0208.3877-.1848.3877-.4102 0-.3258-.2825-.4682-.6292-.317-.1015.0442-.1223.0476-.2064.034-.3571-.0575-.5023.2388-.2548.52.1594.1812.2799.2108.7026.1732zm-3.2106-.9502c.373-.1904.8327-1.1638.6843-1.4494-.0437-.0844-.0598-.0769-.158.0736-.048.0734-.1677.2402-.266.3708-.458.6076-.5777.8672-.4559.989.0617.0617.0998.0648.1956.016zM10.302 21.2613c-.1018-.013-.4553-.0772-.7855-.1426-.6434-.1273-.9326-.1714-1.1234-.1714-.1763 0-.2162-.0341-.1669-.1425.0536-.1175.2172-.105.7572.0579.3561.1074.6022.167.7437.1803.061.0057.1494.021.1964.0338.1346.037 1.2056.1779 1.3516.1779.0044 0 .0033.0077-.0025.017-.0158.0257-.751.0177-.9706-.0104zm1.7587-.7484c-.2231-.1093-.2921-.2537-.3514-.7354-.0621-.5045-.1591-.66-.4529-.7263a4.0909 4.0909 0 0 1-.1152-.0274c-.0404-.011-.0716-.173-.0565-.2939.034-.2724.2048-.4916.7172-.9203.1127-.0943.2348-.2026.2713-.2405.3605-.3747 1.5306.1053 1.9894.816.3258.5047.322.6185-.028.8492-.4315.2844-.4933.3657-.4846.6372.003.0892.0065.2044.008.2561.0095.3235-.1771.4074-.6452.29-.3964-.0994-.5232-.0838-.6829.0842-.0597.0628-.0632.063-.1692.0111zm1.1381-.2254c.31-.1586.3749-.5512.1474-.892-.244-.3652-.5598-.2393-.5485.2187.0139.5637.1544.7995.4011.6733zm-.8657-.0823c.245-.1105.326-.537.1665-.8751-.1556-.3297-.4463-.1355-.5016.335a3.7214 3.7214 0 0 1-.033.2215c-.0671.345.062.4567.3681.3186zm-.5397-1.1367c.2714-.1816.542-.19 1.3747-.043.4775.0845.8627.0285.8621-.1253-.0023-.5725-.3483-.7422-1.2293-.603-.5545.0876-.7589.0879-1.0083.0016-.2747-.095-.6015.1652-.5532.4404.045.2565.3721.451.554.3293zm-2.0236-.8882c-1.242-.2611-2.0297-1.7477-1.3788-2.6022.1995-.2618.2624-.1704.1232.1789-.5807 1.4577 1.2303 2.8224 2.6353 1.9858 1.027-.6115 1.0144-2.1067-.0221-2.619a3.1056 3.1056 0 0 1-.1964-.1114c-.4015-.247-.8534-.2309-1.7165.0612-.504.1705-.4886.1706-.3296-.0011.6047-.6532 1.8983-.6335 2.6865.041 1.4324 1.2255.1142 3.4695-1.8016 3.0668zm5.0377-.1125c-1.9591-.3-2.6203-2.1867-1.1535-3.2915 1.3107-.9873 3.3222-.0095 3.2577 1.5836-.0398.9811-1.1207 1.8585-2.1042 1.708zm.4013-.3203c1.5031-.02 2.0059-1.9306.735-2.7936-.7982-.5421-2.0927-.295-2.5552.4876-.542.9171.0474 2.1467 1.1115 2.3185.0282.0045.1473.0043.2647-.0006.1174-.005.3172-.0103.444-.012zm-1.504-.8356c-.4402-.1245-.5095-.6544-.1381-1.0566.3355-.3633.817-.2062 1.0182.3322.0892.2387.058.2748-.2225.2581-.1793-.0106-.2639.0025-.2635.041 0 .0067.0603.0566.134.1109.2197.162.2247.2153.0267.2836-.144.0497-.4316.0657-.5548.0308zm-4.6535.1072c-.4663-.0444-.6306-.2972-.4418-.6793.224-.453.732-.5855 1.0146-.2645.4276.4858.1102 1.0088-.5728.9438zM5.2609 4.894c-.0061-.01.0088-.0465.0331-.0811.0243-.0347.0641-.0913.0885-.1258.0243-.0345.0483-.0939.0534-.132.0058-.043.0197-.0722.037-.0775.0706-.0214.6893-.1486.9498-.1953.6694-.12.851-.132 2.3652-.156 2.81-.0445 3.8851-.08 4.9246-.1626.3576-.0284.3387-.0321.4233.0843.1331.1833.0163.311-.3377.3693-.4252.0699-2.1378.0258-2.5939-.0668-.4837-.0983-.636-.0931-.7755.0264-.0812.0694-.0633.0696-.2775-.0018-.27-.09-.507-.1186-.8766-.106-.3002.0103-.417.0236-1.1357.129-.1925.0283-.4615.0599-.5976.0701-.4723.0356-1.013.1356-1.7562.325-.4978.1267-.507.1285-.5242.1008Zm11.997-1.2081c0-.0854.1102-.209.595-.6678.2691-.2547.4638-.4815.4638-.5401 0-.0556.0477-.0598.0665-.006.1044.2996-.1068.597-.6983.9833a31.133 31.133 0 0 0-.3207.2115c-.0847.0578-.1062.0617-.1062.019z"/></svg>
+  "GraphQL":
+    backgroundColor: "#fdf4ff"
+    textColor: "#a21caf"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg
+  "WordPress":
+    backgroundColor: "#eff6ff"
+    textColor: "#1e40af"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg
+  "Socket.io":
+    backgroundColor: "#f5f5f5"
+    textColor: "#010101"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg
+  "Swagger":
+    backgroundColor: "#85EA2D"
+    textColor: "#173647"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg
+
+  # =====================
+  # Database Technologies
+  # =====================
+  "MongoDB":
+    backgroundColor: "#dcfce7"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg
+  "PostgreSQL":
+    backgroundColor: "#dbeafe"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg
+  "MySQL":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg
+  "Redis":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg
+  "SQLite":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg
+  "MariaDB":
+    backgroundColor: "#f1f5f9"
+    textColor: "#475569"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mariadb/mariadb-original.svg
+  "Cassandra":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cassandra/cassandra-original.svg
+  "DynamoDB":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dynamodb/dynamodb-original.svg
+  "Firebase":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg
+  "Supabase":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg
+  "ElasticSearch":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/elasticsearch/elasticsearch-original.svg
+  "Neo4j":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/neo4j/neo4j-original.svg
+  "InfluxDB":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>InfluxDB</title><path fill="#22ADF6" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 14.514a1.414 1.414 0 01-1.414 1.414h-1.946v2.07c0 .78-.634 1.415-1.414 1.415s-1.415-.634-1.415-1.415v-2.07H9.433a1.414 1.414 0 010-2.828h1.946V10.03c0-.78.635-1.414 1.415-1.414s1.414.634 1.414 1.414v3.07h1.946c.78 0 1.414.634 1.414 1.414z"/></svg>
+
+  # ================
+  # DevOps & Cloud
+  # ================
+  "GCC":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gcc/gcc-original.svg
+  "Docker":
+    backgroundColor: "#f0f9ff"
+    textColor: "#0369a1"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg
+  "Kubernetes":
+    backgroundColor: "#f0f9ff"
+    textColor: "#0369a1"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg
+  "AWS":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg
+  "Google Cloud":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg
+  "Azure":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg
+  "DigitalOcean":
+    backgroundColor: "#eff6ff"
+    textColor: "#0284c7"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/digitalocean/digitalocean-original.svg
+  "Heroku":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/heroku/heroku-original.svg
+  "Netlify":
+    backgroundColor: "#f0fdfa"
+    textColor: "#065f46"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg
+  "Vercel":
+    backgroundColor: "#f9fafb"
+    textColor: "#111827"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vercel</title><path d="M24 22.525H0l12-21.05 12 21.05z" fill="#000"/></svg>
+  "CloudFlare":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg
+  "Nginx":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>NGINX</title><path fill="#009639" d="M12 0L1.605 6v12L12 24l10.395-6V6L12 0zm6 16.59c0 .705-.646 1.29-1.529 1.29-.631 0-1.351-.255-1.801-.81l-6-7.141v6.66c0 .721-.57 1.29-1.274 1.29H7.32c-.721 0-1.29-.6-1.29-1.29V7.41c0-.705.63-1.29 1.5-1.29.646 0 1.38.255 1.83.81l5.97 7.141V7.41c0-.721.6-1.29 1.29-1.29h.075c.72 0 1.29.6 1.29 1.29v9.18H18z"/></svg>
+  "Apache":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apache/apache-original.svg
+  "Linux":
+    backgroundColor: "#e0f2f1"
+    textColor: "#00695c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg
+  "Unix":
+    backgroundColor: "#f5f5f5"
+    textColor: "#262626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unix/unix-original.svg
+  "Ubuntu":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Ubuntu</title><path fill="#E95420" d="M17.61.455a3.41 3.41 0 0 0-3.41 3.41 3.41 3.41 0 0 0 3.41 3.41 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41zM12.92.8C8.923.777 5.137 2.941 3.148 6.451a4.5 4.5 0 0 1 .26-.007 4.92 4.92 0 0 1 2.585.737A8.316 8.316 0 0 1 12.688 3.6 4.944 4.944 0 0 1 13.723.834 11.008 11.008 0 0 0 12.92.8zm9.226 4.994a4.915 4.915 0 0 1-1.918 2.246 8.36 8.36 0 0 1-.273 8.303 4.89 4.89 0 0 1 1.632 2.54 11.156 11.156 0 0 0 .559-13.089zM3.41 7.932A3.41 3.41 0 0 0 0 11.342a3.41 3.41 0 0 0 3.41 3.409 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41zm2.027 7.866a4.908 4.908 0 0 1-2.915.358 11.1 11.1 0 0 0 7.991 6.698 11.234 11.234 0 0 0 2.422.249 4.879 4.879 0 0 1-.999-2.85 8.484 8.484 0 0 1-.836-.136 8.304 8.304 0 0 1-5.663-4.32zm11.405.928a3.41 3.41 0 0 0-3.41 3.41 3.41 3.41 0 0 0 3.41 3.41 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41z"/></svg>
+  "CentOS":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/centos/centos-original.svg
+  "Git":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg
+  "GitHub":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg
+  "GitLab":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg
+  "Jenkins":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg
+  "GitHub Actions":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg
+  "Travis CI":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/travis/travis-original.svg
+  "CircleCI":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/circleci/circleci-plain.svg
+  "Terraform":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg
+  "Ansible":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg
+  "Vagrant":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vagrant/vagrant-original.svg
+  "Prometheus":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg
+  "Grafana":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg
+
+  # ===============================
+  # Data Science & Machine Learning
+  # ===============================
+  "TensorFlow":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg
+  "PyTorch":
+    backgroundColor: "#fee2e2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg
+  "OpenCV":
+    backgroundColor: "#dbeafe"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg
+  "Jupyter":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg
+  "Pandas":
+    backgroundColor: "#f1f5f9"
+    textColor: "#475569"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg
+  "NumPy":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg
+  "Scikit-learn":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>scikit-learn</title><path d="M24 13.03l-8.25-8.25a2.826 2.826 0 0 0-3.975 0L0 16.56 7.44 24l8.25-8.25a2.826 2.826 0 0 0 0-3.975L24 13.03zM8.25 19.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#F7931E"/></svg>
+  "Matplotlib":
+    backgroundColor: "#f1f5f9"
+    textColor: "#475569"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg
+  "Keras":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg
+  "MATLAB":
+    backgroundColor: "#fff7ed"
+    textColor: "#ea580c"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg
+  "Anaconda":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg
+  "Hadoop":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hadoop/hadoop-original.svg
+
+  # ===================
+  # Mobile Development
+  # ===================
+  "Flutter":
+    backgroundColor: "#e0f2fe"
+    textColor: "#0284c7"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg
+  "React Native":
+    backgroundColor: "#e1f5fe"
+    textColor: "#0277bd"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg
+  "Ionic":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ionic/ionic-original.svg
+  "Xamarin":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xamarin/xamarin-original.svg
+  "Android":
+    backgroundColor: "#dcfce7"
+    textColor: "#16a34a"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg
+  "iOS":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg
+  "Android Studio":
+    backgroundColor: "#dcfce7"
+    textColor: "#16a34a"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg
+
+  # ===================
+  # 3D & Multimedia
+  # ===================
+  "Blender":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706" 
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg
+  "Three.js":
+    backgroundColor: "#f0f9ff"
+    textColor: "#0284c7"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg
+  "Unity":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg
+  "Unreal Engine":
+    backgroundColor: "#eff6ff"
+    textColor: "#1d4ed8"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unreal Engine</title><path fill="#0E1128" d="M12 0a12 12 0 1 0 12 12A12.013 12.013 0 0 0 12 0zM9.4 18.28a7.08 7.08 0 0 1-3.59-1.09L9.4 13.6zm0-6.2L5.81 8.49a7.08 7.08 0 0 1 3.59-1.09zm3.2 6.2V5.72A7.52 7.52 0 0 1 19.17 12 7.52 7.52 0 0 1 12.6 18.28z"/></svg>
+  "WebGL":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WebGL</title><path fill="#990000" d="M3.124 2.974L12 22.026l8.876-19.052H3.124zm13.906 2.156h3.051l-1.525 3.281h-1.526l1.525-3.281zm-6.093 0h2.124l1.525 3.281H12.46l-1.525-3.281zm-3.062 0h2.124l-1.525 3.281H6.938l1.525-3.281zm-3.062 0h1.526l-1.525 3.281H3.287l1.525-3.281zm9.155 4.844h1.526l-1.525 3.281h-1.526l1.525-3.281zm-3.062 0h1.526l-1.525 3.281H9.938l1.525-3.281zm-3.062 0h1.526l-1.525 3.281H6.875l1.525-3.281zm6.124 4.844h1.526l-1.525 3.281h-1.526l1.525-3.281zm-3.062 0h1.526l-1.525 3.281H12l1.525-3.281z"/></svg>
+
+  # ===============================
+  # Testing Frameworks & Tools
+  # ===============================
+  "Jest":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg
+  "Cypress":
+    backgroundColor: "#f9fafb"
+    textColor: "#374151"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Cypress</title><path fill= "#69D3A7" d="M11.998.0195c-.8642 0-1.6816.1101-2.1445.1934v.002C4.1731 1.2283 0 6.1368 0 12.0018c0 1.1265.1573 2.2328.4648 3.3028.0387.1453.0915.2993.1368.4473 1.607 4.865 6.2245 8.226 11.3925 8.2285.0651 0 .2518-.0003.502-.0118.8564-.0353 1.6228-.5734 1.9512-1.369l.4736-1.1544L20.4258 8.043H18.621l-2.3164 5.871-2.334-5.871h-1.9082l3.2734 8.0117c-.8115 1.9702-1.6252 3.9395-2.4355 5.9101-.0808.1945-.2655.3284-.4727.336-.144.005-.285.0098-.4316.0098-4.5848 0-8.6672-3.0695-9.9277-7.4649a10.3058 10.3058 0 0 1-.3985-2.8437c0-5.0887 3.6521-9.3404 8.6035-10.164.2214-.037.8885-.1446 1.7246-.1446 4.4166 0 8.269 2.732 9.7305 6.8476.0558.144.0977.293.1465.4395.299.9746.4531 1.9887.4531 3.0215 0 4.5696-2.9413 8.5326-7.3164 9.8613l.4863 1.5996c5.085-1.546 8.4995-6.1518 8.502-11.459 0-1.5491-.2983-2.8706-.6504-3.8926-.0432-.1212-.0873-.2422-.1309-.3633h-.002C21.4577 3.0954 17.0444.0195 11.998.0195ZM8.4336 7.8906c-1.1999 0-2.1747.3852-2.9805 1.1758-.8007.7856-1.205 1.7736-1.205 2.9356 0 1.1544.4068 2.1368 1.205 2.9199.8058.7906 1.7806 1.1738 2.9805 1.1738 1.705 0 3.1556-.955 3.7871-2.4883l.0332-.082-1.6289-.5547c-.168.4563-.7552 1.4883-2.1914 1.4883-.6745 0-1.2437-.2344-1.6934-.6992-.4572-.4699-.6875-1.0632-.6875-1.7578 0-.6998.2253-1.2809.6875-1.7735.4522-.4648 1.019-.7012 1.6934-.7012 1.438 0 2.0238 1.0815 2.1934 1.4883l1.627-.5527-.0333-.084c-.629-1.5358-2.082-2.4883-3.7871-2.4883Z"/></svg>
+  "Selenium":
+    backgroundColor: "#ecfdf5"
+    textColor: "#059669"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg
+  "Playwright":
+    backgroundColor: "#f0f9ff"
+    textColor: "#0369a1"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg
+  "Mocha":
+    backgroundColor: "#fff7ed"
+    textColor: "#a3541f"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mocha/mocha-plain.svg
+  "Vitest":
+    backgroundColor: "#fef3c7"
+    textColor: "#d97706"
+    icon: <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vitest</title><path fill="#6E9F18" d="M12.131 5.001L24 19.047H0l12.131-14.046z"/></svg>
+
+  # ===============================
+  # Documentation & Content
+  # ===============================
+  "Markdown":
+    backgroundColor: "#f3f4f6"
+    textColor: "#374151"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/markdown/markdown-original.svg
+  "Storybook":
+    backgroundColor: "#fdf2f8"
+    textColor: "#be185d"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/storybook/storybook-original.svg
+  "Figma":
+    backgroundColor: "#f5f3ff"
+    textColor: "#7c3aed"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg
+  "Jekyll":
+    backgroundColor: "#fef2f2"
+    textColor: "#dc2626"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jekyll/jekyll-original.svg
+  "Canva":
+    backgroundColor: "#dbeafe"
+    textColor: "#1d4ed8"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg
+  "Jira":
+    backgroundColor: "#f0f9ff"
+    textColor: "#0284c7"
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg

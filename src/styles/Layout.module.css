@@ -231,10 +231,24 @@
   flex-wrap: wrap;
   gap: 6px; /* Reduced from 8px */
   justify-content: center;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
   padding-bottom: 5px; /* Add padding to ensure no clipping */
+  max-height: 45px; /* Default collapsed height */
 }
+
+/* Collapsed state: only show first row of tags */
+.headerTags.collapsed {
+  max-height: 45px;
+  transition: none; /* No transition when collapsing */
+}
+
+/* Expanded state: show all tags with smooth animation */
+.headerTags.expanded {
+  max-height: 500px; /* Large enough to fit all tags */
+  transition: max-height 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
 
 .toggleTagsButton {
   background: rgba(255, 255, 255, 0.4);
@@ -285,28 +299,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .main {
@@ -381,6 +373,17 @@
   }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -431,10 +434,23 @@
   .toggleTagsButton i {
     font-size: 0.7rem; /* Smaller icon for mobile */
   }
+}
   
+/* Mobile styles - should be applied first to be overridden by larger screens */
+@media (max-width: 768px) {
   .headerTags {
     gap: 5px;
     padding-bottom: 8px;
+  }
+
+  .headerTags.collapsed {
+    max-height: 70px;
+    transition: none; /* No transition when collapsing */
+  }
+
+  .headerTags.expanded {
+    max-height: 1200px; /* Larger for mobile to account for more wrapping */
+    transition: max-height 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
   }
   
   .tagsArea {
@@ -487,10 +503,6 @@
 
   .headerMeta .metaValue {
     font-size: 0.9rem; /* Increased from 0.8rem for mobile */
-  }
-
-  .headerTags {
-    gap: 6px;
   }
 
   .headerTag {
@@ -617,5 +629,4 @@
     display: none !important;
   }
 }
-
 

@@ -23,7 +23,14 @@ export default function Tag({ tag, className = '', style = {}, iconOnly = false 
     tagStyle.icon.endsWith('.jpeg') || 
     tagStyle.icon.endsWith('.gif') ||
     tagStyle.icon.endsWith('.webp') ||
-    tagStyle.icon.startsWith('http')
+    tagStyle.icon.endsWith('.svg') ||
+    tagStyle.icon.endsWith('.bmp') ||
+    tagStyle.icon.endsWith('.ico') ||
+    tagStyle.icon.endsWith('.tiff') ||
+    tagStyle.icon.endsWith('.tif') ||
+    tagStyle.icon.endsWith('.avif') ||
+    tagStyle.icon.startsWith('http') ||
+    tagStyle.icon.startsWith('data:image/')
   );
   
   // Check if icon is an SVG string

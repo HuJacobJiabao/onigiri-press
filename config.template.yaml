@@ -335,113 +335,27 @@ content:
   logs:
     defaultHeaderBackground: "background/default_blog.png"
   
+  # CategoryColor and TagColor configuration have been moved to config.colors.yaml
+
   # Global category colors (shared across blogs, projects, and archive)
   # Each category only uses textColor for the text display
   categoryColors:
     default: # Default fallback for all unspecified categories
       textColor: "#5a0cea"
-    "Full Stack": 
-      textColor: "#059669"
-    "Frontend":
-      textColor: "#3b82f6"
-    "Backend":
-      textColor: "#8b5cf6"
-    "Machine Learning":
-      textColor: "#f59e0b"
-    "Research":
-      textColor: "#ef4444"
-    "Web Development":
-      textColor: "#10b981"
-    "Mobile Development":
-      textColor: "#f97316"
-    "Data Science":
-      textColor: "#8b5cf6"
-    "Computer Vision":
-      textColor: "#06b6d4"
-    "Tutorial":
-      textColor: "#3b82f6"
-    "Technology":
-      textColor: "#6366f1"
-    "Personal":
-      textColor: "#ec4899"
-    "Documentation":
-      textColor: "#f43f5e"
 
-  # Global tag colors (shared across blogs, projects, and archive)  
-  # Each tag uses both backgroundColor and textColor
+  # Each tag uses backgroundColor, textColor, and optionally an icon
+  # Icons can be:
+  # 1. SVG strings: "<svg>...</svg>" 
+  # 2. URLs to SVG files: "https://example.com/icon.svg"
+  # 3. FontAwesome classes: "fab fa-react"
   tagColors:
-    default: # Default fallback for all unspecified tags
+    default:
       backgroundColor: "#f3f4f6"
       textColor: "#374151"
-    "React":
-      backgroundColor: "#dbeafe" 
-      textColor: "#1d4ed8"
-    "TypeScript":
-      backgroundColor: "#eff6ff"
-      textColor: "#2563eb"
     "JavaScript":
       backgroundColor: "#fef3c7"
       textColor: "#d97706"
-    "Python":
-      backgroundColor: "#dcfce7"
-      textColor: "#16a34a"
-    "Node.js":
-      backgroundColor: "#dcfce7"
-      textColor: "#059669"
-    "Django":
-      backgroundColor: "#dcfce7"
-      textColor: "#16a34a"
-    "Express":
-      backgroundColor: "#f3f4f6"
-      textColor: "#374151"
-    "MongoDB":
-      backgroundColor: "#dcfce7"
-      textColor: "#059669"
-    "PostgreSQL":
-      backgroundColor: "#dbeafe"
-      textColor: "#1d4ed8"
-    "CSS Modules":
-      backgroundColor: "#fce7f3"
-      textColor: "#be185d"
-    "Vite":
-      backgroundColor: "#fef3c7"
-      textColor: "#d97706"
-    "PyTorch":
-      backgroundColor: "#fee2e2"
-      textColor: "#dc2626"
-    "OpenCV":
-      backgroundColor: "#dbeafe"
-      textColor: "#1d4ed8"
-    "Blender":
-      backgroundColor: "#fef3c7"
-      textColor: "#d97706"
-    "OpenAI API":
-      backgroundColor: "#f0fdf4"
-      textColor: "#16a34a"
-    "MQTT":
-      backgroundColor: "#f3f4f6"
-      textColor: "#374151"
-    "D3.js":
-      backgroundColor: "#fef3c7"
-      textColor: "#d97706"
-    "Swift":
-      backgroundColor: "#fee2e2"
-      textColor: "#dc2626"
-    "ARKit":
-      backgroundColor: "#fee2e2"
-      textColor: "#dc2626"
-    "CoreLocation":
-      backgroundColor: "#f3f4f6"
-      textColor: "#374151"
-    "MapKit":
-      backgroundColor: "#f0fdf4"
-      textColor: "#16a34a"
-    "Firebase":
-      backgroundColor: "#fef3c7"
-      textColor: "#d97706"
-    "Markdown":
-      backgroundColor: "#1f2937"
-      textColor: "#f3f4f6"
+      icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg
 
 resume:
   filename: "John_Doe_Resume.pdf"

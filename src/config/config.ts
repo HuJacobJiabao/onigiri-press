@@ -1,5 +1,6 @@
 import { getAssetPath } from '../utils/staticDataLoader';
 import configData from '../../config.yaml';
+import defaultColorsConfigData from './colors.yaml';
 
 // Utility function for building URLs with baseUrl
 function buildUrl(path: string): string {
@@ -14,6 +15,26 @@ function buildUrl(path: string): string {
 // Process configuration to convert all relative URLs to absolute URLs
 function processConfig(rawConfig: any): Config {
   const processed = { ...rawConfig };
+  
+  // Import default colors from src/config/colors.yaml
+  if (defaultColorsConfigData) {
+    // Ensure content exists
+    if (!processed.content) {
+      processed.content = {};
+    }
+    
+    // Merge category colors: user config.yaml overrides default colors
+    processed.content.categoryColors = {
+      ...defaultColorsConfigData.categoryColors,
+      ...(processed.content.categoryColors || {})
+    };
+    
+    // Merge tag colors: user config.yaml overrides default colors
+    processed.content.tagColors = {
+      ...defaultColorsConfigData.tagColors,
+      ...(processed.content.tagColors || {})
+    };
+  }
   
   // Process backgrounds
   if (processed.backgrounds) {
@@ -206,6 +227,7 @@ export const config: Config = processConfig(configData);
 
 // Helper functions to get category and tag colors
 export function getCategoryColor(category: string): string {
+  // Use config.content which has the merged color data
   const categoryColors = config.content?.categoryColors;
   if (!categoryColors) return '#6b7280'; // Default gray
   
@@ -221,10 +243,34 @@ export function getCategoryColor(category: string): string {
 }
 
 export function getTagColor(tag: string): { backgroundColor: string; textColor: string; icon?: string } {
+  // Use config.content which has the merged color data
   const tagColors = config.content?.tagColors;
   const defaultColors = { backgroundColor: '#f3f4f6', textColor: '#374151' };
   
   if (!tagColors) return defaultColors;
+  
+  // Helper function to process icon URL
+  const processIcon = (icon?: string) => {
+    if (!icon) return icon;
+    
+    // Don't process inline SVG strings, Font Awesome classes, or data URLs
+    if (icon.trim().startsWith('<svg') || 
+        icon.includes('fa-') || 
+        icon.startsWith('data:')) {
+      return icon;
+    }
+    
+    // Process other icons (file paths, HTTP URLs) with buildUrl
+    return buildUrl(icon);
+  };
+
+  // Helper function to normalize tag names for fuzzy matching
+  const normalizeTag = (tagName: string): string => {
+    return tagName
+      .toLowerCase()
+      .replace(/[\s\-_.]/g, '') // Remove spaces, hyphens, underscores, and dots
+      .replace(/[^\w]/g, ''); // Remove all non-alphanumeric characters
+  };
   
   // First try to find exact match
   const tagColor = tagColors[tag];
@@ -232,8 +278,25 @@ export function getTagColor(tag: string): { backgroundColor: string; textColor: 
     return {
       backgroundColor: tagColor.backgroundColor,
       textColor: tagColor.textColor,
-      icon: tagColor.icon
+      icon: processIcon(tagColor.icon)
     };
+  }
+  
+  // Try fuzzy matching if exact match fails
+  const normalizedInputTag = normalizeTag(tag);
+  
+  // Find matching tag by normalized comparison
+  for (const [configTag, colorConfig] of Object.entries(tagColors)) {
+    if (configTag === 'default') continue; // Skip default config
+    
+    const normalizedConfigTag = normalizeTag(configTag);
+    if (normalizedConfigTag === normalizedInputTag) {
+      return {
+        backgroundColor: colorConfig.backgroundColor,
+        textColor: colorConfig.textColor,
+        icon: processIcon(colorConfig.icon)
+      };
+    }
   }
   
   // Fall back to default
@@ -241,7 +304,7 @@ export function getTagColor(tag: string): { backgroundColor: string; textColor: 
   return defaultColor ? {
     backgroundColor: defaultColor.backgroundColor,
     textColor: defaultColor.textColor,
-    icon: defaultColor.icon
+    icon: processIcon(defaultColor.icon)
   } : defaultColors;
 }
 

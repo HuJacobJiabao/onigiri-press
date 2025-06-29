@@ -91,6 +91,15 @@ export default function Layout({
   // Determine if we need to show the "show more/less" button
   const shouldShowToggleButton = contentItemTags && contentItemTags.length > maxVisibleTags;
   
+  // Get the header tags container class based on expand state
+  const getHeaderTagsClass = () => {
+    let baseClass = styles.headerTags;
+    if (shouldShowToggleButton) {
+      baseClass += showAllTags ? ` ${styles.expanded}` : ` ${styles.collapsed}`;
+    }
+    return baseClass;
+  };
+  
   // Get the tags to display based on the showAllTags state
   const tagsToDisplay = contentItemTags && contentItemTags.length > 0 
     ? (showAllTags ? contentItemTags : contentItemTags.slice(0, maxVisibleTags))
@@ -142,7 +151,9 @@ export default function Layout({
                   </div>
                   {contentItemTags && contentItemTags.length > 0 && (
                     <div className={styles.tagsArea}>
-                      <div className={styles.headerTags}>
+                      <div 
+                        className={getHeaderTagsClass()}
+                      >
                         {tagsToDisplay.map((tag, index) => (
                           <Tag key={index} tag={tag} />
                         ))}
@@ -150,17 +161,21 @@ export default function Layout({
                         {shouldShowToggleButton && (
                           <button 
                             className={styles.toggleTagsButton}
-                            onClick={toggleTagsVisibility}
+                            onClick={(e) => {
+                              toggleTagsVisibility();
+                              e.currentTarget.blur();
+                            }}
                             aria-expanded={showAllTags}
                           >
                             {showAllTags ? (
                               <>
                                 <i className="fa-solid fa-caret-up"></i>
+                                Hide
                               </>
                             ) : (
                               <>
                                 <i className="fa-solid fa-caret-down"></i>
-                                Expand +{hiddenTagsCount}
+                                Show +{hiddenTagsCount}
                               </>
                             )}
                           </button>
