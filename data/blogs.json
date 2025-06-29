@@ -6,8 +6,10 @@
     "category": "default",
     "description": "This is the default description for blog.",
     "tags": [
-      "Hello",
-      "world"
+      "Node.js",
+      "React",
+      "TypeScript",
+      "Vite"
     ],
     "link": "/onigiri-press/blogs/read-me",
     "contentPath": "/onigiri-press/content/blogs/read-me/index.md",
