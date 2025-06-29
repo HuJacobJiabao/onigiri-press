@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "onigiri-press",
   "private": false,
-  "version": "1.2.1",
+  "version": "1.2.2",
   "type": "module",
   "description": "A modern, lightweight portfolio and blog framework built with React, TypeScript, and Vite. Easy to customize, supports markdown content, and includes powerful blog functionality.",
   "homepage": "https://github.com/HuJacobJiabao/onigiri-press",
