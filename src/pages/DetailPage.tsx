@@ -296,7 +296,6 @@ export default function DetailPage() {
       contentType={contentType}
       contentItemCategory={contentItem.category}
       contentItemLastUpdate={lastUpdateTime || undefined}
-      maxVisibleTags={6}  // Show only 6 tags by default
     >
       <div className={styles.detailPage}>
         <div className={styles.content}>

@@ -234,12 +234,12 @@
   overflow: hidden;
   position: relative;
   padding-bottom: 5px; /* Add padding to ensure no clipping */
-  max-height: 45px; /* Default collapsed height */
+  max-height: 120px; /* Default collapsed height */
 }
 
 /* Collapsed state: only show first row of tags */
 .headerTags.collapsed {
-  max-height: 45px;
+  max-height: 120px;
   transition: none; /* No transition when collapsing */
 }
 
@@ -444,7 +444,7 @@
   }
 
   .headerTags.collapsed {
-    max-height: 70px;
+    max-height: 120px;
     transition: none; /* No transition when collapsing */
   }
 

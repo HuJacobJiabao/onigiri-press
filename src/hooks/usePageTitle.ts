@@ -17,15 +17,6 @@ export const usePageTitle = (pageTitle: string, useFullTitle: boolean = false) =
       document.title = pageTitle ? `${pageTitle}${separator}${websiteTitle}` : websiteTitle;
     }
     
-    // Update favicon if configured
-    const favicon = config.website?.favicon;
-    if (favicon) {
-      const faviconLink = document.querySelector("link[rel*='icon']") as HTMLLinkElement;
-      if (faviconLink) {
-        // Use BASE_URL for proper path resolution in production
-        faviconLink.href = `${import.meta.env.BASE_URL}${favicon.startsWith('/') ? favicon.slice(1) : favicon}`;
-      }
-    }
     
     // Update meta description if configured
     const description = config.website?.description;
