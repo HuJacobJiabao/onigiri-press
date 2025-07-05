@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (update this to your actual domain)
+# Sitemap: https://your-domain.vercel.app/sitemap.xml
+
+# Disallow crawling of assets that don't need indexing
+Disallow: /assets/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.json$
+
+# Allow crawling of important content
+Allow: /blogs/
+Allow: /projects/
+Allow: /archive/

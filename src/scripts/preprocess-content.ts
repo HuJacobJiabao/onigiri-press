@@ -22,7 +22,7 @@ const colors = {
 // Read baseUrl from onigiri.config.json
 function getBaseUrl(): string {
   // Try to get user directory from environment variable first (CLI usage)
-  const userDir = process.env.VITE_USER_DIR || process.cwd();
+  const userDir = process.cwd();
   
   try {
     const configPath = path.join(userDir, 'onigiri.config.json');
@@ -69,7 +69,7 @@ function colorize(text: string, color: string): string {
 
 // Get the actual project root (user directory when running via CLI)
 function getProjectRoot(): string {
-  return process.env.VITE_USER_DIR || process.cwd();
+  return  process.cwd();
 }
 
 const projectRoot = getProjectRoot();

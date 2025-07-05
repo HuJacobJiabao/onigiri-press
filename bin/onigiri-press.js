@@ -14,7 +14,7 @@ const program = new Command();
 program
   .name('ongr')
   .description('OnigiriPress - A modern portfolio framework')
-  .version('1.2.5');
+  .version('1.2.8');
 
 program
   .command('init [project-name]')
@@ -400,6 +400,85 @@ program
   });
 
 program
+  .command('deploy-vercel')
+  .alias('dv')
+  .description('Deploy to Vercel')
+  .option('--prod', 'Deploy to production (default: preview)')
+  .action(async (options) => {
+    console.log('🚀 Deploying to Vercel...');
+    
+    try {
+      // Check if user has vercel CLI installed
+      try {
+        execSync('vercel --version', { stdio: 'pipe' });
+      } catch (error) {
+        console.error('❌ Vercel CLI not found!');
+        console.error('💡 Please install it first:');
+        console.error('   npm install -g vercel');
+        console.error('   # or');
+        console.error('   pnpm add -g vercel');
+        process.exit(1);
+      }
+      
+      // Create vercel.json if it doesn't exist
+      if (!fs.existsSync('vercel.json')) {
+        console.log('📝 Creating vercel.json configuration...');
+        const vercelConfig = {
+          buildCommand: "npm run build",
+          outputDirectory: "dist",
+          installCommand: "npm install",
+          framework: null,
+          rewrites: [
+            {
+              source: "/(.*)",
+              destination: "/index.html"
+            }
+          ],
+          headers: [
+            {
+              source: "/assets/(.*)",
+              headers: [
+                {
+                  key: "Cache-Control",
+                  value: "public, max-age=31536000, immutable"
+                }
+              ]
+            }
+          ]
+        };
+        fs.writeFileSync('vercel.json', JSON.stringify(vercelConfig, null, 2));
+        console.log('✅ Created vercel.json with optimized settings');
+      }
+      
+      // Deploy to Vercel
+      console.log('🌐 Deploying to Vercel...');
+      
+      if (options.prod) {
+        console.log('� Deploying to production...');
+        execSync('vercel --prod', { stdio: 'inherit', cwd: process.cwd() });
+      } else {
+        console.log('🔍 Deploying preview...');
+        execSync('vercel', { stdio: 'inherit', cwd: process.cwd() });
+      }
+      
+      console.log('✅ Vercel deployment completed successfully!');
+      console.log('💡 Tips:');
+      console.log('   • Use --prod flag for production deployment');
+      console.log('   • Vercel will automatically build your project');
+      console.log('   • Make sure baseUrl is set to "/" in onigiri.config.json for Vercel');
+      
+    } catch (error) {
+      console.error('❌ Vercel deployment failed');
+      console.error('💡 Make sure you have:');
+      console.error('   • Installed Vercel CLI: npm install -g vercel');
+      console.error('   • Logged in to Vercel: vercel login');
+      console.error('   • Set baseUrl to "/" in onigiri.config.json');
+      console.error('Error details:', error.message);
+      process.exit(1);
+    }
+  });
+
+program
   .command('log [date]')
   .description('Create a new daily log entry (date format: yyyy-mm-dd, defaults to today)')
   .action((date) => {
@@ -446,5 +525,137 @@ program
       process.exit(1);
     }
   });
+
+program
+  .command('update')
+  .alias('u')
+  .description('Update OnigiriPress to the latest version')
+  .option('--check', 'Check for updates without installing')
+  .option('--beta', 'Include beta/prerelease versions')
+  .action(async (options) => {
+    console.log('🔍 Checking for OnigiriPress updates...');
+    
+    try {
+      // Get current version
+      const packageDir = path.dirname(__dirname);
+      const packageJsonPath = path.join(packageDir, 'package.json');
+      const currentPackage = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+      const currentVersion = currentPackage.version;
+      
+      console.log(`📦 Current version: ${currentVersion}`);
+      
+      // Check latest version from npm
+      console.log('🌐 Fetching latest version from npm...');
+      let versionFlag = options.beta ? '--tag beta' : '';
+      const npmViewCmd = `npm view onigiri-press version ${versionFlag}`.trim();
+      
+      let latestVersion;
+      try {
+        latestVersion = execSync(npmViewCmd, { 
+          encoding: 'utf8',
+          stdio: 'pipe'
+        }).trim();
+      } catch (error) {
+        if (options.beta) {
+          console.log('⚠️ No beta version found, checking stable...');
+          latestVersion = execSync('npm view onigiri-press version', { 
+            encoding: 'utf8',
+            stdio: 'pipe'
+          }).trim();
+        } else {
+          throw error;
+        }
+      }
+      
+      console.log(`🚀 Latest version: ${latestVersion}`);
+      
+      // Compare versions
+      if (currentVersion === latestVersion) {
+        console.log('✅ You are already on the latest version!');
+        return;
+      }
+      
+      // Show version comparison
+      const isNewer = compareVersions(latestVersion, currentVersion);
+      if (isNewer) {
+        console.log(`📈 Update available: ${currentVersion} → ${latestVersion}`);
+        
+        // Show changelog if available
+        try {
+          console.log('\n📝 Recent changes:');
+          const changelogCmd = `npm view onigiri-press --json`;
+          const packageInfo = JSON.parse(execSync(changelogCmd, { 
+            encoding: 'utf8',
+            stdio: 'pipe'
+          }));
+          
+          if (packageInfo.description) {
+            console.log(`   ${packageInfo.description}`);
+          }
+          if (packageInfo.homepage) {
+            console.log(`   📚 Docs: ${packageInfo.homepage}`);
+          }
+        } catch (error) {
+          // Ignore changelog errors
+        }
+        
+        if (options.check) {
+          console.log('\n💡 Run "ongr update" to install the latest version');
+          return;
+        }
+        
+        // Confirm update
+        console.log('\n🔄 Updating OnigiriPress...');
+        
+        // Update globally if installed globally, otherwise update locally
+        let updateCmd;
+        try {
+          // Check if installed globally
+          execSync('npm list -g onigiri-press', { stdio: 'pipe' });
+          updateCmd = `npm install -g onigiri-press@${latestVersion}`;
+          console.log('📦 Updating global installation...');
+        } catch (error) {
+          // Not installed globally, update locally
+          updateCmd = `npm install onigiri-press@${latestVersion}`;
+          console.log('📦 Updating local installation...');
+        }
+        
+        execSync(updateCmd, { stdio: 'inherit' });
+        
+        console.log('✅ OnigiriPress updated successfully!');
+        console.log(`🎉 Updated from ${currentVersion} to ${latestVersion}`);
+        console.log('\n💡 Tips:');
+        console.log('   • Run "ongr --version" to verify the update');
+        console.log('   • Check the documentation for any breaking changes');
+        console.log('   • Consider updating your project dependencies');
+        
+      } else {
+        console.log(`⚠️ You are running a newer version than the latest release`);
+        console.log(`   Current: ${currentVersion}, Latest: ${latestVersion}`);
+      }
+      
+    } catch (error) {
+      console.error('❌ Failed to check for updates');
+      console.error('💡 Make sure you have internet connection and npm is working');
+      console.error('Error details:', error.message);
+      process.exit(1);
+    }
+  });
+
+// Helper function to compare semantic versions
+function compareVersions(version1, version2) {
+  const v1parts = version1.split('.').map(Number);
+  const v2parts = version2.split('.').map(Number);
+  
+  for (let i = 0; i < Math.max(v1parts.length, v2parts.length); i++) {
+    const v1part = v1parts[i] || 0;
+    const v2part = v2parts[i] || 0;
+    
+    if (v1part > v2part) return true;
+    if (v1part < v2part) return false;
+  }
+  
+  return false;
+}
 
 program.parse();

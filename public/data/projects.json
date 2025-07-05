@@ -10,9 +10,9 @@
       "file-paths",
       "markdown"
     ],
-    "link": "/onigiri-press/projects/file-path-test-project",
-    "contentPath": "/onigiri-press/content/projects/file-path-test/index.md",
-    "image": "/onigiri-press/background/default_proj.jpg",
+    "link": "/projects/file-path-test-project",
+    "contentPath": "/content/projects/file-path-test/index.md",
+    "image": "/background/default_proj.jpg",
     "assetPaths": []
   },
   {
@@ -25,37 +25,9 @@
       "Hello",
       "World"
     ],
-    "link": "/onigiri-press/projects/sample-project",
-    "contentPath": "/onigiri-press/content/projects/sample-project/index.md",
-    "image": "/onigiri-press/favicon.png",
+    "link": "/projects/sample-project",
+    "contentPath": "/content/projects/sample-project/index.md",
+    "image": "/favicon.png",
     "assetPaths": []
-  },
-  {
-    "id": "android-weather-app",
-    "title": "Android Weather App",
-    "date": "2024-12-01",
-    "category": "mobile",
-    "description": "A high-performance Android weather app with real-time forecasts, interactive charts, and cloud-synced favorites.",
-    "tags": [
-      "Java",
-      "Android Studio",
-      "Node.js",
-      "MongoDB Atlas",
-      "Tomorrow.io API",
-      "Highcharts",
-      "Retrofit"
-    ],
-    "link": "/onigiri-press/projects/android-weather-app",
-    "contentPath": "/onigiri-press/content/projects/android-weather-app/index.md",
-    "image": "/onigiri-press/content/projects/android-weather-app/weather.svg",
-    "assetPaths": [
-      "/onigiri-press/content/projects/android-weather-app/Google_Maps_icon.svg",
-      "/onigiri-press/content/projects/android-weather-app/demo/add_to_remove_from_fav.gif",
-      "/onigiri-press/content/projects/android-weather-app/demo/auto_complete.gif",
-      "/onigiri-press/content/projects/android-weather-app/demo/splash_screen.gif",
-      "/onigiri-press/content/projects/android-weather-app/demo/tweet.gif",
-      "/onigiri-press/content/projects/android-weather-app/demo/weather_details.gif",
-      "/onigiri-press/content/projects/android-weather-app/weather.svg"
-    ]
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "baseUrl": "/onigiri-press", 
+  "baseUrl": "/", 
   "dev": {
     "port": 5173,
     "open": false

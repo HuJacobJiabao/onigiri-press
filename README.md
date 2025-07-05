@@ -114,9 +114,16 @@ ongr l                # Short form
 # Daily Logging
 ongr log              # Create a new daily log entry
 
+# Framework Management
+ongr update           # Update OnigiriPress to latest version
+ongr u --check        # Check for updates without installing
+ongr u --beta         # Include beta versions
+
 # Deployment
 ongr deploy           # Deploy to GitHub Pages
 ongr d                # Short form
+ongr deploy-vercel    # Deploy to Vercel
+ongr dv --prod        # Deploy to Vercel production
 ```
 
 ### Content Structure
@@ -261,27 +268,83 @@ Project description and documentation...
 
 ### GitHub Pages (Recommended)
 
+**Free static hosting for open source projects:**
+
 1. **Configure your repository**:
-  onigiri.config.json
    ```json
+   // onigiri.config.json
    {
      "baseUrl": "/your-repo-name/"
    }
    ```
 
-1. **Build and deploy**:
+2. **Build and deploy**:
    ```bash
    ongr build
    ongr deploy
    ```
 
-2. **Enable GitHub Pages**:
+3. **Enable GitHub Pages**:
    - Go to your repository settings
    - Enable GitHub Pages from the `gh-pages` branch
 
+**Benefits of GitHub Pages:**
+- ✅ Completely free for public repositories
+- ✅ Integrated with GitHub workflow
+- ✅ Custom domains support
+- ✅ Automatic SSL certificates
+- ✅ Perfect for open source portfolios
+
+### Vercel
+
+**Modern deployment platform with advanced features:**
+
+1. **Configure for Vercel**:
+   ```json
+   // onigiri.config.json
+   {
+     "baseUrl": "/"
+   }
+   ```
+
+2. **Deploy with CLI**:
+   ```bash
+   # Install Vercel CLI if not already installed
+   npm install -g vercel
+   
+   # Login to Vercel
+   vercel login
+   
+   # Deploy (preview)
+   ongr deploy-vercel
+   
+   # Deploy to production
+   ongr dv --prod
+   ```
+
+3. **Or deploy via Vercel Dashboard**:
+   - Connect your GitHub repository at [vercel.com](https://vercel.com)
+   - Vercel will automatically detect and deploy your project
+   - Set `baseUrl: "/"` in your `onigiri.config.json`
+
+**Benefits of Vercel:**
+- ✅ Automatic builds and deployments
+- ✅ Global CDN for fast loading
+- ✅ Zero configuration required
+- ✅ Preview deployments for every commit
+- ✅ Advanced analytics and monitoring
+
 ### Other Platforms
 
-Not available yet, but you can deploy to any static hosting service like Netlify or Vercel by following their documentation.
+You can deploy to any static hosting service like **Netlify**, **Surge**, or **Firebase Hosting**:
+
+1. **Build your project**:
+   ```bash
+   # Set baseUrl to "/" for most platforms
+   ongr build
+   ```
+
+2. **Deploy the `dist/` folder** to your chosen platform following their documentation.
 
 ---
 
