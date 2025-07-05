@@ -11,9 +11,9 @@
       "TypeScript",
       "Vite"
     ],
-    "link": "/onigiri-press/blogs/read-me",
-    "contentPath": "/onigiri-press/content/blogs/read-me/index.md",
-    "image": "/onigiri-press/favicon.png"
+    "link": "/blogs/read-me",
+    "contentPath": "/content/blogs/read-me/index.md",
+    "image": "/favicon.png"
   },
   {
     "id": "complete-markdown-features-demo",
@@ -28,8 +28,8 @@
       "Tutorial",
       "Features"
     ],
-    "link": "/onigiri-press/blogs/complete-markdown-features-demo",
-    "contentPath": "/onigiri-press/content/blogs/markdown-demo/index.md",
-    "image": "/onigiri-press/content/assets/markdown.png"
+    "link": "/blogs/complete-markdown-features-demo",
+    "contentPath": "/content/blogs/markdown-demo/index.md",
+    "image": "/content/assets/markdown.png"
   }
 ]
