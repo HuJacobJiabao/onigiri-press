@@ -10,9 +10,9 @@
       "file-paths",
       "markdown"
     ],
-    "link": "/projects/file-path-test-project",
-    "contentPath": "/content/projects/file-path-test/index.md",
-    "image": "/background/default_proj.jpg",
+    "link": "/onigiri-press/projects/file-path-test-project",
+    "contentPath": "/onigiri-press/content/projects/file-path-test/index.md",
+    "image": "/onigiri-press/background/default_proj.jpg",
     "assetPaths": []
   },
   {
@@ -25,9 +25,9 @@
       "Hello",
       "World"
     ],
-    "link": "/projects/sample-project",
-    "contentPath": "/content/projects/sample-project/index.md",
-    "image": "/favicon.png",
+    "link": "/onigiri-press/projects/sample-project",
+    "contentPath": "/onigiri-press/content/projects/sample-project/index.md",
+    "image": "/onigiri-press/favicon.png",
     "assetPaths": []
   }
 ]
