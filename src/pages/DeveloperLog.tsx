@@ -93,7 +93,10 @@ export default function DeveloperLog() {
         setError(null);
         
         // Load the markdown content from the file
-        const markdownPath = `${import.meta.env.BASE_URL}/DEVELOPER_LOG.md`;
+        const baseUrl = import.meta.env.BASE_URL;
+        const markdownPath = baseUrl.endsWith('/') 
+          ? `${baseUrl}DEVELOPER_LOG.md`
+          : `${baseUrl}/DEVELOPER_LOG.md`;
         const markdownContent = await fetchMarkdownContent(markdownPath);
         
         if (!markdownContent) {

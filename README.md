@@ -288,13 +288,6 @@ Project description and documentation...
    - Go to your repository settings
    - Enable GitHub Pages from the `gh-pages` branch
 
-**Benefits of GitHub Pages:**
-- ✅ Completely free for public repositories
-- ✅ Integrated with GitHub workflow
-- ✅ Custom domains support
-- ✅ Automatic SSL certificates
-- ✅ Perfect for open source portfolios
-
 ### Vercel
 
 **Modern deployment platform with advanced features:**
@@ -326,13 +319,6 @@ Project description and documentation...
    - Connect your GitHub repository at [vercel.com](https://vercel.com)
    - Vercel will automatically detect and deploy your project
    - Set `baseUrl: "/"` in your `onigiri.config.json`
-
-**Benefits of Vercel:**
-- ✅ Automatic builds and deployments
-- ✅ Global CDN for fast loading
-- ✅ Zero configuration required
-- ✅ Preview deployments for every commit
-- ✅ Advanced analytics and monitoring
 
 ### Other Platforms
 
