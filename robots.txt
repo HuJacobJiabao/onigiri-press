@@ -1,16 +1,27 @@
 User-agent: *
 Allow: /
 
-# Sitemap location (update this to your actual domain)
-# Sitemap: https://your-domain.vercel.app/sitemap.xml
+# Sitemap location
+Sitemap: https://HuJacobJiabao.github.io/onigiri-press/sitemap.xml
+
+# Allow crawling of important content
+Allow: /blogs/
+Allow: /projects/
+Allow: /archive/
 
 # Disallow crawling of assets that don't need indexing
 Disallow: /assets/
 Disallow: /*.js$
 Disallow: /*.css$
 Disallow: /*.json$
+Disallow: /node_modules/
 
-# Allow crawling of important content
-Allow: /blogs/
-Allow: /projects/
-Allow: /archive/
+# Allow Google and Bing to crawl everything
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay to be respectful
+Crawl-delay: 1
