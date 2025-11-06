@@ -290,21 +290,21 @@ Project description and documentation...
 
 **Troubleshooting**
 1. After `ongr deploy`, if you get the error `ProcessError: fatal: a branch named 'gh-pages' already exists`, you may try the following commands:
-  ```
-  cd node_modules/.cache
-  sudo rm -rf gh-pages
-  cd ../..
-  ```
-  Then run `ongr deploy` again. 
+    ```
+    cd node_modules/.cache
+    sudo rm -rf gh-pages
+    cd ../..
+    ```
+    Then run `ongr deploy` again. 
 
 2. If you get the error:
-  ```
-  ProcessError: error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400
-  fatal: the remote end hung up unexpectedly
-  Everything up-to-date
-  ```
-  you probably need to enlarge the buffer size with the command `git config --global http.postBuffer 157286400`, then rerun `ongr deploy`.  
-  If it the command above does not work, you have to check your authentication information to see if your personal access token is still valid. 
+    ```
+    ProcessError: error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400
+    fatal: the remote end hung up unexpectedly
+    Everything up-to-date
+    ```
+    you probably need to enlarge the buffer size with the command `git config --global http.postBuffer 157286400`, then rerun `ongr deploy`.  
+    If it the command above does not work, you have to check your authentication information to see if your personal access token is still valid. 
 
 ### Vercel
 
