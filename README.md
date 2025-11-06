@@ -303,7 +303,7 @@ Project description and documentation...
     fatal: the remote end hung up unexpectedly
     Everything up-to-date
     ```
-    ，you probably need to enlarge the buffer size with the command 
+    ，you probably need to enlarge the buffer size with the command  
     `git config --global http.postBuffer 157286400`, then rerun `ongr deploy`.  
     If it the command above does not work, you have to check your authentication information to see if your personal access token is still valid. 
 
