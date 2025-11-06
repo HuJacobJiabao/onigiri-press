@@ -289,7 +289,7 @@ Project description and documentation...
    - Enable GitHub Pages from the `gh-pages` branch
 
 **Troubleshooting**
-
+  
 1. After `ongr deploy`, if you get the error `ProcessError: fatal: a branch named 'gh-pages' already exists`, you may try the following commands:
 ```
 cd node_modules/.cache
